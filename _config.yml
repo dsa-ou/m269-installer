@@ -1,0 +1,7 @@
+title: M269 Software
+description: How to install and use the software for M269
+show_downloads: true
+theme: jekyll-theme-cayman
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme

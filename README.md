@@ -50,19 +50,20 @@ file and folder paths use slashes instead of backslashes.
 2. Click on the 'Download .zip' button above.
    Unzip the downloaded archive, typically by double-clicking on it.
    (Your web browser may have unzipped it automatically.)
+   You will have a folder named `dsa-ou-m269-installer-fe96298` or similar.
 3. Open a terminal.
    (On Windows: Enter `wsl` in the command prompt you kept open. You're now in WSL.)
-4. Enter `cd ~/Downloads/m269-installer-main` or similar,
-   depending on where your downloads folder is. In WSL, it will be something like
-   `cd /mnt/c/Users/yourname/Downloads/m269-installer-main`.
+4. Go to the extracted folder. Depending on where your downloads folder is,
+   and what the name of the extracted folder is, you need to enter something like
+   `cd ~/Downloads/dsa-ou-m269-installer-fe96298` or on WSL
+   `cd /mnt/c/Users/yourname/Downloads/dsa-ou-m269-installer-fe96298`.
 5. Enter `./install-m269.sh <M269 folder>`, e.g. `./install-m269.sh ~/OU/M269-23J`.
 
 If the script stops with a message asking you to install Python 3.10:
 
-- On macOS: open the
-  [Python 3.10.11](https://www.python.org/downloads/release/python-31011/) page,
-  scroll down, download and run the macOS installer.
 - On most Linux systems, including WSL: enter `sudo apt install python3.10`.
+- On macOS: [download the installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-macos11.pkg)
+  and run it.
 
 You don't need to uninstall your current Python version before installing 3.10.
 
@@ -72,8 +73,8 @@ and restart from step 3.
 Restarting with a new terminal or WSL login will ensure your system
 knows where Python 3.10 is installed.
 
-6. Once the installation script finishes successfully,
-   delete the `m269-installer-main` folder.
+6. After the installation script finishes successfully,
+   delete the `dsa-ou-m269-installer-...` folder.
 
 ## 3 Using the M269 software
 

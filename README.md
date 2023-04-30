@@ -5,13 +5,8 @@ If you use Windows, you must install Linux first. The next section explains how.
 At the moment, these instructions have only been tested on macOS.
 If you use Linux or Windows, please report any problems on the M269 Technical Forum.
 
-The code and text in this repository are
-Copyright © 2023 by The Open University, UK.
-The code is licensed under a [BSD-3-clause licence](LICENCE.MD).
-The text is licensed under a
-[Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0).
-
 ## 1 Linux for Windows users
+
 The Windows Subsystem for Linux (WSL) allows you to
 use Windows and Linux (a flavour of Unix for personal computers)
 at the same time, without complicated setups.
@@ -62,15 +57,14 @@ file and folder paths use slashes instead of backslashes.
    `cd /mnt/c/Users/yourname/Downloads/m269-installer-main`.
 5. Enter `./install-m269.sh <M269 folder>`, e.g. `./install-m269.sh ~/OU/M269-23J`.
 
-If the script stops with a message asking you to install Python 3.10, then:
+If the script stops with a message asking you to install Python 3.10:
 
-- On macOS, open the
+- On macOS: open the
   [Python 3.10.11](https://www.python.org/downloads/release/python-31011/) page,
-  scroll down, download the macOS installer and run it.
-- On most Linux systems, including WSL, you can install Python by entering
-  `sudo apt install python3.10`.
+  scroll down, download and run the macOS installer.
+- On most Linux systems, including WSL: enter `sudo apt install python3.10`.
 
-You don't need to uninstall your current version before installing 3.10.
+You don't need to uninstall your current Python version before installing 3.10.
 
 After installing Python 3.10, close your terminal
 (on WSL: enter `logout` but don't close the command prompt),
@@ -78,12 +72,12 @@ and restart from step 3.
 Restarting with a new terminal or WSL login will ensure your system
 knows where Python 3.10 is installed.
 
-Once the installation script finishes running successfully,
-you can delete the `m269-installer-main` folder.
+6. Once the installation script finishes successfully,
+   delete the `m269-installer-main` folder.
 
 ## 3 Using the M269 software
 
-Whenever you want to start working on M269:
+When you want to start working on M269:
 
 1. Open a terminal or command prompt, or use an already opened one.
 2. On Windows only: enter `wsl` to start WSL.
@@ -101,12 +95,20 @@ and press Ctrl-c twice in the terminal to stop executing the `nb` command.
 Obviously, the `nb` command only works after you install the M269 book
 (available in the Resources tab of the M269 site) in your M269 folder.
 
-Whenever you are done working on M269:
+When you are done working on M269:
 
-1. Enter `deactivate` to deactivate the M269 software.
+1. Enter `deactivate`. This stops using the M269 software.
    The command line prompt no longer starts with `(m269-23j)`.
 2. If you're using WSL, enter `logout`.
 3. You may close the terminal or command prompt, if you wish.
 
-Instead of doing steps 1–6 per study session, you may wish to do steps 1–3 once
-and then keep the terminal or command prompt indefinitely open.
+**Important:** Never install software while the M269 software is active,
+as that may change the M269 software installation and break it.
+
+## Licence
+
+The code and text in this repository are
+Copyright © 2023 by The Open University, UK.
+The code is licensed under a [BSD-3-clause licence](LICENCE).
+The text is licensed under a
+[Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0).

@@ -2,8 +2,8 @@ The M269 software requires a Unix-based environment.
 If you use Linux or macOS, go directly to Section 2 below.
 If you use Windows, you must install Linux first. The next section explains how.
 
-At the moment, these instructions have only been tested on macOS.
-If you use Linux or Windows, please report any problems on the M269 Technical Forum.
+At the moment, these instructions haven't been tested on Windows.
+Please report any problems in the M269 Technical Forum.
 
 ## 1 Linux for Windows users
 

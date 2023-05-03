@@ -79,7 +79,8 @@ fi
 # change to the M269 folder and activate the environment
 M269="cd $FOLDER;source $VENV_NAME/bin/activate"
 # open the notebooks of the latest book release
-NB="jupyter notebook \$(ls -d $FOLDER/book-r*|tail -1)/notebooks/M269.ipynb"
+# 'command ls' avoids an alias ls=... being used
+NB="jupyter notebook \$(command ls -d $FOLDER/book-r*|tail -1)/notebooks/M269.ipynb"
 # run the 'allowed' tool
 ALLOWED="python3.10 $FOLDER/allowed.py -c $FOLDER/m269.json"
 
@@ -100,4 +101,4 @@ else
 fi
 
 echo "Software installed."
-echo "Go to https://dsa-ou.github.io/virtual-env for further instructions."
+echo "Go back to https://dsa-ou.github.io/m269-installer for further instructions."

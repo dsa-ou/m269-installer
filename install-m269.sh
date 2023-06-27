@@ -1,22 +1,26 @@
 #!/bin/bash
 
-# This script installs the M269 software.
-
-COURSE=m269-23j
-echo "Installing software for $COURSE..."
+echo "Installing software for M269 23J..."
 
 if [ $# -ne 1 ]
 then
     echo "Usage: ./install-m269.sh <path to M269 folder>"
-    echo "You must provide the path to the folder where your M269 materials will be."
-    echo "For examples and details, see https://dsa-ou.github.io/virtual-env."
+    echo "You must provide the path to the folder where your M269 materials are."
+    echo "For examples and details, see https://dsa-ou.github.io/m269-installer."
     exit 1
 fi
-
-FOLDER=$1
-VENV_NAME=venv
-VENV=$FOLDER/$VENV_NAME
-REQS=requirements.txt
+if [ ! -d $1 ]
+then
+    echo "$1 doesn't exist or isn't a folder."
+    echo "Please create your M269 folder and put the book's files there."
+    exit 1
+fi
+if [ ! -d $1/book-r1 ]
+then
+    echo "Folder $1 doesn't have subfolder book-r1."
+    echo "Please download and expand the book's zip archive into your M269 folder."
+    exit 1
+fi
 
 # find out under which shell this script is running
 parent_shell=$(ps -o command $PPID)
@@ -48,10 +52,16 @@ then
     exit 1
 fi
 
+FOLDER=$1
+VENV_NAME=venv
+VENV=$FOLDER/$VENV_NAME
+REQS=requirements.txt
+COURSE=m269-23j
+
 # check that the software package list exists
 if [ ! -f $REQS ]
 then
-    echo "File $REQS not found: please check this is the right folder."
+    echo "File $REQS not found: please check that you're in the right folder."
     exit 1
 fi
 
@@ -70,19 +80,17 @@ cp -a custom.css ~/.jupyter/custom
 cp -a allowed.py m269.json $FOLDER
 
 echo "Adding shortcut commands to the shell's startup file..."
+
+M269="cd $FOLDER;source $VENV_NAME/bin/activate"
+NB="jupyter notebook $FOLDER&"
+ALLOWED="python3.10 $FOLDER/allowed.py -c $FOLDER/m269.json"
+
 if [ $shell = "fish" ]
 then
     FILE=~/.config/fish/config.fish
 else
     FILE=~/.${shell}rc
 fi
-# change to the M269 folder and activate the environment
-M269="cd $FOLDER;source $VENV_NAME/bin/activate"
-# open the notebooks of the latest book release
-# 'command ls' avoids an alias ls=... being used
-NB="jupyter notebook \$(command ls -d $FOLDER/book-r*|tail -1)/notebooks/M269.ipynb"
-# run the 'allowed' tool
-ALLOWED="python3.10 $FOLDER/allowed.py -c $FOLDER/m269.json"
 
 if [ $shell = "csh" ] || [ $shell = "tcsh" ]
 then

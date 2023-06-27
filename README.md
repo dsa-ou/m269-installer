@@ -1,3 +1,7 @@
+The M269 software installation assumes that you already created a folder for
+your M269 materials and that you have put there the book's files.
+Your folder will be referred to as the M269 folder.
+
 The M269 software requires a Unix-based environment.
 If you use Linux or macOS, go directly to Section 2 below.
 If you use Windows, you must install Linux first. The next section explains how.
@@ -88,17 +92,16 @@ The last command puts you in the M269 folder and activates the M269 software.
 The command line prompt becomes `(m269-23j) ...` to remind you that
 you're using the M269 software and not your default Python installation.
 
-Once the M269 software is active, you can enter `nb` to open
-the M269 cover notebook, from which you can access all other notebooks.
-After finishing working on the notebooks, close them in the browser,
-and press Ctrl-c twice in the terminal to stop executing the `nb` command.
+Once the M269 software is active, enter `nb` to open the Jupyter dashboard
+in your M269 folder. In the dashboard you can navigate to any subfolder and
+open any notebook.
 
-Obviously, the `nb` command only works after you install the M269 book
-(available in the Resources tab of the M269 site) in your M269 folder.
+After finishing working on the notebooks, go back to the web browser tab with
+the Jupyter dashboard and click on the 'Quit' button, then close the tab.
 
 When you are done working on M269:
 
-1. Enter `deactivate`. This stops using the M269 software.
+1. Enter `deactivate` in the terminal. This stops using the M269 software.
    The command line prompt no longer starts with `(m269-23j)`.
 2. If you're using WSL, enter `logout`.
 3. You may close the terminal or command prompt, if you wish.

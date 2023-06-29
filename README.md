@@ -1,113 +1,74 @@
-The M269 software installation assumes that you already created a folder for
-your M269 materials and that you have put there the book's files.
-Your folder will be referred to as the M269 folder.
+Before you install the M269 software you must:
 
-The M269 software requires a Unix-based environment.
-If you use Linux or macOS, go directly to Section 2 below.
-If you use Windows, you must install Linux first. The next section explains how.
+1. **Create your M269 folder**, which is where you put the M269 book and TMAs.
+   The folder must be named `m269-23j` or `M269-23J` and
+   can be anywhere on your disk, including a cloud drive.
+2. **Install Python 3.10**. For macOS and Windows, download and run the corresponding
+   [installer](https://www.python.org/downloads/release/python-31011/).
+   For Linux, search online for instructions for your specific distribution.
+   Typically, you will enter `sudo apt install python3.10` or similar in a terminal.
 
-At the moment, these instructions haven't been tested on Windows.
-Please report any problems in the M269 Technical Forum.
-
-## 1 Linux for Windows users
-
-The Windows Subsystem for Linux (WSL) allows you to
-use Windows and Linux (a flavour of Unix for personal computers)
-at the same time, without complicated setups.
-Full instructions are on Microsoft's
-[WSL site](https://learn.microsoft.com/en-us/windows/wsl/install).
-The following simplified instructions are based on a session report
-kindly provided by our tutor Andy Connolly.
-
-1. Make sure that
-   - you have at least 3Gb free on your disk
-   - you are running Windows 10 (version 2004 or higher) or Windows 11.
-2. Open a command prompt in administrator mode and enter `wsl --install`.
-   This installs Ubuntu (a particular Linux distribution) and
-   restarts your computer at the end.
-3. Open a command prompt and enter `wsl`.
-   This asks you to create a user name and password.
-   The password must be typed twice and doesn't appear on the screen.
-4. Once logged in, enter `sudo apt update && sudo apt upgrade`. This asks you
-   for your password and then updates your Ubuntu system to the latest version.
-5. Enter `logout`. Keep the command prompt open.
-
-You have now installed WSL. In future, every time you want to use WSL,
-open a command prompt (or use an existing one), and enter `wsl` to login.
-Once you want to stop using WSL, enter `logout`.
-
-WSL and Windows use separate file systems, so you will have two home folders,
-one on WSL and one of Windows. The file systems are mutually accessible:
-Windows file or folder `C:\Users\me\...` can be accessed as
-`/mnt/c/Users/me/...` from WSL, and
-WSL file or folder `~/...` can be accessed as `\\wsl$\Ubuntu\home\...` from Windows.
-
-Since WSL is a particular variant of Unix (namely Ubuntu Linux),
-it follows the Unix conventions: `~` is the abbreviation for your home folder;
-file and folder paths use slashes instead of backslashes.
-
-## 2 Installing the M269 software
-
-1. Decide where you want to have your M269 materials, e.g. `~/OU/M269-23J`.
-   This will be your M269 folder. (Step 5 below will create it for you.)
-   We recommend the folder name includes `23J`.
-2. Click on the 'Download .zip' button above.
-   Unzip the downloaded archive, typically by double-clicking on it.
-   (Your web browser may have unzipped it automatically.)
-   You will have a folder named `dsa-ou-m269-installer-fe96298` or similar.
-3. Open a terminal.
-   (On Windows: Enter `wsl` in the command prompt you kept open. You're now in WSL.)
-4. Go to the extracted folder. Depending on where your downloads folder is,
-   and what the name of the extracted folder is, you need to enter something like
-   `cd ~/Downloads/dsa-ou-m269-installer-fe96298` or on WSL
-   `cd /mnt/c/Users/yourname/Downloads/dsa-ou-m269-installer-fe96298`.
-5. Enter `./install-m269.sh <M269 folder>`, e.g. `./install-m269.sh ~/OU/M269-23J`.
-
-If the script stops with a message asking you to install Python 3.10:
-
-- On most Linux systems, including WSL: enter `sudo apt install python3.10`.
-- On macOS: [download the installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-macos11.pkg)
-  and run it.
+If you're unsure whether you already have Python 3.10, open a command prompt or
+terminal and enter `python3.10 -V`. If you get an error message, you don't have it.
 
 You don't need to uninstall your current Python version before installing 3.10.
 
-After installing Python 3.10, close your terminal
-(on WSL: enter `logout` but don't close the command prompt),
-and restart from step 3.
-Restarting with a new terminal or WSL login will ensure your system
-knows where Python 3.10 is installed.
+If you're using multiple computers, you can keep your M269 folder in the cloud,
+but you must repeat the installation in each computer.
 
-6. After the installation script finishes successfully,
-   delete the `dsa-ou-m269-installer-...` folder.
+## 1 Windows
 
-## 3 Using the M269 software
+_Instructions forthcoming..._
 
-When you want to start working on M269:
+## 2 macOS and Linux
 
-1. Open a terminal or command prompt, or use an already opened one.
-2. On Windows only: enter `wsl` to start WSL.
-3. Enter `m269-23j`.
+### 2.1 Installation
 
-The last command puts you in the M269 folder and activates the M269 software.
-The command line prompt becomes `(m269-23j) ...` to remind you that
-you're using the M269 software and not your default Python installation.
+1. Open a terminal.
+2. Go to your M269 folder by entering `cd path/to/your/folder`, e.g.
+   ```bash
+   cd ~/OU/m269-23j
+   ```
+3. Download the installation script by entering
+   ```bash
+   curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install-m269.sh
+   ```
+   (You can copy and paste the command into the terminal instead of typing it.)
+4. Run the installation script by entering
+   ```bash
+   ./install-m269.sh
+   ```
+5. Once the script has finished, remove it:
+   ```bash
+   rm install-m269.sh
+   ```
+6. Close the terminal.
 
-Once the M269 software is active, enter `nb` to open the Jupyter dashboard
-in your M269 folder. In the dashboard you can navigate to any subfolder and
-open any notebook.
+### 2.2 Usage
 
-After finishing working on the notebooks, go back to the web browser tab with
-the Jupyter dashboard and click on the 'Quit' button, then close the tab.
+1. Open a new terminal and enter
+   ```bash
+   m269-23j
+   ```
+   (It may be enough to type `m2`, TAB, ENTER.)
+   This puts you in your M269 folder and activates the M269 software.
+   The command line prompt becomes `(m269-23j) ...` to remind you that
+   you're using the M269 software and not your default Python installation.
 
-When you are done working on M269:
+   **Important:** Never install software while the M269 software is active,
+   as that may change the M269 software installation and break it.
 
-1. Enter `deactivate` in the terminal. This stops using the M269 software.
-   The command line prompt no longer starts with `(m269-23j)`.
-2. If you're using WSL, enter `logout`.
-3. You may close the terminal or command prompt, if you wish.
+2. Start working with notebooks by entering
+   ```bash
+   nb
+   ```
+   After a little while, a web browser opens, with the Jupyter dashboard,
+   listing the contents of your M269 folder.
+   (You can now continue reading Section 1.3 of the book.)
 
-**Important:** Never install software while the M269 software is active,
-as that may change the M269 software installation and break it.
+3. After finishing working on the notebooks, go back to the web browser tab with
+   the Jupyter dashboard and click on the 'Quit' button, then close the browser tab.
+4. Close the terminal.
 
 ## Licence
 

@@ -2,25 +2,20 @@
 
 echo "Installing software for M269 23J..."
 
-if [ $# -ne 1 ]
-then
-    echo "Usage: ./install-m269.sh <path to M269 folder>"
-    echo "You must provide the path to the folder where your M269 materials are."
-    echo "For examples and details, see https://dsa-ou.github.io/m269-installer."
-    exit 1
-fi
-if [ ! -d $1 ]
-then
-    echo "$1 doesn't exist or isn't a folder."
-    echo "Please create your M269 folder and put the book's files there."
-    exit 1
-fi
-if [ ! -d $1/book-r1 ]
-then
-    echo "Folder $1 doesn't have subfolder book-r1."
-    echo "Please download and expand the book's zip archive into your M269 folder."
-    exit 1
-fi
+# This script works in one of two modes:
+# - If no argument is given, the script must be in the M269 folder and
+#   the other installation files are downloaded from GitHub.
+# - If an argument is given, it's the M269 folder, and the script and the other
+#   installation files are in a separate folder.
+
+SITE=https://dsa-ou.github.io/m269-installer
+DOC="See $SITE for details."
+CSS=custom.css
+REQS=requirements.txt
+CHECK="allowed.py m269.json"
+FILES="$CSS $REQS $CHECK"
+COURSE=m269-23j
+VENV=~/venvs/$COURSE
 
 # find out under which shell this script is running
 parent_shell=$(ps -o command $PPID)
@@ -41,47 +36,88 @@ elif [[ $parent_shell == *fish* ]]
 then
     shell=fish
 else
-    echo "Unknown shell: $parent_shell"
+    echo "Unable to add shortcut commands for shell $parent_shell."
+    echo "Please make bash, zsh, csh, tcsh or fish your default shell."
+    echo "Then open a new terminal and run this script again."
     exit 1
 fi
 
 # check Python 3.10 is installed
 if ! command -v python3.10 &> /dev/null
 then
-    echo "Python 3.10 not found: please install it."
+    echo "Python 3.10 not found: please install it." ; echo $DOC
     exit 1
 fi
 
-FOLDER=$1
-VENV_NAME=venv
-VENV=$FOLDER/$VENV_NAME
-REQS=requirements.txt
-COURSE=m269-23j
+# check that the given path is the M269 folder
+is_m269_folder () {
+    if [ ! -d $1 ]
+    then
+        msg="doesn't exist or isn't a folder"
+    elif [[ $(basename $1) != [Mm]269-23[Jj] ]]
+    then
+        msg="must be named m269-23j or M269-23J"
+    else
+        return
+    fi
+    echo "$1 can't be your M269 folder: it $msg." ; echo $DOC
+    exit 1
+}
 
-# check that the software package list exists
-if [ ! -f $REQS ]
+if [ $# -gt 1 ]
 then
-    echo "File $REQS not found: please check that you're in the right folder."
+    echo "Usage: ./install-m269.sh [path to M269 folder]"
+    echo "If no argument is given, this script must be in your M269 folder."
+    echo "If an argument is given, it must be the path to your M269 folder."
+    echo $DOC
     exit 1
+elif [ $# -eq 0 ]
+then
+    FOLDER=$(pwd)
+    is_m269_folder $FOLDER
+    echo "Installing M269 files..."
+    for file in $FILES
+        do
+            curl -LO https://github.com/dsa-ou/m269-installer/raw/main/$file
+        done
+    mkdir -p ~/.jupyter/custom
+    mv $CSS ~/.jupyter/custom
+else
+    is_m269_folder $1
+    FOLDER=$(cd "$1"; pwd)
+    for file in $FILES
+    do
+        if [ ! -f $file ]
+        then
+            echo "File $file not found: please check that you're in the right folder."
+            echo $DOC
+            exit 1
+        fi
+    done
+    echo "Installing M269 files..."
+    mkdir -p ~/.jupyter/custom
+    cp -a $CSS ~/.jupyter/custom
+    cp -a $CHECK $FOLDER
 fi
 
-echo "Creating environment $VENV... (this will take a bit)"
+echo "Creating Python environment $VENV... (this will take a bit)"
 python3.10 -m venv --prompt $COURSE $VENV
 
-echo "Downloading and installing packages... (this will take long)"
+echo "Downloading and installing Python packages... (this will take long)"
 source $VENV/bin/activate                   # this script runs under bash
 pip install --upgrade pip
 pip install -r $REQS
 deactivate
+# if we're in the M269 folder, remove the no longer needed file
+if [ $# -eq 0 ]
+then
+    rm $REQS
+fi
+echo "Software has been installed."
 
-echo "Installing other files..."
-mkdir -p ~/.jupyter/custom
-cp -a custom.css ~/.jupyter/custom
-cp -a allowed.py m269.json $FOLDER
+echo "Adding shortcut commands to $shell's startup file..."
 
-echo "Adding shortcut commands to the shell's startup file..."
-
-M269="cd $FOLDER;source $VENV_NAME/bin/activate"
+M269="cd $FOLDER;source $VENV/bin/activate"
 NB="jupyter notebook $FOLDER&"
 ALLOWED="python3.10 $FOLDER/allowed.py -c $FOLDER/m269.json"
 
@@ -108,5 +144,4 @@ else
     echo "alias allowed='$ALLOWED'" >> $FILE
 fi
 
-echo "Software installed."
-echo "Go back to https://dsa-ou.github.io/m269-installer for further instructions."
+echo "All done. Go to $SITE for further instructions."

@@ -107,6 +107,7 @@ echo "Downloading and installing Python packages... (this will take long)"
 source $VENV/bin/activate                   # this script runs under bash
 pip install --upgrade pip
 pip install -r $REQS
+pip install pytype==2023.4.27
 deactivate
 # if we're in the M269 folder, remove the no longer needed file
 if [ $# -eq 0 ]

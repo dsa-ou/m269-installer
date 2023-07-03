@@ -73,5 +73,33 @@ deactivate
 if ($args.Length -eq 0) {
     Remove-Item requirements.txt
 }
+
+Write-Host "Adding shortcut commands to the PowerShell config file..."
+
+$CONFIG_FILE = $Profile.CurrentUserCurrentHost
+$ALIASES = @"
+function m269-23j {
+    cd $FOLDER
+    $VENV\Scripts\Activate.ps1
+}
+function nb {
+    jupyter notebook $FOLDER
+}
+function allowed {
+    param(
+        [string]`$FilePath
+    )
+
+    python $FOLDER\allowed.py -c $FOLDER\m269.json `$FilePath
+}
+"@
+
+# Create the config file if it doesn't exist and add the functions
+if (-not (Test-Path -Path $CONFIG_FILE)) {
+    # File doesn't exist, create it
+    New-Item -Path $CONFIG_FILE -ItemType File -Force
+}
+Add-Content -Path $CONFIG_FILE -Value $ALIASES -NoNewline
+
 Write-Host "Software has been installed."
 Write-Host "All done. Go to $SITE for further instructions."

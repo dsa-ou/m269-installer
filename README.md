@@ -56,22 +56,15 @@ To work on the M269 notebooks, follow these steps.
 You can press Tab to complete commands and pathnames.
 
 1. Open a new PowerShell (Windows) or a new terminal (Unix).
-2. Go to your M269 folder and activate the M269 software:
-   - Windows:
-     1. Enter `cd ~\OU\M269-23j` or similar
-     2. Enter `~\venvs\m269-23j\Scripts\Activate.ps1`
-   - Unix: enter `m269-23j`
-
+2. Enter ` m269-23j`.
+   This puts you in your M269 folder and activates the M269 software.
    The command line prompt becomes `(m269-23j) ...` to remind you that
    you're using the M269 software and not your default Python installation.
 
    **Important:** Never install software while the M269 software is active,
    as that may change the M269 software installation and break it.
 
-3. Start working with notebooks:
-   - Windows: `jupyter notebook`
-   - Unix: `nb`
-
+3. Enter `nb` to start working with notebooks.
    After a little while, a web browser opens, with the _notebook dashboard_,
    listing the contents of your M269 folder.
    If there’s a message about migrating to Notebook 7, click "don’t show anymore".
@@ -105,20 +98,23 @@ If you get a list of disallowed constructs (with the code cells they occur in):
 7. Go back to step 3 if there are still disallowed constructs in your code.
 
 ### 4.1 In Unix
-If you're using Linux or macOS:
+If you're using Linux or macOS, then the `nb` command runs Jupyter in the background,
+which means you can still use the same terminal for other commands.
 
 1. Go back to the terminal in which you entered `m269-23j` and `nb`.
 2. Proceed from step 2 of the VCE instructions.
 
 ### 4.2 In Windows
+In Windows, the PowerShell where you entered `nb` is running Jupyter, so
+you need to check the TMA in a different PowerShell.
+
 1. Open a new PowerShell.
-2. Go to your M269 folder, e.g. with `cd ~\OU\M269-23j`
-3. Activate the M269 software: `~\venvs\m269-23j\Scripts\Activate.ps1`
-4. Enter _one_ of the following, depending on which TMA you're checking:
-   - `python allowed.py -u 10 TMA01/23J_TMA01.ipynb`
-   - `python allowed.py -u 20 TMA02/23J_TMA02.ipynb`
-   - `python allowed.py TMA03/23J_TMA03.ipynb`
-5. If disallowed constructs are listed, proceed from step 3 of the VCE instructions.
+2. Enter ` m269-23j` to go to your m269 folder and activate the M269 software.
+3. Enter _one_ of the following, depending on which TMA you're checking:
+   - `allowed -u 10 TMA01/23J_TMA01.ipynb`
+   - `allowed -u 20 TMA02/23J_TMA02.ipynb`
+   - `allowed TMA03/23J_TMA03.ipynb`
+4. If disallowed constructs are listed, proceed from step 3 of the VCE instructions.
 
 In Windows, the checker won't detect if you're calling a disallowed method on a list
 or some other object. (You may have noticed that the `-m` flag isn't used in Windows.)

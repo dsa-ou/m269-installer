@@ -56,8 +56,8 @@ To work on the M269 notebooks, follow these steps.
 You can press Tab to complete commands and pathnames.
 
 1. Open a new PowerShell (Windows) or a new terminal (Unix).
-2. Enter ` m269-23j`.
-   This puts you in your M269 folder and activates the M269 software.
+
+2. Enter `m269-23j` to go to your M269 folder and activate the M269 software.
    The command line prompt becomes `(m269-23j) ...` to remind you that
    you're using the M269 software and not your default Python installation.
 
@@ -72,6 +72,7 @@ You can press Tab to complete commands and pathnames.
 
 4. After finishing working on the notebooks, go back to the web browser tab with
    the dashboard, click on the 'Quit' button, then close the browser tab.
+
 5. Close the PowerShell (Windows) or terminal (Unix).
 
 ## 4 Checking your code
@@ -89,7 +90,7 @@ If you're using the virtual computing environment (VCE) on the OU's Open Computi
    - `allowed -m -u 20 TMA02/23J_TMA02.ipynb`
    - `allowed -m TMA03/23J_TMA03.ipynb`
 
-If you get a list of disallowed constructs (with the code cells they occur in):
+   If you get a list of disallowed constructs (with the code cells they occur in):
 
 3. Click on the browser tab with your TMA notebook.
 4. Edit your code to remove the disallowed constructs and save the notebook.
@@ -109,7 +110,7 @@ In Windows, the PowerShell where you entered `nb` is running Jupyter, so
 you need to check the TMA in a different PowerShell.
 
 1. Open a new PowerShell.
-2. Enter ` m269-23j` to go to your m269 folder and activate the M269 software.
+2. Enter `m269-23j` to go to your m269 folder and activate the M269 software.
 3. Enter _one_ of the following, depending on which TMA you're checking:
    - `allowed -u 10 TMA01/23J_TMA01.ipynb`
    - `allowed -u 20 TMA02/23J_TMA02.ipynb`
@@ -118,11 +119,12 @@ you need to check the TMA in a different PowerShell.
 
 In Windows, the checker won't detect if you're calling a disallowed method on a list
 or some other object. (You may have noticed that the `-m` flag isn't used in Windows.)
-To check your code as thoroughly as Unix users,
-upload your TMA to the VCE and follow the VCE instructions above.
+To check your code as thoroughly as Unix users:
 
-To upload your TMA, create a zip archive of your TMA folder,
-upload it to the VCE and unzip it there. See Section 1.3 of the book for details.
+1. Create a zip archive of your TMA folder.
+2. Upload it to the VCE and unzip it there. See Section 1.3 of the book for details.
+3. In the VCE dashboard, navigate to your TMA notebook and open it.
+4. Continue with the VCE instructions above.
 
 ## Licence
 

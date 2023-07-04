@@ -83,7 +83,7 @@ function m269-23j {
     $VENV\Scripts\Activate.ps1
 }
 function nb {
-    jupyter notebook $FOLDER
+    Start-process -NoNewWindow jupyter -ArgumentList "notebook $FOLDER"
 }
 function allowed {
     param(

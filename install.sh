@@ -81,7 +81,13 @@ then
             curl -LO https://github.com/dsa-ou/m269-installer/raw/main/$file
         done
     mkdir -p ~/.jupyter/custom
-    mv $CSS ~/.jupyter/custom
+    if [ -f ~/.jupyter/custom/$CSS ]
+    then
+        cat $CSS >> ~/.jupyter/custom/$CSS
+        rm $CSS
+    else
+        mv $CSS ~/.jupyter/custom
+    fi
 else
     is_m269_folder $1
     FOLDER=$(cd "$1"; pwd)
@@ -96,7 +102,12 @@ else
     done
     echo "Installing M269 files..."
     mkdir -p ~/.jupyter/custom
-    cp -a $CSS ~/.jupyter/custom
+    if [ -f ~/.jupyter/custom/$CSS ]
+    then
+        cat $CSS >> ~/.jupyter/custom/$CSS
+    else
+        cp -a $CSS ~/.jupyter/custom
+    fi
     cp -a $CHECK $FOLDER
 fi
 

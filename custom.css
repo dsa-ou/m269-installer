@@ -1,7 +1,4 @@
-/* custom.css
-
-File for styling M269 Jupyter notebooks.
-*/
+/* Start of M269 notebook styling. */
 
 /*
 By default, numbered lists use letters and Roman digits in levels 2, 3 and 4.
@@ -13,3 +10,5 @@ Change to decimal digits to match numbering in PDF and HTML book versions.
 
 /* By default, horizontal lines are very light grey. Change to black. */
 .rendered_html hr {border-top: 1px solid black;}
+
+/* End of M269 notebook styling. */

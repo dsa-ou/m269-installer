@@ -44,7 +44,12 @@ if ($args.Length -gt 1) {
         Invoke-WebRequest -Uri ($GITHUB + $file) -OutFile $file
     }
     mkdir $HOME\.jupyter\custom -ErrorAction SilentlyContinue
-    Move-Item -Path custom.css -Destination $HOME\.jupyter\custom -Force
+    if (Test-Path $HOME\.jupyter\custom\custom.css) {
+        Add-Content -Path $HOME\.jupyter\custom\custom.css -Value (Get-Content custom.css)
+        Remove-Item custom.css
+    } else {
+        Move-Item -Path custom.css -Destination $HOME\.jupyter\custom
+    }
 } else {
     is-m269-folder $args[0]
     $FOLDER = Convert-Path $args[0]
@@ -57,7 +62,11 @@ if ($args.Length -gt 1) {
     }
     Write-Host "Installing M269 files..."
     mkdir $HOME\.jupyter\custom -ErrorAction SilentlyContinue
-    Copy-Item -Path custom.css -Destination $HOME\.jupyter\custom -Force
+    if (Test-Path $HOME\.jupyter\custom\custom.css) {
+        Add-Content -Path $HOME\.jupyter\custom\custom.css -Value (Get-Content custom.css)
+    } else {
+        Copy-Item -Path custom.css -Destination $HOME\.jupyter\custom
+    }
     Copy-Item -Path allowed.py -Destination $FOLDER -Force
     Copy-Item -Path m269.json -Destination $FOLDER -Force
 }

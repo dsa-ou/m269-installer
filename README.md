@@ -1,6 +1,7 @@
 ## 1 Preparation
 To install the M269 software, you need about 1 Gb of disk space and
-a modern operating system: Linux, macOS 10.9 or later, Windows 10 or 11.
+a modern operating system: Linux, macOS 11 (Big Sur) or later, Windows 10 or 11.
+**Note**: In these instructions, Unix refers to Linux or macOs.
 
 You can have your M269 book and TMAs in a cloud folder, but you must
 install Python 3.10 and the M269 software on each computer you use.
@@ -16,31 +17,37 @@ Before installing the M269 software, do the following:
 
 3. Check if you have Python 3.10:
    - Windows: open a PowerShell, enter `py -0` and see if 3.10 is listed
-   - Linux and macOS: open a terminal and enter `python3.10 -V`
+   - Unix: open a terminal and enter `python3.10 -V`
 
-   In any case, if you get an error message, you don't have it.
+   If 3.10 isn't listed or you get an error message like `command not found`,
+   then you don't have Python 3.10.
 
 4. Install Python 3.10 if necessary. Do *not* uninstall your current Python version.
-   - macOS: download and run the [installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-macos11.pkg)
    - Windows: download and run the
      [32-bit installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11.exe) or the
      [64-bit installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe).
      After installing, disable the pathname limit.
+   - macOS: download and run the [installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-macos11.pkg)
    - Linux: enter `sudo apt install python3.10` or similar (search online for instructions for your Linux distribution)
+
+5. macOS only: open a terminal, enter `xcode-select --install` and follow the instructions.
+   If you get a message that the command line tools are already installed,
+   then this step is completed.
 
 ## 2 Installation
 
-In the following, Unix refers to Linux or macOS.
 To avoid errors, we suggest that instead of typing the commands,
 you select and copy them from this page and paste them into the command line.
 
 1. Open a PowerShell (Windows) or a terminal (Unix).
-2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-23j`
+2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-23j`.
+   (In PowerShell and Unix, `~` is a shorthand for your home folder.)
 3. Download the installation script:
    - Windows: `Invoke-WebRequest -Uri https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 -OutFile install.ps1`
    - Unix: `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
 4. Allow the installation script to run:
    - Windows: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`
+              and then select the `Y` (yes) option
    - Unix: `chmod +x install.sh`
 5. Run the installation script:
    - Windows: `.\install.ps1`
@@ -76,6 +83,9 @@ You can press Tab to complete commands and pathnames.
 5. Close the PowerShell (Windows) or terminal (Unix).
 
 ## 4 Checking your code
+
+This section is for M269 students only. Instructions for tutors will be given separately.
+
 Before submitting your TMAs, you should check that your code doesn't use
 Python constructs not taught in M269.
 The following instructions assume that your M269 folder has subfolders
@@ -99,18 +109,17 @@ If you're using the virtual computing environment (VCE) on the OU's Open Computi
 7. Go back to step 3 if there are still disallowed constructs in your code.
 
 ### 4.1 In Unix
-If you're using Linux or macOS, then the `nb` command runs Jupyter in the background,
-which means you can still use the same terminal for other commands.
+The `nb` command runs Jupyter in the background,
+which means that you can still use the same terminal for other commands.
 
 1. Go back to the terminal in which you entered `m269-23j` and `nb`.
 2. Proceed from step 2 of the VCE instructions.
 
 ### 4.2 In Windows
-In Windows, the PowerShell where you entered `nb` is running Jupyter, so
-you need to check the TMA in a different PowerShell.
+The `nb` command runs Jupyter in the background,
+which means that you can still use the same PowerShell for other commands.
 
-1. Open a new PowerShell.
-2. Enter `m269-23j` to go to your m269 folder and activate the M269 software.
+1. Go back to the PowerShell in which you entered `m269-23j` and `nb`.
 3. Enter _one_ of the following, depending on which TMA you're checking:
    - `allowed -u 10 TMA01/23J_TMA01.ipynb`
    - `allowed -u 20 TMA02/23J_TMA02.ipynb`
@@ -125,6 +134,24 @@ To check your code as thoroughly as Unix users:
 2. Upload it to the VCE and unzip it there. See Section 1.3 of the book for details.
 3. In the VCE dashboard, navigate to your TMA notebook and open it.
 4. Continue with the VCE instructions above.
+
+## 5 Uninstalling
+
+At the end of the M269 23J presentation, if you wish to remove the M269 software,
+delete folder `~/venvs/m269-23j` and delete files `m269.json` and `allowed.py`
+from your M269 folder.
+If you also want to remove the `m269-23j`, `nb` and `allowed` commands:
+
+1. Find out in which file they are defined.
+   - Windows: open a PowerShell and enter `$Profile.CurrentUserCurrentHost` to obtain the file name
+   - Unix: open a terminal and enter `echo $0` to obtain the shell you're using.
+     If it's fish, then the commands are in file `~/.config/fish/config.fish`,
+     otherwise they're in file `~/.shellrc`, where `shell` is the name of your shell.
+     For example, if you're using bash, then it's file `~/.bashrc`.
+2. Open the file in a text editor.
+3. Search for the lines that define the `m269-23j`, `nb` and `allowed`
+   functions (Windows) or aliases (Unix). Delete those lines.
+4. Save the file and close the text editor.
 
 ## Licence
 

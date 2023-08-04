@@ -1,10 +1,15 @@
 Write-Host "Installing software for M269 23J..."
 
 # This script works in one of two modes:
-# - If no argument is given, the script must be in the M269 folder and
+# - If no argument is given, this script must be in the M269 folder and
 #   the other installation files are downloaded from GitHub.
-# - If an argument is given, it's the M269 folder, and the script and the other
-#   installation files are in a separate folder.
+# - If an argument is given, it's the M269 folder, and this script and the other
+#   installation files are in the current folder.
+
+# The first mode installs the latest software,
+# for the current presentation or for testing the next presentation.
+# The second mode is for installing the software for a past presentation,
+# by first downloading the past installation files from GitHub.
 
 $SITE = "https://dsa-ou.github.io/m269-installer"
 $DOC = "See $SITE for details."
@@ -30,7 +35,7 @@ function is-m269-folder {
 }
 
 if ($args.Length -gt 1) {
-    Write-Host "Usage: ./install-m269.sh [path to M269 folder]"
+    Write-Host "Usage: .\install.ps1 [path to M269 folder]"
     Write-Host "If no argument is given, this script must be in your M269 folder."
     Write-Host "If an argument is given, it must be the path to your M269 folder."
     Write-Host $DOC
@@ -38,7 +43,7 @@ if ($args.Length -gt 1) {
 } elseif ($args.Length -eq 0) {
     $FOLDER = pwd
     is-m269-folder $FOLDER
-    Write-Host "Installing M269 files..."
+    Write-Host "Downloading and installing M269 files..."
     $GITHUB = "https://raw.githubusercontent.com/dsa-ou/m269-installer/main/"
     foreach ($file in $FILES) {
         Invoke-WebRequest -Uri ($GITHUB + $file) -OutFile $file

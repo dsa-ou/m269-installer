@@ -156,7 +156,7 @@ If you also want to remove the `m269-23j`, `nb` and `allowed` commands:
 If you want to remove the M269 styling of notebooks:
 
 1. Open file `~/.jupyter/custom/custom.css` in a text editor.
-2. Delete all lines from the comment marking the start of M269 styling up to the comment ending it.
+2. Delete all lines from the comment marking the start of M269-23J styling up to the comment ending it.
 3. Save the file and close the editor.
 
 ## Licence

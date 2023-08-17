@@ -22,11 +22,12 @@ Before installing the M269 software, do the following:
    If 3.10 isn't listed or you get an error message like `command not found`,
    then you don't have Python 3.10.
 
-4. Install Python 3.10 if necessary. Do *not* uninstall your current Python version.
+4. If you don't have Python 3.10, install it, even if you have a newer version.
+   Do *not* uninstall any Python version you have.
    - Windows: download and run the
      [32-bit installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11.exe) or the
      [64-bit installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe).
-     After installing, disable the pathname limit.
+     After installing, disable the pathname limit if you're given that option.
    - macOS: download and run the [installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-macos11.pkg)
    - Linux: enter `sudo apt install python3.10` or similar (search online for instructions for your Linux distribution)
 
@@ -47,7 +48,7 @@ you select and copy them from this page and paste them into the command line.
    - Unix: `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
 4. Allow the installation script to run:
    - Windows: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`
-              and then select the `Y` (yes) option
+              and then select the `Y` (yes) option if you're given a choice
    - Unix: `chmod +x install.sh`
 5. Run the installation script:
    - Windows: `.\install.ps1`

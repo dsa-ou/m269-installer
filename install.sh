@@ -21,6 +21,7 @@ CHECK="allowed.py m269.json"
 FILES="$CSS $REQS $CHECK"
 COURSE=m269-23j
 VENV=~/venvs/$COURSE
+CONFIG_VARS=("VENV" "COURSE")
 
 # find out under which shell this script is running
 parent_shell=$(ps -o command $PPID)
@@ -117,6 +118,8 @@ else
     cp -a $CHECK "$FOLDER"
 fi
 
+CONFIG_VARS+=("FOLDER")
+
 echo "Creating Python environment $VENV... (this will take a bit)"
 python3.10 -m venv --prompt $COURSE $VENV
 
@@ -141,25 +144,37 @@ ALLOWED="python3.10 \"$FOLDER/allowed.py\" -c \"$FOLDER/m269.json\""
 
 if [ $shell = "fish" ]
 then
-    FILE=~/.config/fish/config.fish
+    SHELL_CONFIG_FILE=~/.config/fish/config.fish
 else
-    FILE=~/.${shell}rc
+    SHELL_CONFIG_FILE=~/.${shell}rc
 fi
+
+CONFIG_VARS+=("SHELL_CONFIG_FILE")
 
 if [ $shell = "csh" ] || [ $shell = "tcsh" ]
 then
-    echo "alias $COURSE '$M269.csh'" >> $FILE
-    echo "alias nb '$NB'" >> $FILE
-    echo "alias allowed '$ALLOWED'" >> $FILE
+    # tee writes to the file *and* std out
+    echo "alias $COURSE '$M269.csh'" >> $SHELL_CONFIG_FILE
+    echo "alias nb '$NB'" >> $SHELL_CONFIG_FILE
+    echo "alias allowed '$ALLOWED'" >> $SHELL_CONFIG_FILE
 else
     if [ $shell = "fish" ]
     then
-        echo "alias $COURSE='$M269.fish'" >> $FILE
+        echo "alias $COURSE='$M269.fish'" >> $SHELL_CONFIG_FILE
     else
-        echo "alias $COURSE='$M269'" >> $FILE
+        echo "alias $COURSE='$M269'" >> $SHELL_CONFIG_FILE
     fi
-    echo "alias nb='$NB'" >> $FILE
-    echo "alias allowed='$ALLOWED'" >> $FILE
+    echo "alias nb='$NB'" >> $SHELL_CONFIG_FILE
+    echo "alias allowed='$ALLOWED'" >> $SHELL_CONFIG_FILE
 fi
+
+M269_CONFIG_FILE=$FOLDER/.m269rc
+CONFIG_VARS+=("M269_CONFIG_FILE")
+
+# Write the name=value pairs to m269 config file
+for var_name in "${CONFIG_VARS[@]}"; do
+    var_value="${!var_name}"
+    echo "$var_name=$var_value" >> "$M269_CONFIG_FILE"
+done
 
 echo "All done. Go to $SITE for further instructions."

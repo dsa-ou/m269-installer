@@ -91,20 +91,21 @@ if ($args.Length -eq 0) {
 Write-Host "Adding shortcut commands to the PowerShell config file..."
 
 $CONFIG_FILE = $Profile.CurrentUserCurrentHost
+$ESC = "```""
 $ALIASES = @"
 function m269-23j {
-    cd $FOLDER
+    cd '$FOLDER'
     $VENV\Scripts\Activate.ps1
 }
 function nb {
-    Start-process -NoNewWindow jupyter -ArgumentList "notebook $FOLDER"
+    Start-process -NoNewWindow jupyter -ArgumentList "notebook $ESC$FOLDER$ESC"
 }
 function allowed {
     param(
         [string]`$FilePath
     )
 
-    python $FOLDER\allowed.py -c $FOLDER\m269.json `$FilePath
+    python $ESC$FOLDER\allowed.py$ESC -c $ESC$FOLDER\m269.json$ESC `$FilePath
 }
 "@
 

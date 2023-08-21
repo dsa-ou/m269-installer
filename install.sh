@@ -94,9 +94,8 @@ then
     if [ -f ~/.jupyter/custom/$CSS ]
     then
         cat $CSS >> ~/.jupyter/custom/$CSS
-        rm $CSS
     else
-        mv $CSS ~/.jupyter/custom
+        cp -a $CSS ~/.jupyter/custom
     fi
 else
     is_m269_folder "$1"
@@ -130,11 +129,6 @@ pip install --upgrade pip
 pip install -r $REQS
 pip install pytype==2023.4.27               # install pytype only for Unix
 deactivate
-# if we're in the M269 folder, remove the no longer needed file
-if [ $# -eq 0 ]
-then
-    rm $REQS
-fi
 echo "Software has been installed."
 
 echo "Adding shortcut commands to $shell's startup file..."

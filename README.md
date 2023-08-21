@@ -53,10 +53,16 @@ you select and copy them from this page and paste them into the command line.
 5. Run the installation script:
    - Windows: `.\install.ps1`
    - Unix: `./install.sh`
-6. Once the script has finished, remove it:
-   - Windows: `rm install.ps1`
-   - Unix: `rm install.sh`
-7. Close the terminal.
+6. Close the terminal.
+
+You will have the following files in your M269 folder:
+- the installation script in `install.ps1` or `install.sh`
+- the list of M269 software in `requirements.txt`
+- the style changes to Jupyter notebooks in `custom.css`
+- the code checker (see Section 4 below) in `allowed.py` and `m269.json`
+
+We recommend you do _not_ remove these files, so that you can re-install
+the software, if needed.
 
 ## 3 Usage
 
@@ -159,6 +165,19 @@ If you want to remove the M269 styling of notebooks:
 1. Open file `~/.jupyter/custom/custom.css` in a text editor.
 2. Delete all lines from the comment marking the start of M269-23J styling up to the comment ending it.
 3. Save the file and close the editor.
+
+## 6 Re-installing
+
+If you haven't removed the installation files from your M269 folder,
+you can re-install the software after uninstalling it,
+e.g. to work again on your M269 notebooks. Do as follows:
+
+1. Open a PowerShell (Windows) or a terminal (Unix).
+2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-23j`.
+3. Run the installation script with `.\install.ps1 .` (Windows) or `./install.sh .` (Unix).
+   Note the extra space and period after the command, compared to step 5 in Section 2.
+   (During re-installation, ignore messages saying that a file can't be copied onto itself.)
+4. Close the terminal.
 
 ## Licence
 

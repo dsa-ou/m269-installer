@@ -55,9 +55,8 @@ if ($args.Length -gt 1) {
     mkdir $HOME\.jupyter\custom -ErrorAction SilentlyContinue
     if (Test-Path $HOME\.jupyter\custom\custom.css) {
         Add-Content -Path $HOME\.jupyter\custom\custom.css -Value (Get-Content custom.css)
-        Remove-Item custom.css
     } else {
-        Move-Item -Path custom.css -Destination $HOME\.jupyter\custom
+        Copy-Item -Path custom.css -Destination $HOME\.jupyter\custom
     }
 } else {
     is-m269-folder $args[0]
@@ -88,9 +87,6 @@ Write-Host "Downloading and installing Python packages... (this will take long)"
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 deactivate
-if ($args.Length -eq 0) {
-    Remove-Item requirements.txt
-}
 
 Write-Host "Adding shortcut commands to the PowerShell config file..."
 

@@ -58,14 +58,18 @@ fi
 is_m269_folder () {
     if [[ ! -d $1 ]]    # single bracket would split path string on spaces
     then
+        folder=$1
         msg="doesn't exist or isn't a folder"
-    elif [[ $(basename "$1") != [Mm]269-23[Jj] ]]
-    then
-        msg="must be named m269-23j or M269-23J"
     else
-        return
+        folder=$(cd "$1"; pwd)
+        if [[ $(basename "$folder") != [Mm]269-23[Jj] ]]
+        then
+            msg="must be named m269-23j or M269-23J"
+        else
+            return
+        fi
     fi
-    echo "$1 can't be your M269 folder: it $msg." ; echo $DOC
+    echo "$folder can't be your M269 folder: it $msg." ; echo $DOC
     exit 1
 }
 

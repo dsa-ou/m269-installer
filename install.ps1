@@ -21,16 +21,20 @@ $VENV = "$HOME\venvs\$COURSE"
 function is-m269-folder {
     param($path)
     if (-not (Test-Path $path -PathType Container)) {
+        $folder = $path
         $msg="doesn't exist or isn't a folder"
     }
-    elseif (-not ($path -match "[Mm]269-23[Jj]$")) {
-        $msg="must be named m269-23j or M269-23J"
+    else {
+        $folder = Convert-Path $path
+        if (-not ($folder -match "[Mm]269-23[Jj]$")) {
+            $msg="must be named m269-23j or M269-23J"
+        }
+        else
+        {
+            return
+        }
     }
-    else
-    {
-        return
-    }
-    Write-Host "$path can't be your M269 folder: it $msg."; Write-Host $DOC
+    Write-Host "$folder can't be your M269 folder: it $msg."; Write-Host $DOC
     exit
 }
 

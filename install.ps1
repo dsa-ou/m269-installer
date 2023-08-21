@@ -98,7 +98,7 @@ function m269-23j {
     $VENV\Scripts\Activate.ps1
 }
 function nb {
-    Start-process -NoNewWindow jupyter -ArgumentList "notebook $ESC$FOLDER$ESC"
+    Start-process -NoNewWindow jupyter -ArgumentList "notebook"
 }
 function allowed {
     param(

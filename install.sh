@@ -136,7 +136,7 @@ echo "Software has been installed."
 echo "Adding shortcut commands to $shell's startup file..."
 
 M269="cd \"$FOLDER\";source $VENV/bin/activate"
-NB="jupyter notebook \"$FOLDER\"&"
+NB="jupyter notebook &"
 ALLOWED="python3.10 \"$FOLDER/allowed.py\" -c \"$FOLDER/m269.json\""
 
 if [ $shell = "fish" ]

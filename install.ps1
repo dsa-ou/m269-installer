@@ -26,7 +26,7 @@ function is-m269-folder {
     }
     else {
         $folder = Convert-Path $path
-        if (-not ($folder -match "[Mm]269-23[Jj]$")) {
+        if (-not ((Get-Item $folder).Name -match "[Mm]269-23[Jj]")) {
             $msg="must be named m269-23j or M269-23J"
         }
         else

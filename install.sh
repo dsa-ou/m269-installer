@@ -58,14 +58,18 @@ fi
 is_m269_folder () {
     if [[ ! -d $1 ]]    # single bracket would split path string on spaces
     then
+        folder=$1
         msg="doesn't exist or isn't a folder"
-    elif [[ $(basename "$1") != [Mm]269-23[Jj] ]]
-    then
-        msg="must be named m269-23j or M269-23J"
     else
-        return
+        folder=$(cd "$1"; pwd)
+        if [[ $(basename "$folder") != [Mm]269-23[Jj] ]]
+        then
+            msg="must be named m269-23j or M269-23J"
+        else
+            return
+        fi
     fi
-    echo "$1 can't be your M269 folder: it $msg." ; echo $DOC
+    echo "$folder can't be your M269 folder: it $msg." ; echo $DOC
     exit 1
 }
 
@@ -90,9 +94,8 @@ then
     if [ -f ~/.jupyter/custom/$CSS ]
     then
         cat $CSS >> ~/.jupyter/custom/$CSS
-        rm $CSS
     else
-        mv $CSS ~/.jupyter/custom
+        cp -a $CSS ~/.jupyter/custom
     fi
 else
     is_m269_folder "$1"
@@ -126,17 +129,12 @@ pip install --upgrade pip
 pip install -r $REQS
 pip install pytype==2023.4.27               # install pytype only for Unix
 deactivate
-# if we're in the M269 folder, remove the no longer needed file
-if [ $# -eq 0 ]
-then
-    rm $REQS
-fi
 echo "Software has been installed."
 
 echo "Adding shortcut commands to $shell's startup file..."
 
 M269="cd \"$FOLDER\";source $VENV/bin/activate"
-NB="jupyter notebook \"$FOLDER\"&"
+NB="jupyter notebook &"
 ALLOWED="python3.10 \"$FOLDER/allowed.py\" -c \"$FOLDER/m269.json\""
 
 if [ $shell = "fish" ]

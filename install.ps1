@@ -21,16 +21,20 @@ $VENV = "$HOME\venvs\$COURSE"
 function is-m269-folder {
     param($path)
     if (-not (Test-Path $path -PathType Container)) {
+        $folder = $path
         $msg="doesn't exist or isn't a folder"
     }
-    elseif (-not ($path -match "[Mm]269-23[Jj]$")) {
-        $msg="must be named m269-23j or M269-23J"
+    else {
+        $folder = Convert-Path $path
+        if (-not ((Get-Item $folder).Name -match "[Mm]269-23[Jj]")) {
+            $msg="must be named m269-23j or M269-23J"
+        }
+        else
+        {
+            return
+        }
     }
-    else
-    {
-        return
-    }
-    Write-Host "$path can't be your M269 folder: it $msg."; Write-Host $DOC
+    Write-Host "$folder can't be your M269 folder: it $msg."; Write-Host $DOC
     exit
 }
 
@@ -51,9 +55,8 @@ if ($args.Length -gt 1) {
     mkdir $HOME\.jupyter\custom -ErrorAction SilentlyContinue
     if (Test-Path $HOME\.jupyter\custom\custom.css) {
         Add-Content -Path $HOME\.jupyter\custom\custom.css -Value (Get-Content custom.css)
-        Remove-Item custom.css
     } else {
-        Move-Item -Path custom.css -Destination $HOME\.jupyter\custom
+        Copy-Item -Path custom.css -Destination $HOME\.jupyter\custom
     }
 } else {
     is-m269-folder $args[0]
@@ -84,9 +87,6 @@ Write-Host "Downloading and installing Python packages... (this will take long)"
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 deactivate
-if ($args.Length -eq 0) {
-    Remove-Item requirements.txt
-}
 
 Write-Host "Adding shortcut commands to the PowerShell config file..."
 
@@ -98,7 +98,7 @@ function m269-23j {
     $VENV\Scripts\Activate.ps1
 }
 function nb {
-    Start-process -NoNewWindow jupyter -ArgumentList "notebook $ESC$FOLDER$ESC"
+    Start-process -NoNewWindow jupyter -ArgumentList "notebook"
 }
 function allowed {
     param(

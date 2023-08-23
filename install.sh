@@ -18,10 +18,10 @@ DOC="See $SITE for details."
 CSS=custom.css
 REQS=requirements.txt
 CHECK="allowed.py m269.json"
-FILES="$CSS $REQS $CHECK"
+UNINSTALL=uninstall.sh
+FILES="$CSS $REQS $CHECK $UNINSTALL"
 COURSE=m269-23j
 VENV=~/venvs/$COURSE
-CONFIG_VARS=("VENV" "COURSE")
 
 # find out under which shell this script is running
 parent_shell=$(ps -o command $PPID)
@@ -88,7 +88,13 @@ then
     echo "Downloading and installing M269 files..."
     for file in $FILES
         do
-            curl -LO https://github.com/dsa-ou/m269-installer/raw/main/$file
+            # WARNING: CHANGE URL BACK TO MAIN BRANCH BEFORE MERGING!!!
+            curl -LO https://github.com/dsa-ou/m269-installer/raw/14-create-uninstallation-scripts/$file
+            if [ $? -ne 0 ]
+            then
+                echo "Failed to download $file"
+                exit 1
+            fi
         done
     mkdir -p ~/.jupyter/custom
     # don't overwrite existing CSS file
@@ -118,10 +124,13 @@ else
     else
         cp -a $CSS ~/.jupyter/custom
     fi
-    cp -a $CHECK "$FOLDER"
+    cp -a $CHECK $UNINSTALL "$FOLDER"
+    if [ $? -ne 0 ]
+    then
+        echo "Failed to copy $CHECK and $UNINSTALL"
+        exit 1
+    fi
 fi
-
-CONFIG_VARS+=("FOLDER")
 
 echo "Creating Python environment $VENV... (this will take a bit)"
 python3.10 -m venv --prompt $COURSE $VENV
@@ -147,8 +156,6 @@ else
     SHELL_CONFIG_FILE=~/.${shell}rc
 fi
 
-CONFIG_VARS+=("SHELL_CONFIG_FILE")
-
 if [ $shell = "csh" ] || [ $shell = "tcsh" ]
 then
     echo "alias $COURSE '$M269.csh'" >> $SHELL_CONFIG_FILE
@@ -165,13 +172,20 @@ else
     echo "alias allowed='$ALLOWED'" >> $SHELL_CONFIG_FILE
 fi
 
-M269_CONFIG_FILE=$FOLDER/.m269rc
-CONFIG_VARS+=("M269_CONFIG_FILE")
-
-# Write the name=value pairs to m269 config file
-for var_name in "${CONFIG_VARS[@]}"; do
-    var_value="${!var_name}"
-    echo "$var_name=$var_value" >> "$M269_CONFIG_FILE"
-done
+# Set variables in uninstall.sh
+# Mac and Linux use different version of sed, so need different syntax.
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "Setting variables in uninstall.sh ..."
+    sed -i "14iFOLDER=$FOLDER" "$FOLDER/$UNINSTALL"
+    sed -i "15iSHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "Setting variables in uninstall.sh ..."
+    sed -i "" -e "14i\\" -e "FOLDER=$FOLDER" "$FOLDER/$UNINSTALL"
+    sed -i "" -e "15i\\" -e "SHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL"
+else
+    echo "Warning: unknown OS or OSTYPE environment variable has been changed."
+    echo "unable to set variables in uninstall.sh..."
+fi
+chmod +x "$FOLDER/$UNINSTALL"
 
 echo "All done. Go to $SITE for further instructions."

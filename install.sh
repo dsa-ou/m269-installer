@@ -18,10 +18,10 @@ DOC="See $SITE for details."
 CSS=custom.css
 REQS=requirements.txt
 CHECK="allowed.py m269.json"
-FILES="$CSS $REQS $CHECK"
+UNINSTALL=uninstall.sh
+FILES="$CSS $REQS $CHECK $UNINSTALL"
 COURSE=m269-23j
 VENV=~/venvs/$COURSE
-UNINSTALL=uninstall.sh
 
 # find out under which shell this script is running
 parent_shell=$(ps -o command $PPID)
@@ -90,6 +90,11 @@ then
         do
             # WARNING: CHANGE URL BACK TO MAIN BRANCH BEFORE MERGING!!!
             curl -LO https://github.com/dsa-ou/m269-installer/raw/14-create-uninstallation-scripts/$file
+            if [ $? -ne 0 ]
+            then
+                echo "Failed to download $file"
+                exit 1
+            fi
         done
     mkdir -p ~/.jupyter/custom
     # don't overwrite existing CSS file
@@ -120,6 +125,11 @@ else
         cp -a $CSS ~/.jupyter/custom
     fi
     cp -a $CHECK $UNINSTALL "$FOLDER"
+    if [ $? -ne 0 ]
+    then
+        echo "Failed to copy $CHECK and $UNINSTALL"
+        exit 1
+    fi
 fi
 
 echo "Creating Python environment $VENV... (this will take a bit)"
@@ -163,15 +173,9 @@ else
 fi
 
 # Set variables in uninstall.sh
-if [[ -f "$FOLDER/$UNINSTALL" ]]
-then
-    echo "Setting variables into uninstall.sh ..."
-    sed -i "14iFOLDER=$FOLDER" "$FOLDER/$UNINSTALL"
-    sed -i "15iSHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL"
-    chmod +x "$FOLDER/$UNINSTALL"
-else
-    echo "Warning: $FOLDER/uninstall.sh does not exist."
-    echo "critical Variables have not been set in uninstall.sh."
-fi
+echo "Setting variables into uninstall.sh ..."
+sed -i "14iFOLDER=$FOLDER" "$FOLDER/$UNINSTALL"
+sed -i "15iSHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL"
+chmod +x "$FOLDER/$UNINSTALL"
 
 echo "All done. Go to $SITE for further instructions."

@@ -173,9 +173,17 @@ else
 fi
 
 # Set variables in uninstall.sh
+# Mac os uses BSD version of sed so needs different syntax.
 echo "Setting variables into uninstall.sh ..."
-sed -i "14iFOLDER=$FOLDER" "$FOLDER/$UNINSTALL"
-sed -i "15iSHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    sed -i "14iFOLDER=$FOLDER" "$FOLDER/$UNINSTALL"
+    sed -i "15iSHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i "" -e "14i\\" -e "FOLDER=$FOLDER" "$FOLDER/$UNINSTALL"
+    sed -i "" -e "15i\\" -e "SHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL"
+else
+    echo "Warning: unknown OS, unable to set variables into uninstall.sh"
+fi
 chmod +x "$FOLDER/$UNINSTALL"
 
 echo "All done. Go to $SITE for further instructions."

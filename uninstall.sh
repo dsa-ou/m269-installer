@@ -79,7 +79,13 @@ if [[ -f "$SHELL_CONFIG_FILE" ]]; then
     cp "$SHELL_CONFIG_FILE" "$SHELL_CONFIG_FILE".backup
     for alias in "${ALIASES[@]}"; do
         # Delete lines that start with $alias and contain current course "code"
-        sed -i "/^$alias.*[Mm]269-$COURSE_YEAR[Jj]/d" "$SHELL_CONFIG_FILE"
+        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+            sed -i "/^$alias.*[Mm]269-$COURSE_YEAR[Jj]/d" "$SHELL_CONFIG_FILE"
+        elif [[ "$OSTYPE" == "darwin"* ]]; then
+            sed -i "" "/^$alias.*[Mm]269-$COURSE_YEAR[Jj]/d" "$SHELL_CONFIG_FILE"
+        else
+            echo "Warning: unknown OS, skipping alias removal."
+        fi
     done
 else
     echo "Warning: $SHELL_CONFIG_FILE does not exist."
@@ -87,13 +93,18 @@ fi
 
 # Remove lines from ~/.jupyter/custom/custom.css
 if confirm "Remove M269 custom styling from $CSS_FILE ?"; then
-    # Special characters need to be escaped for use in regex
     START_DELIM="\/\* Start of [Mm]269-$COURSE_YEAR[Jj] notebook styling. \*\/"
     END_DELIM="\/\* End of [Mm]269-$COURSE_YEAR[Jj] notebook styling. \*\/"
     if [[ -f "$CSS_FILE" ]]; then
         cp "$CSS_FILE" "$CSS_FILE".backup
         echo "Removing M269 custom styling from $CSS_FILE..."
-        sed -i "/$START_DELIM/,/$END_DELIM/d" "$CSS_FILE"
+        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+            sed -i "/$START_DELIM/,/$END_DELIM/d" "$CSS_FILE"
+        elif [[ "$OSTYPE" == "darwin"* ]]; then
+            sed -i "" "/$START_DELIM/,/$END_DELIM/d" "$CSS_FILE"
+        else
+            echo "Warning: unknown OS, skipping custom styling removal."
+        fi
     else
         echo "Warning: $CSS_FILE does not exist."
     fi

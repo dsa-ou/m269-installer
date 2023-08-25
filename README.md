@@ -145,8 +145,7 @@ To check your code as thoroughly as Unix users:
 ## 5 Uninstalling
 
 At the end of the M269 23J presentation, if you wish to remove the M269 software,
-delete folder `~/venvs/m269-23j` and delete files `m269.json` and `allowed.py`
-from your M269 folder.
+delete folder `~/venvs/m269-23j`.
 If you also want to remove the `m269-23j`, `nb` and `allowed` commands:
 
 1. Find out in which file they are defined.

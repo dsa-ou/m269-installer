@@ -14,7 +14,7 @@
 COURSE=m269-23j
 VENV=~/venvs/$COURSE
 CSS_FILE=~/.jupyter/custom/custom.css
-COURSE_YEAR=23
+YEAR=23
 SITE=https://dsa-ou.github.io/m269-installer
 
 # Check FOLDER and SHELL_CONFIG_FILE have been set i.e inserted via install.sh
@@ -72,29 +72,34 @@ for file in "allowed.py" "m269.json"; do
     fi
 done
 
-# Remove aliases from the configuration file
 ALIASES=("alias nb" "alias allowed" "alias $COURSE")
+NB="jupyter notebook &"
+COURSE_PATTERN="[Mm]269-$YEAR[Jj]"
+
+# Remove aliases from the configuration file
 if [[ -f "$SHELL_CONFIG_FILE" ]]; then
     echo "Removing shortcut commands from $SHELL_CONFIG_FILE..."
     cp "$SHELL_CONFIG_FILE" "$SHELL_CONFIG_FILE".backup
     for alias in "${ALIASES[@]}"; do
-        # Delete lines that start with $alias and contain current course "code"
+        # Pattern is: Start with $alias, and contains $COURSE_PATTERN or $NB in rest of line.
+        alias_pattern="/^$alias.*\(\($COURSE_PATTERN\)\|\($NB\)\)/d"
         if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-            sed -i "/^$alias.*[Mm]269-$COURSE_YEAR[Jj]/d" "$SHELL_CONFIG_FILE"
+            sed -i "$alias_pattern" "$SHELL_CONFIG_FILE"
         elif [[ "$OSTYPE" == "darwin"* ]]; then
-            sed -i "" "/^$alias.*[Mm]269-$COURSE_YEAR[Jj]/d" "$SHELL_CONFIG_FILE"
+            sed -i "" "$alias_pattern" "$SHELL_CONFIG_FILE"
         else
-            echo "Warning: unknown OS, skipping alias removal."
+            echo "Warning: unknown OS or OSTYPE environment variable has been changed."
+            echo "skipping removal of shortcut commands..."
         fi
     done
 else
     echo "Warning: $SHELL_CONFIG_FILE does not exist."
 fi
 
-# Remove lines from ~/.jupyter/custom/custom.css
+# Optionally Remove custom M269 styling
 if confirm "Remove M269 custom styling from $CSS_FILE ?"; then
-    START_DELIM="\/\* Start of [Mm]269-$COURSE_YEAR[Jj] notebook styling. \*\/"
-    END_DELIM="\/\* End of [Mm]269-$COURSE_YEAR[Jj] notebook styling. \*\/"
+    START_DELIM="\/\* Start of $COURSE_PATTERN notebook styling. \*\/"
+    END_DELIM="\/\* End of $COURSE_PATTERN notebook styling. \*\/"
     if [[ -f "$CSS_FILE" ]]; then
         cp "$CSS_FILE" "$CSS_FILE".backup
         echo "Removing M269 custom styling from $CSS_FILE..."
@@ -103,7 +108,8 @@ if confirm "Remove M269 custom styling from $CSS_FILE ?"; then
         elif [[ "$OSTYPE" == "darwin"* ]]; then
             sed -i "" "/$START_DELIM/,/$END_DELIM/d" "$CSS_FILE"
         else
-            echo "Warning: unknown OS, skipping custom styling removal."
+            echo "Warning: unknown OS or the OSTYPE environment variable has been changed."
+            echo "skipping removal of custom styling..."
         fi
     else
         echo "Warning: $CSS_FILE does not exist."

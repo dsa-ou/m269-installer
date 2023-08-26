@@ -173,19 +173,20 @@ else
 fi
 
 # Set variables in uninstall.sh
-# Mac and Linux use different version of sed, so need different syntax.
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if [[ -f "$FOLDER/$UNINSTALL" ]]; then
     echo "Setting variables in uninstall.sh ..."
-    sed -i "14iFOLDER=$FOLDER" "$FOLDER/$UNINSTALL"
-    sed -i "15iSHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "Setting variables in uninstall.sh ..."
-    sed -i "" -e "14i\\" -e "FOLDER=$FOLDER" "$FOLDER/$UNINSTALL"
-    sed -i "" -e "15i\\" -e "SHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL"
+    # Insert FOLDER variable at line 14
+    sed "14i\\
+FOLDER=$FOLDER" "$FOLDER/$UNINSTALL" > "$FOLDER/$UNINSTALL.tmp"
+    mv "$FOLDER/$UNINSTALL.tmp" "$FOLDER/$UNINSTALL"
+    # Insert SHELL_CONFIG_FILE variable at line 15
+    sed "15i\\
+SHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL" > "$FOLDER/$UNINSTALL.tmp"
+    mv "$FOLDER/$UNINSTALL.tmp" "$FOLDER/$UNINSTALL"
+    chmod +x "$FOLDER/$UNINSTALL"
 else
-    echo "Warning: unknown OS or OSTYPE environment variable has been changed."
-    echo "unable to set variables in uninstall.sh..."
+    echo "Warning: $FOLDER/$UNINSTALL does not exist."
+    echo "Unable to set variables in uninstall.sh..."
 fi
-chmod +x "$FOLDER/$UNINSTALL"
 
 echo "All done. Go to $SITE for further instructions."

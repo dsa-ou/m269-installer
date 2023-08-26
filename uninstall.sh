@@ -83,14 +83,8 @@ if [[ -f "$SHELL_CONFIG_FILE" ]]; then
     for alias in "${ALIASES[@]}"; do
         # Pattern is: Start with $alias, and contains $COURSE_PATTERN or $NB in rest of line.
         alias_pattern="/^$alias.*\(\($COURSE_PATTERN\)\|\($NB\)\)/d"
-        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-            sed -i "$alias_pattern" "$SHELL_CONFIG_FILE"
-        elif [[ "$OSTYPE" == "darwin"* ]]; then
-            sed -i "" "$alias_pattern" "$SHELL_CONFIG_FILE"
-        else
-            echo "Warning: unknown OS or OSTYPE environment variable has been changed."
-            echo "skipping removal of shortcut commands..."
-        fi
+        sed "$alias_pattern" "$SHELL_CONFIG_FILE" > "$SHELL_CONFIG_FILE.tmp"
+        mv "$SHELL_CONFIG_FILE.tmp" "$SHELL_CONFIG_FILE"
     done
 else
     echo "Warning: $SHELL_CONFIG_FILE does not exist."
@@ -103,14 +97,8 @@ if confirm "Remove M269 custom styling from $CSS_FILE ?"; then
     if [[ -f "$CSS_FILE" ]]; then
         cp "$CSS_FILE" "$CSS_FILE".backup
         echo "Removing M269 custom styling from $CSS_FILE..."
-        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-            sed -i "/$START_DELIM/,/$END_DELIM/d" "$CSS_FILE"
-        elif [[ "$OSTYPE" == "darwin"* ]]; then
-            sed -i "" "/$START_DELIM/,/$END_DELIM/d" "$CSS_FILE"
-        else
-            echo "Warning: unknown OS or the OSTYPE environment variable has been changed."
-            echo "skipping removal of custom styling..."
-        fi
+        sed "/$START_DELIM/,/$END_DELIM/d" "$CSS_FILE" > "$CSS_FILE.tmp"
+        mv "$CSS_FILE.tmp" "$CSS_FILE"
     else
         echo "Warning: $CSS_FILE does not exist."
     fi

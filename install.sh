@@ -173,15 +173,13 @@ else
 fi
 
 # Set variables in uninstall.sh
+sed_insert_command="14i\\
+FOLDER=$FOLDER\\
+SHELL_CONFIG_FILE=$SHELL_CONFIG_FILE"
+
 if [[ -f "$FOLDER/$UNINSTALL" ]]; then
     echo "Setting variables in uninstall.sh ..."
-    # Insert FOLDER variable at line 14
-    sed "14i\\
-FOLDER=$FOLDER" "$FOLDER/$UNINSTALL" > "$FOLDER/$UNINSTALL.tmp"
-    mv "$FOLDER/$UNINSTALL.tmp" "$FOLDER/$UNINSTALL"
-    # Insert SHELL_CONFIG_FILE variable at line 15
-    sed "15i\\
-SHELL_CONFIG_FILE=$SHELL_CONFIG_FILE" "$FOLDER/$UNINSTALL" > "$FOLDER/$UNINSTALL.tmp"
+    sed "$sed_insert_command" "$FOLDER/$UNINSTALL" > "$FOLDER/$UNINSTALL.tmp"
     mv "$FOLDER/$UNINSTALL.tmp" "$FOLDER/$UNINSTALL"
     chmod +x "$FOLDER/$UNINSTALL"
 else

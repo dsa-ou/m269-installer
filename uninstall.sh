@@ -2,14 +2,15 @@
 
 # This script performs the uninstallation of the M269 course environment
 # and will do the following:
-# - Seeks user confirmation before proceeding.
-# - Removes the virtual environment located at ~/venvs/m269-23j
+# - Prints warning and Seeks user confirmation before proceeding.
+# - Removes the virtual environment located at ~/venvs/m269-<YEAR>j
+# where <YEAR> is the year of the current course.
 # - Erases course-specific aliases from the shell config file.
-# - Removes files from the M269 folder.
-# - Optionally clears M269 styling from Jupyter's custom.css.
+# - Removes specific files from the M269 folder.
+# - Optionally clears M269 styling from ~/.jupyter/custom/custom.css
 
 # Note: this script expects FOLDER and SHELL_CONFIG_FILE to be set during the
-# installation process (inserted above line 14 with sed when install.sh is run).
+# installation process (inserted above line 14).
 
 YEAR=23
 COURSE="m269-${YEAR}j"
@@ -18,7 +19,7 @@ CSS_FILE=~/.jupyter/custom/custom.css
 SITE=https://dsa-ou.github.io/m269-installer
 COURSE_PATTERN="[Mm]269-$YEAR[Jj]"
 
-# Prompts user for confirmation.
+# Prompts user for confirmation, defaults to 'no'.
 # Args: message.
 # Returns: 0 if 'yes', 1 if 'no'.
 confirm() {

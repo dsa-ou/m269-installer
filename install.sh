@@ -173,7 +173,7 @@ else
 fi
 
 # Set variables in uninstall.sh
-sed_insert_command="14i\\
+sed_insert_command="15i\\
 FOLDER=$FOLDER\\
 SHELL_CONFIG_FILE=$SHELL_CONFIG_FILE"
 

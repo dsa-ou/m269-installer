@@ -10,7 +10,7 @@
 # - Optionally clears M269 styling from ~/.jupyter/custom/custom.css
 
 # Note: this script expects FOLDER and SHELL_CONFIG_FILE to be set during the
-# installation process (inserted above line 14).
+# installation process (inserted above the variable definitions below).
 
 YEAR=23
 COURSE="m269-${YEAR}j"

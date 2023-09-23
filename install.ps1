@@ -81,9 +81,18 @@ if ($args.Length -gt 1) {
 
 Write-Host "Creating Python environment $VENV... (this will take a bit)"
 py -3.10 -m venv --prompt $COURSE $VENV
+if (-not $?) {
+    Write-Host "Error: failed to create the virtual environment."
+    Write-Host "Check permissions and prerequisites, then try again."
+    exit
+}
 
 Write-Host "Downloading and installing Python packages... (this will take long)"
 . $VENV\Scripts\Activate.ps1
+if (-not $?) {
+    Write-Host "Error: failed to activate the environment."
+    exit
+}
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 deactivate
@@ -95,7 +104,7 @@ $ESC = "```""
 $ALIASES = @"
 function m269-23j {
     cd '$FOLDER'
-    $VENV\Scripts\Activate.ps1
+    & '$VENV\Scripts\Activate.ps1'
 }
 function nb {
     Start-process -NoNewWindow jupyter -ArgumentList "notebook"

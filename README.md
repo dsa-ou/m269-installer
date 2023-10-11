@@ -29,7 +29,9 @@ Before installing the M269 software, do the following:
      [64-bit installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe).
      After installing, disable the pathname limit if you're given that option.
    - macOS: download and run the [installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-macos11.pkg)
-   - Linux: enter `sudo apt install python3.10` or similar (search online for instructions for your Linux distribution)
+   - Linux: enter `sudo apt install python3.10` or similar (search online for instructions for your Linux distribution);
+     if you're using a Debian-based distribution, e.g. Ubuntu, you must additionally
+     enter `sudo apt install python3.10-venv` or similar.
 
 5. macOS only: open a terminal, enter `xcode-select --install` and follow the instructions.
    If you get a message that the command line tools are already installed,

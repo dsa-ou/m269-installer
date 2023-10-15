@@ -100,11 +100,10 @@ deactivate
 Write-Host "Adding shortcut commands to the PowerShell config file..."
 
 $CONFIG_FILE = $Profile.CurrentUserCurrentHost
-$ESC = "```""
 $ALIASES = @"
 function m269-23j {
-    cd '$FOLDER'
-    & '$VENV\Scripts\Activate.ps1'
+    cd "$FOLDER"
+    & "$VENV\Scripts\Activate.ps1"
 }
 function nb {
     Start-process -NoNewWindow jupyter -ArgumentList "notebook"
@@ -114,7 +113,7 @@ function allowed {
         [string]`$FilePath
     )
 
-    python $ESC$FOLDER\allowed.py$ESC -c $ESC$FOLDER\m269.json$ESC `$FilePath
+    python "$FOLDER\allowed.py" -c "$FOLDER\m269.json" `$FilePath
 }
 "@
 

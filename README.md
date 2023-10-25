@@ -11,6 +11,9 @@ Before installing the M269 software, do the following:
    The folder must be named `m269-23j` or `M269-23J` and
    can be anywhere on your disk, including a cloud drive.
    (You probably already did this step before you downloaded the M269 book.)
+   <!-- The following avoids unreadable notebook error. -->
+   If you're using Windows 10 and your M269 folder is on OneDrive,
+   then right-click your M269 folder and choose 'always keep on this device'.
 
 2. Windows only: Follow [these instructions](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808)
    to check if you have 32-bit or 64-bit Windows.

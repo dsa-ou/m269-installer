@@ -91,6 +91,12 @@ You can press Tab to complete commands and pathnames.
 
 5. Close the PowerShell (Windows) or terminal (Unix).
 
+**Note for macOS users**: If the `m269-23j` and `nb` commands are not working after installation, and you are using `bash`, enter:
+ ```bash
+ echo 'if [ -f ~/.bashrc ]; then source ~/.bashrc; fi' >> ~/.bash_profile
+ ```
+restart your terminal and try again.
+
 ## 4 Checking your code
 
 This section is for M269 students only. Instructions for tutors will be given separately.

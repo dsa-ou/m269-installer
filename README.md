@@ -91,11 +91,13 @@ You can press Tab to complete commands and pathnames.
 
 5. Close the PowerShell (Windows) or terminal (Unix).
 
-**Note for macOS users**: If the `m269-23j` and `nb` commands are not working after installation, and you are using `bash`, enter:
+**Note for macOS users**:
+If steps 2 and 3 (the `m269-23j` and `nb` commands) are not working,
+and you are using `bash`, enter in the terminal
  ```bash
  echo 'if [ -f ~/.bashrc ]; then source ~/.bashrc; fi' >> ~/.bash_profile
  ```
-restart your terminal and try again.
+Then close your terminal, open a new one, and try again steps 2 and 3.
 
 ## 4 Checking your code
 

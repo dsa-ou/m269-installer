@@ -17,8 +17,7 @@ SITE=https://dsa-ou.github.io/m269-installer
 DOC="See $SITE for details."
 CSS=custom.css
 REQS=requirements.txt
-CHECK="allowed.py m269.json"
-FILES="$CSS $REQS $CHECK"
+FILES="$CSS $REQS"
 COURSE=m269-24j
 VENV=~/venvs/$COURSE
 
@@ -135,7 +134,6 @@ echo "Adding shortcut commands to $shell's startup file..."
 
 M269="cd \"$FOLDER\";source $VENV/bin/activate"
 NB="jupyter notebook &"
-ALLOWED="python3.11 \"$FOLDER/allowed.py\" -c \"$FOLDER/m269.json\""
 
 if [ $shell = "fish" ]
 then
@@ -148,7 +146,6 @@ if [ $shell = "csh" ] || [ $shell = "tcsh" ]
 then
     echo "alias $COURSE '$M269.csh'" >> $FILE
     echo "alias nb '$NB'" >> $FILE
-    echo "alias allowed '$ALLOWED'" >> $FILE
 else
     if [ $shell = "fish" ]
     then
@@ -157,7 +154,6 @@ else
         echo "alias $COURSE='$M269'" >> $FILE
     fi
     echo "alias nb='$NB'" >> $FILE
-    echo "alias allowed='$ALLOWED'" >> $FILE
 fi
 
 echo "All done. Go to $SITE for further instructions."

@@ -64,7 +64,6 @@ You will have the following files in your M269 folder:
 - the installation script in `install.ps1` or `install.sh`
 - the list of M269 software in `requirements.txt`
 - the style changes to Jupyter notebooks in `custom.css`
-- the code checker (see Section 4 below) in `allowed.py` and `m269.json`
 
 We recommend you do _not_ remove these files, so that you can re-install
 the software, if needed.
@@ -102,64 +101,11 @@ and you are using `bash`, enter in the terminal
  ```
 Then close your terminal, open a new one, and try again steps 2 and 3.
 
-## 4 Checking your code
-
-This section is for M269 students only. Instructions for tutors will be given separately.
-
-Before submitting your TMAs, you should check that your code doesn't use
-Python constructs not taught in M269.
-The following instructions assume that your M269 folder has subfolders
-`TMA01`, `TMA02` and `TMA03` and that you have your TMA notebook open in a browser tab.
-
-### 4.1 In the VCE
-If you're using the virtual computing environment (VCE) on the OU's Open Computing Lab:
-
-1. Open a terminal as explained in Section 1.3 of the book.
-2. Enter _one_ of the following, depending on which TMA you're checking:
-   - `allowed -m -u 10 TMA01/23J_TMA01.ipynb`
-   - `allowed -m -u 20 TMA02/23J_TMA02.ipynb`
-   - `allowed -m TMA03/23J_TMA03.ipynb`
-
-   If you get a list of disallowed constructs (with the code cells they occur in):
-
-3. Click on the browser tab with your TMA notebook.
-4. Edit your code to remove the disallowed constructs and save the notebook.
-5. Go back to the terminal.
-6. Press arrow-up and ENTER to repeat the checking command.
-7. Go back to step 3 if there are still disallowed constructs in your code.
-
-### 4.1 In Unix
-The `nb` command runs Jupyter in the background,
-which means that you can still use the same terminal for other commands.
-
-1. Go back to the terminal in which you entered `m269-23j` and `nb`.
-2. Proceed from step 2 of the VCE instructions.
-
-### 4.2 In Windows
-The `nb` command runs Jupyter in the background,
-which means that you can still use the same PowerShell for other commands.
-
-1. Go back to the PowerShell in which you entered `m269-23j` and `nb`.
-3. Enter _one_ of the following, depending on which TMA you're checking:
-   - `allowed -u 10 TMA01/23J_TMA01.ipynb`
-   - `allowed -u 20 TMA02/23J_TMA02.ipynb`
-   - `allowed TMA03/23J_TMA03.ipynb`
-4. If disallowed constructs are listed, proceed from step 3 of the VCE instructions.
-
-In Windows, the checker won't detect if you're calling a disallowed method on a list
-or some other object. (You may have noticed that the `-m` flag isn't used in Windows.)
-To check your code as thoroughly as Unix users:
-
-1. Create a zip archive of your TMA folder.
-2. Upload it to the VCE and unzip it there. See Section 1.3 of the book for details.
-3. In the VCE dashboard, navigate to your TMA notebook and open it.
-4. Continue with the VCE instructions above.
-
-## 5 Uninstalling
+## 4 Uninstalling
 
 At the end of the M269 24J presentation, if you wish to remove the M269 software,
 delete folder `~/venvs/m269-24j`.
-If you also want to remove the `m269-24j`, `nb` and `allowed` commands:
+If you also want to remove the `m269-24j` and `nb` commands:
 
 1. Find out in which file they are defined.
    - Windows: open a PowerShell and enter `$Profile.CurrentUserCurrentHost` to obtain the file name
@@ -168,7 +114,7 @@ If you also want to remove the `m269-24j`, `nb` and `allowed` commands:
      otherwise they're in file `~/.shellrc`, where `shell` is the name of your shell.
      For example, if you're using bash, then it's file `~/.bashrc`.
 2. Open the file in a text editor.
-3. Search for the lines that define the `m269-24j`, `nb` and `allowed`
+3. Search for the lines that define the `m269-24j` and `nb`
    functions (Windows) or aliases (Unix). Delete those lines.
 4. Save the file and close the text editor.
 

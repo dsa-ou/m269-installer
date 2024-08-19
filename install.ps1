@@ -13,7 +13,7 @@ Write-Host "Installing software for M269 24J..."
 
 $SITE = "https://dsa-ou.github.io/m269-installer"
 $DOC = "See $SITE for details."
-$FILES = "custom.css", "allowed.py", "m269.json", "requirements.txt"
+$FILES = "custom.css", "requirements.txt"
 $COURSE = "m269-24j"
 $VENV = "$HOME\venvs\$COURSE"
 
@@ -75,8 +75,6 @@ if ($args.Length -gt 1) {
     } else {
         Copy-Item -Path custom.css -Destination $HOME\.jupyter\custom
     }
-    Copy-Item -Path allowed.py -Destination $FOLDER -Force
-    Copy-Item -Path m269.json -Destination $FOLDER -Force
 }
 
 Write-Host "Creating Python environment $VENV... (this will take a bit)"
@@ -107,13 +105,6 @@ function m269-24j {
 }
 function nb {
     Start-process -NoNewWindow jupyter -ArgumentList "notebook"
-}
-function allowed {
-    param(
-        [string]`$FilePath
-    )
-
-    python "$FOLDER\allowed.py" -c "$FOLDER\m269.json" `$FilePath
 }
 "@
 

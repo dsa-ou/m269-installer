@@ -47,10 +47,10 @@ else
     exit 1
 fi
 
-# check Python 3.10 is installed
-if ! command -v python3.10 &> /dev/null
+# check Python 3.11 is installed
+if ! command -v python3.11 &> /dev/null
 then
-    echo "Python 3.10 not found: please install it." ; echo $DOC
+    echo "Python 3.11 not found: please install it." ; echo $DOC
     exit 1
 fi
 
@@ -121,7 +121,7 @@ else
 fi
 
 echo "Creating Python environment $VENV... (this will take a bit)"
-python3.10 -m venv --prompt $COURSE $VENV
+python3.11 -m venv --prompt $COURSE $VENV
 
 echo "Downloading and installing Python packages... (this will take long)"
 source $VENV/bin/activate                   # this script runs under bash
@@ -135,7 +135,7 @@ echo "Adding shortcut commands to $shell's startup file..."
 
 M269="cd \"$FOLDER\";source $VENV/bin/activate"
 NB="jupyter notebook &"
-ALLOWED="python3.10 \"$FOLDER/allowed.py\" -c \"$FOLDER/m269.json\""
+ALLOWED="python3.11 \"$FOLDER/allowed.py\" -c \"$FOLDER/m269.json\""
 
 if [ $shell = "fish" ]
 then

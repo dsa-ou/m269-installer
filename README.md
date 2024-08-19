@@ -4,7 +4,7 @@ a modern operating system: Linux, macOS 11 (Big Sur) or later, Windows 10 or 11.
 **Note**: In these instructions, Unix refers to Linux or macOs.
 
 You can have your M269 book and TMAs in a cloud folder, but you must
-install Python 3.10 and the M269 software on each computer you use.
+install Python 3.11 and the M269 software on each computer you use.
 Before installing the M269 software, do the following:
 
 1. Create your M269 folder, which is where you put the M269 book and TMAs.
@@ -18,23 +18,23 @@ Before installing the M269 software, do the following:
 2. Windows only: Follow [these instructions](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808)
    to check if you have 32-bit or 64-bit Windows.
 
-3. Check if you have Python 3.10:
-   - Windows: open a PowerShell, enter `py -0` and see if 3.10 is listed
-   - Unix: open a terminal and enter `python3.10 -V`
+3. Check if you have Python 3.11:
+   - Windows: open a PowerShell, enter `py -0` and see if 3.11 is listed
+   - Unix: open a terminal and enter `python3.11 -V`
 
-   If 3.10 isn't listed or you get an error message like `command not found`,
-   then you don't have Python 3.10.
+   If 3.11 isn't listed or you get an error message like `command not found`,
+   then you don't have Python 3.11.
 
-4. If you don't have Python 3.10, install it, even if you have a newer version.
+4. If you don't have Python 3.11, install it, even if you have a newer version.
    Do *not* uninstall any Python version you have.
    - Windows: download and run the
-     [32-bit installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11.exe) or the
-     [64-bit installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe).
+     [32-bit installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9.exe) or the
+     [64-bit installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe).
      After installing, disable the pathname limit if you're given that option.
-   - macOS: download and run the [installer](https://www.python.org/ftp/python/3.10.11/python-3.10.11-macos11.pkg)
-   - Linux: enter `sudo apt install python3.10` or similar (search online for instructions for your Linux distribution);
+   - macOS: download and run the [installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9-macos11.pkg)
+   - Linux: enter `sudo apt install python3.11` or similar (search online for instructions for your Linux distribution);
      if you're using a Debian-based distribution, e.g. Ubuntu, you must additionally
-     enter `sudo apt install python3.10-venv` or similar.
+     enter `sudo apt install python3.11-venv` or similar.
 
 5. macOS only: open a terminal, enter `xcode-select --install` and follow the instructions.
    If you get a message that the command line tools are already installed,

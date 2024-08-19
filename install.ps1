@@ -80,7 +80,7 @@ if ($args.Length -gt 1) {
 }
 
 Write-Host "Creating Python environment $VENV... (this will take a bit)"
-py -3.10 -m venv --prompt $COURSE $VENV
+py -3.11 -m venv --prompt $COURSE $VENV
 if (-not $?) {
     Write-Host "Error: failed to create the virtual environment."
     Write-Host "Check permissions and prerequisites, then try again."

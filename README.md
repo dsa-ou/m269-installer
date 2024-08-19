@@ -8,7 +8,7 @@ install Python 3.10 and the M269 software on each computer you use.
 Before installing the M269 software, do the following:
 
 1. Create your M269 folder, which is where you put the M269 book and TMAs.
-   The folder must be named `m269-23j` or `M269-23J` and
+   The folder must be named `m269-24j` or `M269-24J` and
    can be anywhere on your disk, including a cloud drive.
    (You probably already did this step before you downloaded the M269 book.)
    <!-- The following avoids unreadable notebook error. -->
@@ -46,7 +46,7 @@ To avoid errors, we suggest that instead of typing the commands,
 you select and copy them from this page and paste them into the command line.
 
 1. Open a PowerShell (Windows) or a terminal (Unix).
-2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-23j`.
+2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`.
    (In PowerShell and Unix, `~` is a shorthand for your home folder.)
 3. Download the installation script:
    - Windows: `Invoke-WebRequest -Uri https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 -OutFile install.ps1`
@@ -76,8 +76,8 @@ You can press Tab to complete commands and pathnames.
 
 1. Open a new PowerShell (Windows) or a new terminal (Unix).
 
-2. Enter `m269-23j` to go to your M269 folder and activate the M269 software.
-   The command line prompt becomes `(m269-23j) ...` to remind you that
+2. Enter `m269-24j` to go to your M269 folder and activate the M269 software.
+   The command line prompt becomes `(m269-24j) ...` to remind you that
    you're using the M269 software and not your default Python installation.
 
    **Important:** Never install software while the M269 software is active,
@@ -95,7 +95,7 @@ You can press Tab to complete commands and pathnames.
 5. Close the PowerShell (Windows) or terminal (Unix).
 
 **Note for macOS users**:
-If steps 2 and 3 (the `m269-23j` and `nb` commands) are not working,
+If steps 2 and 3 (the `m269-24j` and `nb` commands) are not working,
 and you are using `bash`, enter in the terminal
  ```bash
  echo 'if [ -f ~/.bashrc ]; then source ~/.bashrc; fi' >> ~/.bash_profile
@@ -157,9 +157,9 @@ To check your code as thoroughly as Unix users:
 
 ## 5 Uninstalling
 
-At the end of the M269 23J presentation, if you wish to remove the M269 software,
-delete folder `~/venvs/m269-23j`.
-If you also want to remove the `m269-23j`, `nb` and `allowed` commands:
+At the end of the M269 24J presentation, if you wish to remove the M269 software,
+delete folder `~/venvs/m269-24j`.
+If you also want to remove the `m269-24j`, `nb` and `allowed` commands:
 
 1. Find out in which file they are defined.
    - Windows: open a PowerShell and enter `$Profile.CurrentUserCurrentHost` to obtain the file name
@@ -168,14 +168,14 @@ If you also want to remove the `m269-23j`, `nb` and `allowed` commands:
      otherwise they're in file `~/.shellrc`, where `shell` is the name of your shell.
      For example, if you're using bash, then it's file `~/.bashrc`.
 2. Open the file in a text editor.
-3. Search for the lines that define the `m269-23j`, `nb` and `allowed`
+3. Search for the lines that define the `m269-24j`, `nb` and `allowed`
    functions (Windows) or aliases (Unix). Delete those lines.
 4. Save the file and close the text editor.
 
 If you want to remove the M269 styling of notebooks:
 
 1. Open file `~/.jupyter/custom/custom.css` in a text editor.
-2. Delete all lines from the comment marking the start of M269-23J styling up to the comment ending it.
+2. Delete all lines from the comment marking the start of M269-24J styling up to the comment ending it.
 3. Save the file and close the editor.
 
 ## 6 Re-installing
@@ -185,7 +185,7 @@ you can re-install the software after uninstalling it,
 e.g. to work again on your M269 notebooks. Do as follows:
 
 1. Open a PowerShell (Windows) or a terminal (Unix).
-2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-23j`.
+2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`.
 3. Run the installation script with `.\install.ps1 .` (Windows) or `./install.sh .` (Unix).
    Note the extra space and period after the command, compared to step 5 in Section 2.
    (During re-installation, ignore messages saying that a file can't be copied onto itself.)
@@ -194,7 +194,7 @@ e.g. to work again on your M269 notebooks. Do as follows:
 ## Licence
 
 The code and text in this repository are
-Copyright © 2023 by The Open University, UK.
+Copyright © 2023–2024 by The Open University, UK.
 The code is licensed under a [BSD-3-clause licence](LICENCE).
 The text is licensed under a
 [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0).

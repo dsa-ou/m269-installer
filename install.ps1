@@ -106,6 +106,7 @@ function m269-24j {
 function nb {
     Start-process -NoNewWindow jupyter-lab -ArgumentList "--custom-css"
 }
+function allowed {}
 "@
 
 # Create the config file if it doesn't exist and add the functions

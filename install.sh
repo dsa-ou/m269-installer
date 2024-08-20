@@ -133,7 +133,8 @@ echo "Software has been installed."
 
 echo "Adding shortcut commands to $shell's startup file..."
 
-M269="cd \"$FOLDER\";source $VENV/bin/activate"
+# if 23J's allowed alias exists, cancel it, otherwise don't show error message
+M269="cd \"$FOLDER\";source $VENV/bin/activate;unalias allowed 2> /dev/null"
 NB="jupyter-lab --custom-css &"
 
 if [ $shell = "fish" ]

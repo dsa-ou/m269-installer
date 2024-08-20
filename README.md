@@ -5,6 +5,8 @@ a modern operating system: Linux, macOS 11 (Big Sur) or later, Windows 10 or 11.
 You can have your M269 book and TMAs in a cloud folder, but you must
 install Python 3.11 and the M269 software on each computer you use.
 
+If you need help with the following instructions, ask in the M269 Technical Forum.
+
 ## 1 Preparation
 
 Before installing the M269 software, do the following:
@@ -65,6 +67,8 @@ you select and copy them from this page and paste them into the command line.
    - Windows: `.\install.ps1`
    - Unix: `./install.sh`
 
+   On Unix, ignore a message about pytype and networkx being incompatible.
+
 6. Close the terminal.
 
 You will have the following files in your M269 folder:
@@ -94,8 +98,8 @@ You can press Tab to complete commands and pathnames.
    listing the contents of your M269 folder.
    (You can now continue reading Section 1.3 of the book.)
 
-4. After finishing working on the notebooks, go back to the web browser tab with
-   the dashboard, click on the 'Quit' button, then close the browser tab.
+4. After finishing working on the notebooks, select 'Shut down'
+   from JupyterLab's File menu, then close the browser tab.
 
 5. Close the PowerShell (Windows) or terminal (Unix).
 
@@ -131,11 +135,11 @@ If you want to remove the M269 styling of notebooks:
 
 1. Open file `~/.jupyter/custom/custom.css` in a text editor.
 
-2. Delete all lines from the comment marking the start of M269-24J styling up to the comment ending it.
+2. Delete all lines from `/* Start of M269-24J ... */` to `/* End of M269-24J ... */`.
 
 3. Save the file and close the editor.
 
-## 6 Re-installing
+## 5 Re-installing
 
 If you haven't removed the installation files from your M269 folder,
 you can re-install the software after uninstalling it,
@@ -147,7 +151,8 @@ e.g. to work again on your M269 notebooks. Do as follows:
 
 3. Run the installation script with `.\install.ps1 .` (Windows) or `./install.sh .` (Unix).
    Note the extra space and period after the command, compared to step 5 in Section 2.
-   (During re-installation, ignore messages saying that a file can't be copied onto itself.)
+   (During re-installation, ignore messages about the usage of the `cp` command or
+   about a file being copied onto itself.)
 
 4. Close the terminal.
 

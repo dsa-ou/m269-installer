@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing software for M269 23J..."
+echo "Installing software for M269 24J..."
 
 # This script works in one of two modes:
 # - If no argument is given, this script must be in the M269 folder and
@@ -17,9 +17,8 @@ SITE=https://dsa-ou.github.io/m269-installer
 DOC="See $SITE for details."
 CSS=custom.css
 REQS=requirements.txt
-CHECK="allowed.py m269.json"
-FILES="$CSS $REQS $CHECK"
-COURSE=m269-23j
+FILES="$CSS $REQS"
+COURSE=m269-24j
 VENV=~/venvs/$COURSE
 
 # find out under which shell this script is running
@@ -47,10 +46,10 @@ else
     exit 1
 fi
 
-# check Python 3.10 is installed
-if ! command -v python3.10 &> /dev/null
+# check Python 3.11 is installed
+if ! command -v python3.11 &> /dev/null
 then
-    echo "Python 3.10 not found: please install it." ; echo $DOC
+    echo "Python 3.11 not found: please install it." ; echo $DOC
     exit 1
 fi
 
@@ -62,9 +61,9 @@ is_m269_folder () {
         msg="doesn't exist or isn't a folder"
     else
         folder=$(cd "$1"; pwd)
-        if [[ $(basename "$folder") != [Mm]269-23[Jj] ]]
+        if [[ $(basename "$folder") != [Mm]269-24[Jj] ]]
         then
-            msg="must be named m269-23j or M269-23J"
+            msg="must be named m269-24j or M269-24J"
         else
             return
         fi
@@ -121,21 +120,22 @@ else
 fi
 
 echo "Creating Python environment $VENV... (this will take a bit)"
-python3.10 -m venv --prompt $COURSE $VENV
+python3.11 -m venv --prompt $COURSE $VENV
 
 echo "Downloading and installing Python packages... (this will take long)"
 source $VENV/bin/activate                   # this script runs under bash
 pip install --upgrade pip
+# install pytype first to then upgrade networkx 3.1 to 3.3 (for Section 17.6)
+pip install pytype==2024.4.11               # install pytype only for Unix
 pip install -r $REQS
-pip install pytype==2023.4.27               # install pytype only for Unix
 deactivate
 echo "Software has been installed."
 
 echo "Adding shortcut commands to $shell's startup file..."
 
-M269="cd \"$FOLDER\";source $VENV/bin/activate"
-NB="jupyter notebook &"
-ALLOWED="python3.10 \"$FOLDER/allowed.py\" -c \"$FOLDER/m269.json\""
+# if 23J's allowed alias exists, cancel it, otherwise don't show error message
+M269="cd \"$FOLDER\";source $VENV/bin/activate;unalias allowed 2> /dev/null"
+NB="jupyter-lab --custom-css &"
 
 if [ $shell = "fish" ]
 then
@@ -148,7 +148,6 @@ if [ $shell = "csh" ] || [ $shell = "tcsh" ]
 then
     echo "alias $COURSE '$M269.csh'" >> $FILE
     echo "alias nb '$NB'" >> $FILE
-    echo "alias allowed '$ALLOWED'" >> $FILE
 else
     if [ $shell = "fish" ]
     then
@@ -157,7 +156,6 @@ else
         echo "alias $COURSE='$M269'" >> $FILE
     fi
     echo "alias nb='$NB'" >> $FILE
-    echo "alias allowed='$ALLOWED'" >> $FILE
 fi
 
 echo "All done. Go to $SITE for further instructions."

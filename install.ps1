@@ -1,4 +1,4 @@
-Write-Host "Installing software for M269 23J..."
+Write-Host "Installing software for M269 24J..."
 
 # This script works in one of two modes:
 # - If no argument is given, this script must be in the M269 folder and
@@ -13,8 +13,8 @@ Write-Host "Installing software for M269 23J..."
 
 $SITE = "https://dsa-ou.github.io/m269-installer"
 $DOC = "See $SITE for details."
-$FILES = "custom.css", "allowed.py", "m269.json", "requirements.txt"
-$COURSE = "m269-23j"
+$FILES = "custom.css", "requirements.txt"
+$COURSE = "m269-24j"
 $VENV = "$HOME\venvs\$COURSE"
 
 # check that the given path is the M269 folder
@@ -26,8 +26,8 @@ function is-m269-folder {
     }
     else {
         $folder = Convert-Path $path
-        if (-not ((Get-Item $folder).Name -match "[Mm]269-23[Jj]")) {
-            $msg="must be named m269-23j or M269-23J"
+        if (-not ((Get-Item $folder).Name -match "[Mm]269-24[Jj]")) {
+            $msg="must be named m269-24j or M269-24J"
         }
         else
         {
@@ -75,12 +75,10 @@ if ($args.Length -gt 1) {
     } else {
         Copy-Item -Path custom.css -Destination $HOME\.jupyter\custom
     }
-    Copy-Item -Path allowed.py -Destination $FOLDER -Force
-    Copy-Item -Path m269.json -Destination $FOLDER -Force
 }
 
 Write-Host "Creating Python environment $VENV... (this will take a bit)"
-py -3.10 -m venv --prompt $COURSE $VENV
+py -3.11 -m venv --prompt $COURSE $VENV
 if (-not $?) {
     Write-Host "Error: failed to create the virtual environment."
     Write-Host "Check permissions and prerequisites, then try again."
@@ -101,20 +99,14 @@ Write-Host "Adding shortcut commands to the PowerShell config file..."
 
 $CONFIG_FILE = $Profile.CurrentUserCurrentHost
 $ALIASES = @"
-function m269-23j {
+function m269-24j {
     cd "$FOLDER"
     & "$VENV\Scripts\Activate.ps1"
 }
 function nb {
-    Start-process -NoNewWindow jupyter -ArgumentList "notebook"
+    Start-process -NoNewWindow jupyter-lab -ArgumentList "--custom-css"
 }
-function allowed {
-    param(
-        [string]`$FilePath
-    )
-
-    python "$FOLDER\allowed.py" -c "$FOLDER\m269.json" `$FilePath
-}
+function allowed {}
 "@
 
 # Create the config file if it doesn't exist and add the functions

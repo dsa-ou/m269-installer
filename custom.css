@@ -4,11 +4,11 @@
 By default, numbered lists use letters and Roman digits in levels 2, 3 and 4.
 Change to decimal digits to match numbering in PDF and HTML book versions.
 */
-.rendered_html ol ol {list-style:decimal;}
-.rendered_html ol ol ol {list-style:decimal;}
-.rendered_html ol ol ol ol {list-style:decimal;}
+ol ol {list-style:decimal !important;}
+ol ol ol {list-style:decimal !important;}
+ol ol ol ol {list-style:decimal !important;}
 
-/* By default, horizontal lines are very light grey. Change to black. */
-.rendered_html hr {border-top: 1px solid black;}
+/* By default, horizontal lines are light grey. Change to black. */
+hr {border-top: 1px solid black;}
 
 /* End of M269-24J notebook styling. */

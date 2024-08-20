@@ -104,7 +104,7 @@ function m269-24j {
     & "$VENV\Scripts\Activate.ps1"
 }
 function nb {
-    Start-process -NoNewWindow jupyter -ArgumentList "notebook"
+    Start-process -NoNewWindow jupyter-lab -ArgumentList "--custom-css"
 }
 "@
 

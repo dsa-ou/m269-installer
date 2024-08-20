@@ -134,7 +134,7 @@ echo "Software has been installed."
 echo "Adding shortcut commands to $shell's startup file..."
 
 M269="cd \"$FOLDER\";source $VENV/bin/activate"
-NB="jupyter notebook &"
+NB="jupyter-lab --custom-css &"
 
 if [ $shell = "fish" ]
 then

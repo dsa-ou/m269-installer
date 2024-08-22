@@ -95,7 +95,6 @@ just do the first 3 steps and return to the book to learn how to use Jupyter.
 3. Enter `nb` to start working with notebooks.
    After a little while, a web browser opens, with the Jupyter dashboard
    listing the contents of your M269 folder.
-   If there’s a message about migrating to Notebook 7, click "don’t show anymore".
    (You can now continue reading Section 1.3 of the book.)
 
 4. After finishing working on the notebooks, go back to the web browser tab with

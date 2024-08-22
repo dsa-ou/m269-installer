@@ -5,84 +5,83 @@ a modern operating system: Linux, macOS 11 (Big Sur) or later, Windows 10 or 11.
 You can have your M269 book and TMAs in a cloud folder, but you must
 install Python 3.11 and the M269 software on each computer you use.
 
+You must open and close PowerShells and terminals as instructed below
+for the software to be correctly installed and used.
+Do _not_ use already opened PowerShells and terminals.
+
+These instructions assume that you already have created your M269 folder and
+have put the M269 book there, as instructed in the Resources tab of the M269 website.
+
 If you need help with the following instructions, ask in the M269 Technical Forum.
 
 ## 1 Preparation
 
 Before installing the M269 software, do the following:
 
-1. Create your M269 folder, which is where you put the M269 book and TMAs.
-   The folder must be named `m269-24j` or `M269-24J` and
-   can be anywhere on your disk, including a cloud drive.
-   (You probably already did this step before you downloaded the M269 book.)
-   <!-- The following avoids unreadable notebook error. -->
-   If you're using Windows 10 and your M269 folder is on OneDrive,
-   then right-click your M269 folder and choose 'always keep on this device'.
-
-2. Check if you have Python 3.11:
-   - Windows: open a PowerShell, enter `py -0` and see if 3.11 is listed
-   - Unix: open a terminal and enter `python3.11 -V`
+1. Check if you have Python 3.11:
+   - **Windows**: open a PowerShell, enter `py -0` and see if 3.11 is listed
+   - **Unix**: open a terminal and enter `python3.11 -V`
 
    If 3.11 isn't listed or you get an error message like `command not found`,
    then go to the next step, otherwise go directly to step 4 (macOS) or 5 (Windows and Linux).
 
-3. Install Python 3.11, even if you have a newer version.
+2. Install Python 3.11, even if you have a newer version.
    Do *not* uninstall any Python version you have.
-   - Windows: Follow [these instructions](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808)
+   - **Windows**: Follow [these instructions](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808)
      to check if you have 32-bit or 64-bit Windows. Then download and run the
      [32-bit installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9.exe) or the
      [64-bit installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe).
      After installing, disable the pathname limit if you're given that option.
-   - macOS: download and run the [installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9-macos11.pkg)
-   - Linux: enter `sudo apt install python3.11` or similar (search online for instructions for your Linux distribution).
+   - **macOS**: download and run the [installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9-macos11.pkg)
+   - **Linux**: enter `sudo apt install python3.11` or similar (search online for instructions for your Linux distribution).
      If you're using a Debian-based distribution like Ubuntu, you must additionally
      enter `sudo apt install python3.11-venv` or similar.
 
-4. macOS only: open a terminal, enter `xcode-select --install` and follow the instructions.
+3. **macOS**: open a terminal, enter `xcode-select --install` and follow the instructions.
    If you get a message that the command line tools are already installed,
    then this step is completed.
 
-5. Close any PowerShell (Windows) or terminal (Unix) you have opened.
+4. Close any PowerShell (Windows) or terminal (Unix) you have opened,
+   and proceed to the next section.
 
 ## 2 Installation
 
 To avoid errors, we suggest that instead of typing the commands,
 you select and copy them from this page and paste them into the command line.
 
-1. Open a PowerShell (Windows) or a terminal (Unix).
+1. Open a new PowerShell (Windows) or a new terminal (Unix).
 
 2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`.
    (In PowerShell and Unix, `~` is a shorthand for your home folder.)
 
 3. Download the installation script:
-   - Windows: `Invoke-WebRequest -Uri https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 -OutFile install.ps1`
-   - Unix: `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
+   - **Windows**: `Invoke-WebRequest -Uri https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 -OutFile install.ps1`
+   - **Unix**: `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
 
 4. Allow the installation script to run:
-   - Windows: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`
+   - **Windows**: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`
               and then select the `Y` (yes) option if you're given a choice
-   - Unix: `chmod +x install.sh`
+   - **Unix**: `chmod +x install.sh`
 
 5. Run the installation script:
-   - Windows: `.\install.ps1`
-   - Unix: `./install.sh`
+   - **Windows**: `.\install.ps1`
+   - **Unix**: `./install.sh` and ignore a message about pytype and networkx being incompatible
 
-   On Unix, ignore a message about pytype and networkx being incompatible.
-
-6. Close the terminal.
+6. Close the PowerShell or terminal you opened in step 1.
 
 You will have the following files in your M269 folder:
 - the installation script in `install.ps1` (Windows) or `install.sh` (Unix)
-- the list of M269 software in `requirements.txt`
+- the list of M269 software common to Windows and Unix in `requirements.txt`
 - the style changes to Jupyter notebooks in `custom.css`
 
 We recommend you do _not_ remove these files, so that you can re-install
-the software, if needed.
+the software, if needed. Now proceed to the next section.
 
 ## 3 Usage
 
-To work on the M269 notebooks, follow these steps.
-You can press Tab to complete commands and pathnames.
+Every time you want to work on the M269 notebooks, you need to follow the next 5 steps.
+However, the first time you are using Jupyter, after installing the software,
+just do the first 3 steps and return to the book to learn how to use Jupyter.
 
 1. Open a new PowerShell (Windows) or a new terminal (Unix).
 
@@ -94,14 +93,15 @@ You can press Tab to complete commands and pathnames.
    as that may change the M269 software installation and break it.
 
 3. Enter `nb` to start working with notebooks.
-   After a little while, a web browser opens, with JupyterLab,
+   After a little while, a web browser opens, with the Jupyter dashboard
    listing the contents of your M269 folder.
+   If there’s a message about migrating to Notebook 7, click "don’t show anymore".
    (You can now continue reading Section 1.3 of the book.)
 
-4. After finishing working on the notebooks, select 'Shut down'
-   from JupyterLab's File menu, then close the browser tab.
+4. After finishing working on the notebooks, go back to the web browser tab with
+   the Jupyter dashboard, click on the 'Quit' button, then close the browser tab.
 
-5. Close the PowerShell (Windows) or terminal (Unix).
+5. Close the PowerShell or terminal you opened in step 1.
 
 **Note for macOS users**:
 If steps 2 and 3 (the `m269-24j` and `nb` commands) are not working,
@@ -118,8 +118,8 @@ delete folder `~/venvs/m269-24j`.
 If you also want to remove the `m269-24j` and `nb` commands:
 
 1. Find out in which file they are defined.
-   - Windows: open a PowerShell and enter `$Profile.CurrentUserCurrentHost` to obtain the file name
-   - Unix: open a terminal and enter `echo $0` to obtain the shell you're using.
+   - **Windows**: open a PowerShell and enter `$Profile.CurrentUserCurrentHost` to obtain the file name
+   - **Unix**: open a terminal and enter `echo $0` to obtain the shell you're using.
      If it's fish, then the commands are in file `~/.config/fish/config.fish`,
      otherwise they're in file `~/.shellrc`, where `shell` is the name of your shell.
      For example, if you're using bash, then it's file `~/.bashrc`.
@@ -145,16 +145,18 @@ If you haven't removed the installation files from your M269 folder,
 you can re-install the software after uninstalling it,
 e.g. to work again on your M269 notebooks. Do as follows:
 
-1. Open a PowerShell (Windows) or a terminal (Unix).
+1. Open a new PowerShell (Windows) or a new terminal (Unix).
 
 2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`.
 
-3. Run the installation script with `.\install.ps1 .` (Windows) or `./install.sh .` (Unix).
-   Note the extra space and period after the command, compared to step 5 in Section 2.
-   (During re-installation, ignore messages about the usage of the `cp` command or
-   about a file being copied onto itself.)
+3. Run the installation script as follows, ignoring messages about the `cp` command or
+   about a file being copied onto itself:
+   - **Windows**: `.\install.ps1 .`
+   - **Unix**: `./install.sh .`
 
-4. Close the terminal.
+   **Note**: there's an extra space and period after the command, compared to step 5 in Section 2.
+
+4. Close the PowerShell or terminal you opened in step 1.
 
 ## Licence
 

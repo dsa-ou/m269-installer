@@ -13,7 +13,7 @@ Write-Host "Installing software for M269 24J..."
 
 $SITE = "https://dsa-ou.github.io/m269-installer"
 $DOC = "See $SITE for details."
-$FILES = "custom.css", "requirements.txt"
+$FILES = "custom.css", "requirements.txt", "start.ps1"
 $COURSE = "m269-24j"
 $VENV = "$HOME\venvs\$COURSE"
 
@@ -108,6 +108,7 @@ function nb {
 }
 function allowed {}
 "@
+# empty function 'disables' the function from 23J
 
 # Create the config file if it doesn't exist and add the functions
 if (-not (Test-Path -Path $CONFIG_FILE)) {

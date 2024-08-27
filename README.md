@@ -71,6 +71,7 @@ you select and copy them from this page and paste them into the command line.
 
 You will have the following files in your M269 folder:
 - the installation script in `install.ps1` (Windows) or `install.sh` (Unix)
+- script `start.ps1` (Windows only)
 - the list of M269 software common to Windows and Unix in `requirements.txt`
 - the style changes to Jupyter notebooks in `custom.css`
 
@@ -78,6 +79,38 @@ We recommend you do _not_ remove these files, so that you can re-install
 the software, if needed. Now proceed to the next section.
 
 ## 3 Usage
+
+On Windows, there are two ways of using the M269 notebooks, either from a terminal
+or by creating a desktop shortcut. On Unix, use a terminal.
+
+### 3.1 Desktop shortcut (Windows only)
+
+The `start.ps1` script and these instructions are originally by M269 tutor Bob Moore.
+
+1. Right click on the desktop. Select 'new shortcut'. Type `powershell`.
+   Hit 'Next' and then 'Finish': 'powershell' gets automatically expanded to the full name of the program.
+
+2. Right click on the new desktop icon and select 'Properties' to update the shortcut:
+
+   1. Modify the start-up folder to be your M269 folder.
+   2. Append ` -file start.ps1` to the target field. It should now read:
+      `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file start.ps1`.
+   3. Optionally you can update the icon for the shortcut. To get a Jupyter icon
+      instead of a PowerShell icon you can use
+      `%USERPROFILE%\venvs\m269-23j\Lib\site-packages\nbclassic\static\base\images\favicon.ico`.
+
+You should now be able to double click on the desktop shortcut to start Jupyter
+in your M269 folder. First, a PowerShell window opens where Jupyter writes its log messages,
+then your browser should open the Jupyter dashboard.
+
+You can now continue reading Section 1.3 of the book to learn how to use Jupyter.
+
+**Note for tutors:** You can create multiple shortcuts, each opening Jupyter in
+a different start folder, e.g. the eTMA marking folder. Follow the same steps
+as above for each shortcut, but in step 2.2, append also the intended start folder:
+` -file start.ps1 path/to/folder`. If the path includes spaces, you must enclose it in quotes.
+
+### 3.2 Terminal (Windows and Unix)
 
 Every time you want to work on the M269 notebooks, you need to follow the next 5 steps.
 However, the first time you are using Jupyter, after installing the software,
@@ -113,7 +146,7 @@ Then close your terminal, open a new one, and try again steps 2 and 3.
 ## 4 Uninstalling
 
 At the end of the M269 24J presentation, if you wish to remove the M269 software,
-delete folder `~/venvs/m269-24j`.
+delete folder `~/venvs/m269-24j` and any desktop shortcuts you created on Windows.
 If you also want to remove the `m269-24j` and `nb` commands:
 
 1. Find out in which file they are defined.

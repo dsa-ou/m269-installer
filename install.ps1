@@ -118,5 +118,23 @@ if (-not (Test-Path -Path $CONFIG_FILE)) {
 }
 Add-Content -Path $CONFIG_FILE -Value $ALIASES -NoNewline
 
+Write-Host "Adding desktop shortcut..."
+
+$Desktop = [System.Environment]::GetFolderPath('Desktop')
+$ShortcutPath = Join-Path $Desktop "M269-start.lnk"
+$TargetPath = "$FOLDER\start.ps1"
+
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutPath)
+$Shortcut.TargetPath = "powershell.exe"
+$Shortcut.Arguments = "-ExecutionPolicy Bypass -File `"$TargetPath`""
+$Shortcut.Description = "Start the M269 software"
+
+# set the icon for the shortcut (using the powershell icon)
+$PowerShellExe = (Get-Command powershell.exe).Source
+$Shortcut.IconLocation = "$PowerShellExe, 0"
+
+$Shortcut.Save()
+
 Write-Host "Software has been installed."
 Write-Host "All done. Go to $SITE for further instructions."

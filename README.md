@@ -85,16 +85,14 @@ or by double clicking a desktop shortcut. On Unix, use a terminal.
 
 ### 3.1 Desktop shortcut (Windows only)
 
-The installation script should create a shortcut on your desktop named M269-start, you can double click this shortcut to start Jupyter
-in your M269 folder. First, a PowerShell window opens where Jupyter writes its log messages,
-then your browser should open the Jupyter dashboard, listing the contents of your M269 folder.
+The installation process creates a shortcut on your desktop named `M269-start`.
+If you double click this shortcut, a PowerShell window opens where Jupyter writes its log messages,
+then your browser opens the Jupyter dashboard, listing the contents of your M269 folder.
 If there’s a message about migrating to Notebook 7, click "don’t show anymore".
 You can now continue reading Section 1.3 of the book to learn how to use Jupyter.
 
 **Note for tutors:** You can create additional shortcuts, each opening Jupyter in
-a different start folder, e.g. the eTMA marking folder by following the instructions below. 
-
-The `start.ps1` script and these instructions are originally by M269 tutor Bob Moore.
+a different start folder, e.g. the eTMA marking folder, by following these instructions:
 
 1. Right click on the desktop. Select 'new shortcut'. Type `powershell`.
    Hit 'Next' and then 'Finish': 'powershell' gets automatically expanded to the full name of the program.
@@ -102,11 +100,15 @@ The `start.ps1` script and these instructions are originally by M269 tutor Bob M
 2. Right click on the new desktop icon and select 'Properties' to update the shortcut:
 
    1. Modify the start-up folder to be your M269 folder.
-   2. Append `-file start.ps1 path/to/folder` to the target field (if the path includes spaces, you must enclose it in quotes). It should now read:
+   2. Append `-file start.ps1 path/to/folder` to the target field
+      (if the path includes spaces, you must enclose it in quotes). It should now read:
       `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file start.ps1 path/to/folder`.
    3. Optionally you can update the icon for the shortcut. To get a Jupyter icon
       instead of a PowerShell icon you can use
-      `%USERPROFILE%\venvs\m269-23j\Lib\site-packages\nbclassic\static\base\images\favicon.ico`.
+      `%USERPROFILE%\venvs\m269-24j\Lib\site-packages\nbclassic\static\base\images\favicon.ico`.
+
+We thank M269 tutor Bob Moore for creating the original version of `start.ps1`
+and of these shortcut instructions.
 
 ### 3.2 Terminal (Windows and Unix)
 

@@ -5,7 +5,7 @@ a modern operating system: Linux, macOS 11 (Big Sur) or later, Windows 10 or 11.
 You can have your M269 book and TMAs in a cloud folder, but you must
 install Python 3.11 and the M269 software on each computer you use.
 
-You must open and close PowerShells and terminals as instructed below
+**Important**: You must open and close PowerShells and terminals as instructed below
 for the software to be correctly installed and used.
 Do _not_ use already opened PowerShells and terminals.
 
@@ -93,7 +93,7 @@ The `start.ps1` script and these instructions are originally by M269 tutor Bob M
 2. Right click on the new desktop icon and select 'Properties' to update the shortcut:
 
    1. Modify the start-up folder to be your M269 folder.
-   2. Append ` -file start.ps1` to the target field. It should now read:
+   2. Append `-file start.ps1` to the target field. It should now read:
       `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -file start.ps1`.
    3. Optionally you can update the icon for the shortcut. To get a Jupyter icon
       instead of a PowerShell icon you can use
@@ -101,14 +101,14 @@ The `start.ps1` script and these instructions are originally by M269 tutor Bob M
 
 You should now be able to double click on the desktop shortcut to start Jupyter
 in your M269 folder. First, a PowerShell window opens where Jupyter writes its log messages,
-then your browser should open the Jupyter dashboard.
-
+then your browser should open the Jupyter dashboard, listing the contents of your M269 folder.
+If there’s a message about migrating to Notebook 7, click "don’t show anymore".
 You can now continue reading Section 1.3 of the book to learn how to use Jupyter.
 
 **Note for tutors:** You can create multiple shortcuts, each opening Jupyter in
 a different start folder, e.g. the eTMA marking folder. Follow the same steps
 as above for each shortcut, but in step 2.2, append also the intended start folder:
-` -file start.ps1 path/to/folder`. If the path includes spaces, you must enclose it in quotes.
+`-file start.ps1 path/to/folder`. If the path includes spaces, you must enclose it in quotes.
 
 ### 3.2 Terminal (Windows and Unix)
 
@@ -128,12 +128,24 @@ just do the first 3 steps and return to the book to learn how to use Jupyter.
 3. Enter `nb` to start working with notebooks.
    After a little while, a web browser opens, with the Jupyter dashboard
    listing the contents of your M269 folder.
+   If there’s a message about migrating to Notebook 7, click "don’t show anymore".
    (You can now continue reading Section 1.3 of the book.)
+
+   **Note**: if you skipped step 2 by mistake,
+   then entering `nb` will still activate the M269 software but
+   Jupyter will start in your current folder rather than the M269 folder,
+   and you won't see the M269 materials in the Jupyter dashboard.
+   In that case, do step 4 to close the dashboard and then go back to step 2.
 
 4. After finishing working on the notebooks, go back to the web browser tab with
    the Jupyter dashboard, click on the 'Quit' button, then close the browser tab.
 
 5. Close the PowerShell or terminal you opened in step 1.
+
+**Note to tutors:** To mark TMA notebooks, follow the steps above,
+but in step 2, instead of entering `m269-24j`,
+change to the eTMA marking folder with the `cd` command, and then
+proceed with step 3 to start working in that folder.
 
 **Note for macOS users**:
 If steps 2 and 3 (the `m269-24j` and `nb` commands) are not working,
@@ -181,12 +193,9 @@ e.g. to work again on your M269 notebooks. Do as follows:
 
 2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`.
 
-3. Run the installation script as follows, ignoring messages about the `cp` command or
-   about a file being copied onto itself:
+3. Run the installation script with an extra space and period after the command, compared to step 5 in Section 2:
    - **Windows**: `.\install.ps1 .`
    - **Unix**: `./install.sh .`
-
-   **Note**: there's an extra space and period after the command, compared to step 5 in Section 2.
 
 4. Close the PowerShell or terminal you opened in step 1.
 

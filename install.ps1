@@ -104,6 +104,7 @@ function m269-24j {
     & "$VENV\Scripts\Activate.ps1"
 }
 function nb {
+    & "$VENV\Scripts\Activate.ps1"
     Start-process -NoNewWindow jupyter -ArgumentList "notebook"
 }
 function allowed {}

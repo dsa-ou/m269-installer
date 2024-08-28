@@ -116,7 +116,6 @@ else
     else
         cp -a $CSS ~/.jupyter/custom
     fi
-    cp -a $CHECK "$FOLDER"
 fi
 
 echo "Creating Python environment $VENV... (this will take a bit)"
@@ -133,9 +132,21 @@ echo "Software has been installed."
 
 echo "Adding shortcut commands to $shell's startup file..."
 
+if [ $shell = "csh" ] || [ $shell = "tcsh" ]
+then
+    EXT=".csh"
+else
+    if [ $shell = "fish" ]
+    then
+        EXT=".fish"
+    else
+        EXT=""
+    fi
+fi
 # if 23J's allowed alias exists, cancel it, otherwise don't show error message
-M269="cd \"$FOLDER\";source $VENV/bin/activate;unalias allowed 2> /dev/null"
-NB="jupyter notebook &"
+ACTIVATE="source $VENV/bin/activate$EXT;unalias allowed 2> /dev/null"
+M269="cd \"$FOLDER\";$ACTIVATE"
+NB="$ACTIVATE;jupyter notebook &"
 
 if [ $shell = "fish" ]
 then
@@ -146,15 +157,10 @@ fi
 
 if [ $shell = "csh" ] || [ $shell = "tcsh" ]
 then
-    echo "alias $COURSE '$M269.csh'" >> $FILE
+    echo "alias $COURSE '$M269'" >> $FILE
     echo "alias nb '$NB'" >> $FILE
 else
-    if [ $shell = "fish" ]
-    then
-        echo "alias $COURSE='$M269.fish'" >> $FILE
-    else
-        echo "alias $COURSE='$M269'" >> $FILE
-    fi
+    echo "alias $COURSE='$M269'" >> $FILE
     echo "alias nb='$NB'" >> $FILE
 fi
 

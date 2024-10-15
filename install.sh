@@ -155,6 +155,8 @@ else
     FILE=~/.${shell}rc
 fi
 
+echo >> $FILE
+
 if [ $shell = "csh" ] || [ $shell = "tcsh" ]
 then
     echo "alias $COURSE '$M269'" >> $FILE

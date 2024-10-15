@@ -155,6 +155,7 @@ else
     FILE=~/.${shell}rc
 fi
 
+# Add a newline so that the alias doesn't concatenate with any previously existing text
 echo >> $FILE
 
 if [ $shell = "csh" ] || [ $shell = "tcsh" ]

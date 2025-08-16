@@ -5,9 +5,9 @@
 
 1. Open a terminal.
 
-2. Enter `python3.11 -V` to check if you have Python 3.11.
+2. Enter `python3.12 -V` to check if you have Python 3.12.
    If you get an error message like 'command not found':
-   - Download and run the Python 3.11 [installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9-macos11.pkg).
+   - Download and run the Python 3.12 [installer](https://www.python.org/ftp/python/3.12.10/python-3.12.10-macos11.pkg).
 
 3. If you installed Python in step 2, close the terminal and open a new one.
 

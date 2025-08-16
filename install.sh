@@ -46,10 +46,10 @@ else
     exit 1
 fi
 
-# check Python 3.11 is installed
-if ! command -v python3.11 &> /dev/null
+# check Python 3.12 is installed
+if ! command -v python3.12 &> /dev/null
 then
-    echo "Python 3.11 not found: please install it." ; echo $DOC
+    echo "Python 3.12 not found: please install it." ; echo $DOC
     exit 1
 fi
 
@@ -119,7 +119,7 @@ else
 fi
 
 echo "Creating Python environment $VENV... (this will take a bit)"
-python3.11 -m venv --prompt $COURSE $VENV
+python3.12 -m venv --prompt $COURSE $VENV
 
 echo "Downloading and installing Python packages... (this will take long)"
 source $VENV/bin/activate                   # this script runs under bash

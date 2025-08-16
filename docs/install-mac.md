@@ -36,4 +36,4 @@ You will have these files in your M269 folder:
 > **Tip:** Do _not_ remove these files, so that
 > you can re-install the software, if needed.
 
-Now proceed to the instructions on how to [use the software](usage.md).
+⇧ [Home](README.md)  | [Using](use.md) ⇨

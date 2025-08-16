@@ -26,3 +26,5 @@ If you also want to remove the M269 styling of notebooks:
 2. Delete all lines from `/* Start of M269-24J ... */` to `/* End of M269-24J ... */`.
 
 3. Save the file and close the editor.
+
+⇦ [Using](use.md) | ⇧ [Home](README.md) | [Re-installing](reinstall.md) ⇨

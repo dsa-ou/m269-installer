@@ -39,3 +39,5 @@ You will have these files in your M269 folder:
 > you can re-install the software, if needed.
 
 You will also have file `start.ps1`, which is needed to use the software.
+
+⇧ [Home](README.md)  | [Using](use.md) ⇨

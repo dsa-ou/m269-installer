@@ -12,3 +12,5 @@ you can re-install the software, even after [uninstalling](uninstall.md) it.
    run the installation script. Note the space and period after the command.
 
 4. Close the PowerShell or terminal.
+
+⇦ [Uninstalling](use.md) | ⇧ [Home](README.md)

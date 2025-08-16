@@ -40,3 +40,5 @@ and you are using `bash`, enter in the terminal
  echo 'if [ -f ~/.bashrc ]; then source ~/.bashrc; fi' >> ~/.bash_profile
  ```
 Then close the terminal, and start again from step 1.
+
+⇧ [Home](README.md) | [Uninstalling](uninstall.md) ⇨

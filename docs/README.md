@@ -28,13 +28,14 @@ You can now continue reading Section 1.3 of the book to learn how to use Jupyter
 On **Linux** and **macOS**, you must [use the software from the terminal](use.md).
 This option is also available to Windows users who prefer the command line.
 
-If you're an M269, see how to [mark notebooks](mark.md).
+If you're an M269 tutor, see how to [mark notebooks](mark.md).
 
 ## Licence
 
 The code and text in this repository are
 Copyright © 2023–2025 by The Open University, UK.
-The code is licensed under a [BSD-3-clause licence](LICENCE).
+The code is licensed under a
+[BSD-3-clause licence](https://github.com/dsa-ou/m269-installer/blob/main/LICENCE).
 The text is licensed under a
 [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0).
 

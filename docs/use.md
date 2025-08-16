@@ -4,7 +4,7 @@ Every time you want to work on the M269 notebooks, you need to follow the next 5
 However, the first time you are using Jupyter, after installing the software,
 just do the first 3 steps and return to the book to learn how to use Jupyter.
 
-1. Open a new PowerShell (Windows) or a new terminal (Linux and macOS).
+1. Open a new PowerShell (Windows) or terminal (Linux and macOS).
    Do _not_ use an already opened PowerShell or terminal.
 
 2. Enter `m269-24j` to go to your M269 folder and activate the M269 software.

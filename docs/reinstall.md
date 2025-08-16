@@ -1,7 +1,7 @@
 ## Re-installing
 
 If you haven't removed the installation files from your M269 folder,
-you can re-install the software, even after [uninstalling](uninstall.md) it.
+you can re-install the software, even after uninstalling it.
 
 1. Open a new PowerShell (Windows) or terminal (Linux and macOS).
    Do _not_ use an already opened PowerShell or terminal.

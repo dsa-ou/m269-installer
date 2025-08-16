@@ -17,12 +17,14 @@ have put the M269 book there, as instructed in the Resources tab of the M269 web
 
 If you need help with the following instructions, ask in the M269 Technical Forum.
 
-## 1 Installation
+## 1 Installing and removing the software
 
 Make sure you have about 1 Gb disk space and a recent version of your operating system.
 
-Then follow the instructions for [Linux](install-linux.md),
-[macOS](install-mac.md) or [Windows](install-windows.md).
+To install the software for the first time, follow the instructions for
+[Linux](install-linux.md), [macOS](install-mac.md) or [Windows](install-windows.md).
+
+To remove the software on any operating system, follow [these instructions](uninstall.md).
 
 ## 3 Usage
 
@@ -101,33 +103,6 @@ and you are using `bash`, enter in the terminal
  ```
 Then close your terminal, open a new one, and try again steps 2 and 3.
 
-## 4 Uninstalling
-
-At the end of the M269 24J presentation, if you wish to remove the M269 software,
-delete folder `~/venvs/m269-24j` and any desktop shortcuts you created on Windows.
-If you also want to remove the `m269-24j` and `nb` commands:
-
-1. Find out in which file they are defined.
-   - **Windows**: open a PowerShell and enter `$Profile.CurrentUserCurrentHost` to obtain the file name
-   - **Unix**: open a terminal and enter `echo $0` to obtain the shell you're using.
-     If it's fish, then the commands are in file `~/.config/fish/config.fish`,
-     otherwise they're in file `~/.shellrc`, where `shell` is the name of your shell.
-     For example, if you're using bash, then it's file `~/.bashrc`.
-
-2. Open the file in a text editor.
-
-3. Search for the lines that define the `m269-24j` and `nb`
-   functions (Windows) or aliases (Unix). Delete those lines.
-
-4. Save the file and close the text editor.
-
-If you want to remove the M269 styling of notebooks:
-
-1. Open file `~/.jupyter/custom/custom.css` in a text editor.
-
-2. Delete all lines from `/* Start of M269-24J ... */` to `/* End of M269-24J ... */`.
-
-3. Save the file and close the editor.
 
 ## 5 Re-installing
 

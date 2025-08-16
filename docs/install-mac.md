@@ -1,4 +1,4 @@
-# Installation in macOS
+# Installing on macOS
 
 > **Tip:** To avoid errors, instead of typing the commands below,
 > select and copy them from this page and paste them into the terminal.

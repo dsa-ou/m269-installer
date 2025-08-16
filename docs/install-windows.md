@@ -38,5 +38,4 @@ You will have these files in your M269 folder:
 > **Tip:** Do _not_ remove these files, so that
 > you can re-install the software, if needed.
 
-You will also have file `start.ps1`, which makes it easier to use the software.
-Now proceed to the instructions on how to [use the software](usage.md).
+You will also have file `start.ps1`, which is needed to use the software.

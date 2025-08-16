@@ -1,35 +1,27 @@
-**Note**: In these instructions, Unix refers to Linux or macOS.
-
 You can have your M269 book and TMAs in a cloud folder, but you must
 install Python 3.11 and the M269 software on each computer you use.
 
-You can keep your existing Python and Jupyter installations, e.g. Anaconda,
-because the M269 software will be installed separately and will be activated
-only when needed.
+If you need help with these instructions, ask in the M269 Technical Forum.
 
-**Important**: You must open and close PowerShells and terminals as instructed below
-for the software to be correctly installed and used.
-Do _not_ use already opened PowerShells and terminals.
-In addition, you must not skip any step.
+## Installing, removing and re-installing the software
 
-These instructions assume that you already have created your M269 folder and
-have put the M269 book there, as instructed in the Resources tab of the M269 website.
+For each desktop and laptop you want to use for M269:
 
-If you need help with the following instructions, ask in the M269 Technical Forum.
+- You can keep any existing Python and Jupyter installations, e.g. Anaconda,
+  because the M269 software will be installed separately and will be activated
+  only when needed.
+- Make sure you have about 1 Gb disk space and a recent version of your operating system.
+- Make sure you have created your M269 folder and have put the M269 book there,
+  as instructed in the Resources tab of the M269 website.
+- To **install** the software for the first time, follow the instructions for
+  [Linux](install-linux.md), [macOS](install-mac.md) or [Windows](install-windows.md).
+- To **remove** the software on any operating system, follow [these instructions](uninstall.md).
+- To **re-install** the software on any operating system, follow [these instructions](reinstall.md).
 
-## 1 Installing and removing the software
-
-Make sure you have about 1 Gb disk space and a recent version of your operating system.
-
-To install the software for the first time, follow the instructions for
-[Linux](install-linux.md), [macOS](install-mac.md) or [Windows](install-windows.md).
-
-To remove the software on any operating system, follow [these instructions](uninstall.md).
-
-## 3 Usage
+## Using the software
 
 On Windows, there are two ways of using the M269 notebooks, either from a terminal
-or by double clicking a desktop shortcut. On Unix, use a terminal.
+or by double clicking a desktop shortcut. On Linux and macOS, use a terminal.
 
 ### 3.1 Desktop shortcut (Windows only)
 
@@ -58,13 +50,14 @@ a different start folder, e.g. the eTMA marking folder, by following these instr
 We thank M269 tutor Bob Moore for creating the original version of `start.ps1`
 and of these shortcut instructions.
 
-### 3.2 Terminal (Windows and Unix)
+### 3.2 Terminal
 
 Every time you want to work on the M269 notebooks, you need to follow the next 5 steps.
 However, the first time you are using Jupyter, after installing the software,
 just do the first 3 steps and return to the book to learn how to use Jupyter.
 
-1. Open a new PowerShell (Windows) or a new terminal (Unix).
+1. Open a new PowerShell (Windows) or a new terminal (Linux and macOS).
+   Do _not_ use an already opened PowerShell or terminal.
 
 2. Enter `m269-24j` to go to your M269 folder and activate the M269 software.
    The command line prompt becomes `(m269-24j) ...` to remind you that
@@ -102,23 +95,6 @@ and you are using `bash`, enter in the terminal
  echo 'if [ -f ~/.bashrc ]; then source ~/.bashrc; fi' >> ~/.bash_profile
  ```
 Then close your terminal, open a new one, and try again steps 2 and 3.
-
-
-## 5 Re-installing
-
-If you haven't removed the installation files from your M269 folder,
-you can re-install the software after uninstalling it,
-e.g. to work again on your M269 notebooks. Do as follows:
-
-1. Open a new PowerShell (Windows) or a new terminal (Unix).
-
-2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`.
-
-3. Run the installation script with an extra space and period after the command, compared to step 5 in Section 2:
-   - **Windows**: `.\install.ps1 .`
-   - **Unix**: `./install.sh .`
-
-4. Close the PowerShell or terminal you opened in step 1.
 
 ## Licence
 

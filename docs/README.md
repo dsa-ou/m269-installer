@@ -21,7 +21,7 @@ If you need help with the following instructions, ask in the M269 Technical Foru
 
 Make sure you have about 1 Gb disk space and a recent version of your operating system.
 
-Then follow the instructions for [Linux](intsall-linux.md),
+Then follow the instructions for [Linux](install-linux.md),
 [macOS](install-mac.md) or [Windows](install-windows.md).
 
 ## 3 Usage

@@ -1,0 +1,42 @@
+These instructions explain how to install the software needed
+for working with the M269 Jupyter notebooks.
+If you need help, ask in the M269 Technical Forum.
+
+# Installing, removing and re-installing the software
+
+For each desktop and laptop you want to use for M269:
+
+- You can keep any existing Python and Jupyter installations,
+  e.g. Anaconda or from a previous M269 presentation, because
+  the M269 software will be installed separately and will be activated only when needed.
+- Make sure you have about 1 Gb disk space and a recent version of your operating system.
+- Make sure you have created your M269 folder and have put the M269 book there,
+  as instructed in the Resources tab of the M269 website.
+- To **install** the software for the first time, follow the instructions for
+  [Linux](install-linux.md), [macOS](install-mac.md) or [Windows](install-windows.md).
+- To **remove** the software on any operating system, follow [these instructions](uninstall.md).
+- To **re-install** the software on any operating system, follow [these instructions](reinstall.md).
+
+## Using the software
+
+On **Windows**, the installation creates a desktop shortcut named `M269-start`.
+When you double click this shortcut, a PowerShell window opens where Jupyter writes its log messages.
+Then your browser opens the Jupyter dashboard, listing the contents of your M269 folder.
+If there’s a message about migrating to Notebook 7, click "don’t show anymore".
+You can now continue reading Section 1.3 of the book to learn how to use Jupyter.
+
+On **Linux** and **macOS**, you must [use the software from the terminal](use.md).
+This option is also available to Windows users who prefer the command line.
+
+If you're an M269 tutor, see how to [mark notebooks](mark.md).
+
+## Licence
+
+The code and text in this repository are
+Copyright © 2023–2025 by The Open University, UK.
+The code is licensed under a
+[BSD-3-clause licence](https://github.com/dsa-ou/m269-installer/blob/main/LICENCE).
+The text is licensed under a
+[Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0).
+
+The installation scripts were written with the help of GitHub Copilot.

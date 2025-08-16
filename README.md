@@ -5,9 +5,14 @@ a modern operating system: Linux, macOS 11 (Big Sur) or later, Windows 10 or 11.
 You can have your M269 book and TMAs in a cloud folder, but you must
 install Python 3.11 and the M269 software on each computer you use.
 
+You can keep your existing Python and Jupyter installations, e.g. Anaconda,
+because the M269 software will be installed separately and will be activated
+only when needed.
+
 **Important**: You must open and close PowerShells and terminals as instructed below
 for the software to be correctly installed and used.
 Do _not_ use already opened PowerShells and terminals.
+In addition, you must not skip any step.
 
 These instructions assume that you already have created your M269 folder and
 have put the M269 book there, as instructed in the Resources tab of the M269 website.
@@ -202,7 +207,7 @@ e.g. to work again on your M269 notebooks. Do as follows:
 ## Licence
 
 The code and text in this repository are
-Copyright © 2023–2024 by The Open University, UK.
+Copyright © 2023–2025 by The Open University, UK.
 The code is licensed under a [BSD-3-clause licence](LICENCE).
 The text is licensed under a
 [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0).

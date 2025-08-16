@@ -1,9 +1,8 @@
-You can have your M269 book and TMAs in a cloud folder, but you must
-install Python 3.11 and the M269 software on each computer you use.
+These instructions explain how to install the software needed
+for working with the M269 Jupyter notebooks.
+If you need help, ask in the M269 Technical Forum.
 
-If you need help with these instructions, ask in the M269 Technical Forum.
-
-## Installing, removing and re-installing the software
+# Installing, removing and re-installing the software
 
 For each desktop and laptop you want to use for M269:
 
@@ -20,18 +19,18 @@ For each desktop and laptop you want to use for M269:
 
 ## Using the software
 
-On Windows, there are two ways of using the M269 notebooks, either from a terminal
-or by double clicking a desktop shortcut. On Linux and macOS, use a terminal.
-
-### 3.1 Desktop shortcut (Windows only)
-
-The installation process creates a shortcut on your desktop named `M269-start`.
-If you double click this shortcut, a PowerShell window opens where Jupyter writes its log messages,
-then your browser opens the Jupyter dashboard, listing the contents of your M269 folder.
+On **Windows**, the installation creates a desktop shortcut named `M269-start`.
+When you double click this shortcut, a PowerShell window opens where Jupyter writes its log messages.
+Then your browser opens the Jupyter dashboard, listing the contents of your M269 folder.
 If there’s a message about migrating to Notebook 7, click "don’t show anymore".
 You can now continue reading Section 1.3 of the book to learn how to use Jupyter.
 
-**Note for tutors:** You can create additional shortcuts, each opening Jupyter in
+On **Linux** and **macOS**, you must [use the software from the terminal](use.md).
+This option is also available to Windows users who prefer the command line.
+
+### Notes for tutors
+
+You can create additional shortcuts, each opening Jupyter in
 a different start folder, e.g. the eTMA marking folder, by following these instructions:
 
 1. Right click on the desktop. Select 'new shortcut'. Type `powershell`.
@@ -50,51 +49,10 @@ a different start folder, e.g. the eTMA marking folder, by following these instr
 We thank M269 tutor Bob Moore for creating the original version of `start.ps1`
 and of these shortcut instructions.
 
-### 3.2 Terminal
-
-Every time you want to work on the M269 notebooks, you need to follow the next 5 steps.
-However, the first time you are using Jupyter, after installing the software,
-just do the first 3 steps and return to the book to learn how to use Jupyter.
-
-1. Open a new PowerShell (Windows) or a new terminal (Linux and macOS).
-   Do _not_ use an already opened PowerShell or terminal.
-
-2. Enter `m269-24j` to go to your M269 folder and activate the M269 software.
-   The command line prompt becomes `(m269-24j) ...` to remind you that
-   you're using the M269 software and not your default Python installation.
-
-   **Important:** Never install software while the M269 software is active,
-   as that may change the M269 software installation and break it.
-
-3. Enter `nb` to start working with notebooks.
-   After a little while, a web browser opens, with the Jupyter dashboard
-   listing the contents of your M269 folder.
-   If there’s a message about migrating to Notebook 7, click "don’t show anymore".
-   (You can now continue reading Section 1.3 of the book.)
-
-   **Note**: if you skipped step 2 by mistake,
-   then entering `nb` will still activate the M269 software but
-   Jupyter will start in your current folder rather than the M269 folder,
-   and you won't see the M269 materials in the Jupyter dashboard.
-   In that case, do step 4 to close the dashboard and then go back to step 2.
-
-4. After finishing working on the notebooks, go back to the web browser tab with
-   the Jupyter dashboard, click on the 'Quit' button, then close the browser tab.
-
-5. Close the PowerShell or terminal you opened in step 1.
-
-**Note to tutors:** To mark TMA notebooks, follow the steps above,
+To mark TMA notebooks, follow the steps above,
 but in step 2, instead of entering `m269-24j`,
 change to the eTMA marking folder with the `cd` command, and then
 proceed with step 3 to start working in that folder.
-
-**Note for macOS users**:
-If steps 2 and 3 (the `m269-24j` and `nb` commands) are not working,
-and you are using `bash`, enter in the terminal
- ```bash
- echo 'if [ -f ~/.bashrc ]; then source ~/.bashrc; fi' >> ~/.bash_profile
- ```
-Then close your terminal, open a new one, and try again steps 2 and 3.
 
 ## Licence
 

@@ -12,13 +12,12 @@ just do the first 3 steps and return to the book to learn how to use Jupyter.
    you're using the M269 software and not your default Python installation.
 
 3. Enter `nb` to start working with notebooks.
-   After a little while, a web browser opens, with the Jupyter dashboard
+   After a little while, a web browser opens, with JupyterLab
    listing the contents of your M269 folder.
-   If there’s a message about migrating to Notebook 7, click "don’t show anymore".
    (You can now continue reading Section 1.3 of the book.)
 
-4. After finishing working on the notebooks, go back to the web browser tab with
-   the Jupyter dashboard, click on the 'Quit' button, then close the browser tab.
+4. After finishing working on the notebooks, click on File > Shut Down
+   and then close the browser tab.
 
 5. Close the PowerShell or terminal you opened in step 1.
 
@@ -31,8 +30,8 @@ as that may change the M269 software installation and break it.
 If you forgot to type `m269-25j`(i.e. skipped step 2 by mistake),
 then entering `nb` (step 3) will still activate the M269 software but
 Jupyter will start in your current folder rather than the M269 folder,
-and you won't see the M269 materials in the Jupyter dashboard.
-When this happens, do step 4 to close the dashboard and then go back to step 2.
+and you won't see the M269 materials in JupyterLab.
+When this happens, do step 4 to close JupyterLab and then go back to step 2.
 
 **macOS**: If steps 2 and 3 (the `m269-25j` and `nb` commands) don't work,
 and you are using `bash`, enter in the terminal

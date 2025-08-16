@@ -146,7 +146,7 @@ fi
 # if 23J's allowed alias exists, cancel it, otherwise don't show error message
 ACTIVATE="source $VENV/bin/activate$EXT;unalias allowed 2> /dev/null"
 M269="cd \"$FOLDER\";$ACTIVATE"
-NB="$ACTIVATE;jupyter notebook &"
+NB="$ACTIVATE;jupyter lab &"
 
 if [ $shell = "fish" ]
 then

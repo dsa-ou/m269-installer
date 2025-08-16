@@ -31,14 +31,13 @@ We thank M269 tutor Bob Moore for
 creating the original version of `start.ps1` and of these shortcut instructions.
 
 ## Linux and macOS
-To open the Jupyter dashboard in folder `path/to/folder`,
-like the eTMA folder for a particular TMA:
+To open JupyterLab in folder `path/to/folder`,
+e.g. the eTMA folder for a particular TMA, follow these steps:
 
 1. Open a new terminal.
 2. Enter `cd path/to/folder`.
 3. Enter `nb`.
-4. After marking the notebooks, go back to the web browser tab with
-   the Jupyter dashboard, click on the 'Quit' button, then close the browser tab.
+4. After marking the notebooks, click on File > Shut Down and then close the browser tab.
 5. Close the terminal.
 
 ⇦ [Using](use.md) | ⇧ [Home](README.md) | [Re-installing](reinstall.md) ⇨

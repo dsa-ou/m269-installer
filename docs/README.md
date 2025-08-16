@@ -1,5 +1,3 @@
-To install the M269 software, you need about 1 Gb of disk space and
-a modern operating system: Linux, macOS 11 (Big Sur) or later, Windows 10 or 11.
 **Note**: In these instructions, Unix refers to Linux or macOS.
 
 You can have your M269 book and TMAs in a cloud folder, but you must
@@ -19,69 +17,12 @@ have put the M269 book there, as instructed in the Resources tab of the M269 web
 
 If you need help with the following instructions, ask in the M269 Technical Forum.
 
-## 1 Preparation
+## 1 Installation
 
-Before installing the M269 software, do the following:
+Make sure you have about 1 Gb disk space and a recent version of your operating system.
 
-1. Check if you have Python 3.11:
-   - **Windows**: open a PowerShell, enter `py -0` and see if 3.11 is listed
-   - **Unix**: open a terminal and enter `python3.11 -V`
-
-   If 3.11 isn't listed or you get an error message like `command not found`,
-   then go to the next step, otherwise go directly to step 4 (macOS) or 5 (Windows and Linux).
-
-2. Install Python 3.11, even if you have a newer version.
-   Do *not* uninstall any Python version you have.
-   - **Windows**: Follow [these instructions](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808)
-     to check if you have 32-bit or 64-bit Windows. Then download and run the
-     [32-bit installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9.exe) or the
-     [64-bit installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe).
-     After installing, disable the pathname limit if you're given that option.
-   - **macOS**: download and run the [installer](https://www.python.org/ftp/python/3.11.9/python-3.11.9-macos11.pkg)
-   - **Linux**: enter `sudo apt install python3.11` or similar (search online for instructions for your Linux distribution).
-     If you're using a Debian-based distribution like Ubuntu, you must additionally
-     enter `sudo apt install python3.11-venv` or similar.
-
-3. **macOS**: open a terminal, enter `xcode-select --install` and follow the instructions.
-   If you get a message that the command line tools are already installed,
-   then this step is completed.
-
-4. Close any PowerShell (Windows) or terminal (Unix) you have opened,
-   and proceed to the next section.
-
-## 2 Installation
-
-To avoid errors, we suggest that instead of typing the commands,
-you select and copy them from this page and paste them into the command line.
-
-1. Open a new PowerShell (Windows) or a new terminal (Unix).
-
-2. Go to your M269 folder by entering `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`.
-   (In PowerShell and Unix, `~` is a shorthand for your home folder.)
-
-3. Download the installation script:
-   - **Windows**: `Invoke-WebRequest -Uri https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 -OutFile install.ps1`
-   - **Unix**: `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
-
-4. Allow the installation script to run:
-   - **Windows**: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`
-              and then select the `Y` (yes) option if you're given a choice
-   - **Unix**: `chmod +x install.sh`
-
-5. Run the installation script:
-   - **Windows**: `.\install.ps1`
-   - **Unix**: `./install.sh` and ignore a message about pytype and networkx being incompatible
-
-6. Close the PowerShell or terminal you opened in step 1.
-
-You will have the following files in your M269 folder:
-- the installation script in `install.ps1` (Windows) or `install.sh` (Unix)
-- script `start.ps1` (Windows only)
-- the list of M269 software common to Windows and Unix in `requirements.txt`
-- the style changes to Jupyter notebooks in `custom.css`
-
-We recommend you do _not_ remove these files, so that you can re-install
-the software, if needed. Now proceed to the next section.
+Then follow the instructions for [Linux](intsall-linux.md),
+[macOS](install-mac.md) or [Windows](install-windows.md).
 
 ## 3 Usage
 

@@ -14,7 +14,7 @@
 
 3. If you installed Python in step 2, close the terminal and open a new one.
 
-4. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`,
+4. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-25j`,
    to go to your M269 folder. (`~` is a shorthand for your home folder.)
 
 5. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`

@@ -15,7 +15,7 @@
    If you get a message that the command line tools are already installed,
    then this step is done.
 
-5. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`,
+5. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-25j`,
    to go to your M269 folder. (`~` is a shorthand for your home folder.)
 
 6. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`

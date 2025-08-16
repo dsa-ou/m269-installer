@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing software for M269 24J..."
+echo "Installing software for M269 25J..."
 
 # This script works in one of two modes:
 # - If no argument is given, this script must be in the M269 folder and
@@ -18,7 +18,7 @@ DOC="See $SITE for details."
 CSS=custom.css
 REQS=requirements.txt
 FILES="$CSS $REQS"
-COURSE=m269-24j
+COURSE=m269-25j
 VENV=~/venvs/$COURSE
 
 # find out under which shell this script is running
@@ -63,7 +63,7 @@ is_m269_folder () {
         folder=$(cd "$1"; pwd)
         if [[ $(basename "$folder") != [Mm]269-24[Jj] ]]
         then
-            msg="must be named m269-24j or M269-24J"
+            msg="must be named m269-25j or M269-25J"
         else
             return
         fi

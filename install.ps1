@@ -1,4 +1,4 @@
-Write-Host "Installing software for M269 24J..."
+Write-Host "Installing software for M269 25J..."
 
 # This script works in one of two modes:
 # - If no argument is given, this script must be in the M269 folder and
@@ -14,7 +14,7 @@ Write-Host "Installing software for M269 24J..."
 $SITE = "https://dsa-ou.github.io/m269-installer"
 $DOC = "See $SITE for details."
 $FILES = "custom.css", "requirements.txt", "start.ps1"
-$COURSE = "m269-24j"
+$COURSE = "m269-25j"
 $VENV = "$HOME\venvs\$COURSE"
 
 # check that the given path is the M269 folder
@@ -27,7 +27,7 @@ function is-m269-folder {
     else {
         $folder = Convert-Path $path
         if (-not ((Get-Item $folder).Name -match "[Mm]269-24[Jj]")) {
-            $msg="must be named m269-24j or M269-24J"
+            $msg="must be named m269-25j or M269-25J"
         }
         else
         {
@@ -99,7 +99,7 @@ Write-Host "Adding shortcut commands to the PowerShell config file..."
 
 $CONFIG_FILE = $Profile.CurrentUserCurrentHost
 $ALIASES = @"
-function m269-24j {
+function m269-25j {
     cd "$FOLDER"
     & "$VENV\Scripts\Activate.ps1"
 }

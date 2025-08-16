@@ -25,7 +25,7 @@ e.g. the eTMA marking folders for each TMA.
 
 6. You can update the shortcut icon, if you wish.
    To get a Jupyter icon instead of a PowerShell icon, use
-   `%USERPROFILE%\venvs\m269-24j\Lib\site-packages\nbclassic\static\base\images\favicon.ico`.
+   `%USERPROFILE%\venvs\m269-25j\Lib\site-packages\nbclassic\static\base\images\favicon.ico`.
 
 We thank M269 tutor Bob Moore for
 creating the original version of `start.ps1` and of these shortcut instructions.

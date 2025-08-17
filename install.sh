@@ -8,10 +8,9 @@ echo "Installing software for M269 25J..."
 # - If an argument is given, it's the M269 folder, and this script and the other
 #   installation files are in the current folder.
 
-# The first mode installs the latest software,
-# for the current presentation or for testing the next presentation.
-# The second mode is for installing the software for a past presentation,
-# by first downloading the past installation files from GitHub.
+# The first mode installs the latest software, for the current presentation.
+# The second mode is for testing the next presentation or
+# for installing a past presentation, after downloading its files from GitHub.
 
 SITE=https://dsa-ou.github.io/m269-installer
 DOC="See $SITE for details."
@@ -61,7 +60,7 @@ is_m269_folder () {
         msg="doesn't exist or isn't a folder"
     else
         folder=$(cd "$1"; pwd)
-        if [[ $(basename "$folder") != [Mm]269-24[Jj] ]]
+        if [[ $(basename "$folder") != [Mm]269-25[Jj] ]]
         then
             msg="must be named m269-25j or M269-25J"
         else
@@ -125,7 +124,7 @@ echo "Downloading and installing Python packages... (this will take long)"
 source $VENV/bin/activate                   # this script runs under bash
 pip install --upgrade pip
 # install pytype first to then upgrade networkx 3.1 to 3.3 (for Section 17.6)
-pip install pytype==2024.4.11               # install pytype only for Unix
+pip install pytype==2024.10.11               # install pytype only for Unix
 pip install -r $REQS
 deactivate
 echo "Software has been installed."

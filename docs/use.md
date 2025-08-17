@@ -40,4 +40,10 @@ and you are using `bash`, enter in the terminal
  ```
 Then close the terminal, and start again from step 1.
 
+**macOS:** If you use Safari, you should change a configuration setting
+the first time you open JupyterLab. Choose the menu option Settings > Settings Editor.
+In the settings search box, type 'windowing'. In the settings pane that appears,
+change the windowing mode to defer. The change is automatically saved.
+Close the settings pane.
+
 ⇧ [Home](README.md) | [Uninstalling](uninstall.md) ⇨

@@ -45,7 +45,7 @@ else
     exit 1
 fi
 
-# check Python 3.12 is installed
+# check that Python 3.12 is installed
 if ! command -v python3.12 &> /dev/null
 then
     echo "Python 3.12 not found: please install it." ; echo $DOC

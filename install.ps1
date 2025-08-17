@@ -105,7 +105,7 @@ function m269-25j {
 }
 function nb {
     & "$VENV\Scripts\Activate.ps1"
-    Start-process -NoNewWindow jupyter -ArgumentList "lab"
+    Start-process -NoNewWindow jupyter -ArgumentList "lab --custom-css"
 }
 function allowed {}
 "@

@@ -123,7 +123,7 @@ python3.12 -m venv --prompt $COURSE $VENV
 echo "Downloading and installing Python packages... (this will take long)"
 source $VENV/bin/activate                   # this script runs under bash
 pip install --upgrade pip
-# install pytype first to then upgrade networkx 3.1 to 3.3 (for Section 17.6)
+# install pytype first to then upgrade networkx (for Section 17.6)
 pip install pytype==2024.10.11               # install pytype only for Unix
 pip install -r $REQS
 deactivate

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.env
+.env
+.venv
+venv/
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Bash
+*.swp
+
+# PowerShell
+*.ps1~
+
+# General
+*.log
+*.tmp

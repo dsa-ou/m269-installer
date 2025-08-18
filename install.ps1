@@ -1,4 +1,4 @@
-Write-Host "Installing software for M269 24J..."
+Write-Host "Installing software for M269 25J..."
 
 # This script works in one of two modes:
 # - If no argument is given, this script must be in the M269 folder and
@@ -14,7 +14,7 @@ Write-Host "Installing software for M269 24J..."
 $SITE = "https://dsa-ou.github.io/m269-installer"
 $DOC = "See $SITE for details."
 $FILES = "custom.css", "requirements.txt", "start.ps1"
-$COURSE = "m269-24j"
+$COURSE = "m269-25j"
 $VENV = "$HOME\venvs\$COURSE"
 
 # check that the given path is the M269 folder
@@ -26,8 +26,8 @@ function is-m269-folder {
     }
     else {
         $folder = Convert-Path $path
-        if (-not ((Get-Item $folder).Name -match "[Mm]269-24[Jj]")) {
-            $msg="must be named m269-24j or M269-24J"
+        if (-not ((Get-Item $folder).Name -match "[Mm]269-25[Jj]")) {
+            $msg="must be named m269-25j or M269-25J"
         }
         else
         {
@@ -78,7 +78,7 @@ if ($args.Length -gt 1) {
 }
 
 Write-Host "Creating Python environment $VENV... (this will take a bit)"
-py -3.11 -m venv --prompt $COURSE $VENV
+py -3.12 -m venv --prompt $COURSE $VENV
 if (-not $?) {
     Write-Host "Error: failed to create the virtual environment."
     Write-Host "Check permissions and prerequisites, then try again."
@@ -99,13 +99,13 @@ Write-Host "Adding shortcut commands to the PowerShell config file..."
 
 $CONFIG_FILE = $Profile.CurrentUserCurrentHost
 $ALIASES = @"
-function m269-24j {
+function m269-25j {
     cd "$FOLDER"
     & "$VENV\Scripts\Activate.ps1"
 }
 function nb {
     & "$VENV\Scripts\Activate.ps1"
-    Start-process -NoNewWindow jupyter -ArgumentList "notebook"
+    Start-process -NoNewWindow jupyter -ArgumentList "lab --custom-css"
 }
 function allowed {}
 "@
@@ -116,7 +116,7 @@ if (-not (Test-Path -Path $CONFIG_FILE)) {
     # File doesn't exist, create it
     New-Item -Path $CONFIG_FILE -ItemType File -Force
 }
-Add-Content -Path $CONFIG_FILE -Value $ALIASES -NoNewline
+Add-Content -Path $CONFIG_FILE -Value $ALIASES
 
 Write-Host "Adding desktop shortcut..."
 

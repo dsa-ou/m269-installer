@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing software for M269 24J..."
+echo "Installing software for M269 25J..."
 
 # This script works in one of two modes:
 # - If no argument is given, this script must be in the M269 folder and
@@ -8,17 +8,16 @@ echo "Installing software for M269 24J..."
 # - If an argument is given, it's the M269 folder, and this script and the other
 #   installation files are in the current folder.
 
-# The first mode installs the latest software,
-# for the current presentation or for testing the next presentation.
-# The second mode is for installing the software for a past presentation,
-# by first downloading the past installation files from GitHub.
+# The first mode installs the latest software, for the current presentation.
+# The second mode is for testing the next presentation or
+# for installing a past presentation, after downloading its files from GitHub.
 
 SITE=https://dsa-ou.github.io/m269-installer
 DOC="See $SITE for details."
 CSS=custom.css
 REQS=requirements.txt
 FILES="$CSS $REQS"
-COURSE=m269-24j
+COURSE=m269-25j
 VENV=~/venvs/$COURSE
 
 # find out under which shell this script is running
@@ -46,10 +45,10 @@ else
     exit 1
 fi
 
-# check Python 3.11 is installed
-if ! command -v python3.11 &> /dev/null
+# check that Python 3.12 is installed
+if ! command -v python3.12 &> /dev/null
 then
-    echo "Python 3.11 not found: please install it." ; echo $DOC
+    echo "Python 3.12 not found: please install it." ; echo $DOC
     exit 1
 fi
 
@@ -61,9 +60,9 @@ is_m269_folder () {
         msg="doesn't exist or isn't a folder"
     else
         folder=$(cd "$1"; pwd)
-        if [[ $(basename "$folder") != [Mm]269-24[Jj] ]]
+        if [[ $(basename "$folder") != [Mm]269-25[Jj] ]]
         then
-            msg="must be named m269-24j or M269-24J"
+            msg="must be named m269-25j or M269-25J"
         else
             return
         fi
@@ -119,13 +118,13 @@ else
 fi
 
 echo "Creating Python environment $VENV... (this will take a bit)"
-python3.11 -m venv --prompt $COURSE $VENV
+python3.12 -m venv --prompt $COURSE $VENV
 
 echo "Downloading and installing Python packages... (this will take long)"
 source $VENV/bin/activate                   # this script runs under bash
 pip install --upgrade pip
-# install pytype first to then upgrade networkx 3.1 to 3.3 (for Section 17.6)
-pip install pytype==2024.4.11               # install pytype only for Unix
+# install pytype first to then upgrade networkx (for Section 17.6)
+pip install pytype==2024.10.11               # install pytype only for Unix
 pip install -r $REQS
 deactivate
 echo "Software has been installed."
@@ -146,7 +145,7 @@ fi
 # if 23J's allowed alias exists, cancel it, otherwise don't show error message
 ACTIVATE="source $VENV/bin/activate$EXT;unalias allowed 2> /dev/null"
 M269="cd \"$FOLDER\";$ACTIVATE"
-NB="$ACTIVATE;jupyter notebook &"
+NB="$ACTIVATE;jupyter lab --custom-css &"
 
 if [ $shell = "fish" ]
 then

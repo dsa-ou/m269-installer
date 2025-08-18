@@ -1,4 +1,4 @@
-/* Start of M269-24J notebook styling. */
+/* Start of M269-25J notebook styling. */
 
 /*
 By default, numbered lists use letters and Roman digits in levels 2, 3 and 4.
@@ -11,4 +11,4 @@ ol ol ol ol {list-style:decimal !important;}
 /* By default, horizontal lines are light grey. Change to black. */
 hr {border-top: 1px solid black;}
 
-/* End of M269-24J notebook styling. */
+/* End of M269-25J notebook styling. */

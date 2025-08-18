@@ -5,16 +5,16 @@
 
 1. Open a terminal.
 
-2. Enter `python3.11 -V` to check if you have Python 3.11.
+2. Enter `python3.12 -V` to check if you have Python 3.12.
    If you get an error message like 'command not found':
-   - Enter `sudo apt install python3.11` or similar.
+   - Enter `sudo apt install python3.12` or similar.
      (Search online for instructions for your Linux distribution.)
    - If you're using a Debian-based distribution like Ubuntu,
-     enter _in addition_ `sudo apt install python3.11-venv` or similar.
+   enter _in addition_ `sudo apt install python3.12-venv` or similar.
 
 3. If you installed Python in step 2, close the terminal and open a new one.
 
-4. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-24j`,
+4. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-25j`,
    to go to your M269 folder. (`~` is a shorthand for your home folder.)
 
 5. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`

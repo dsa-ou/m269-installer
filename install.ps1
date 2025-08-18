@@ -17,6 +17,20 @@ $FILES = "custom.css", "requirements.txt", "start.ps1"
 $COURSE = "m269-25j"
 $VENV = "$HOME\venvs\$COURSE"
 
+# check that Python 3.12 is installed
+try {
+    $pythonVersion = & py -3.12 --version 2>&1
+} catch {
+    Write-Host "Python 3.12 not found: please install it."
+    Write-Host $DOC
+    exit
+}
+if ($pythonVersion -notmatch "Python 3\.12") {
+    Write-Host "Python 3.12 not found: please install it."
+    Write-Host $DOC
+    exit
+}
+
 # check that the given path is the M269 folder
 function is-m269-folder {
     param($path)

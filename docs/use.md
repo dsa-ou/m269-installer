@@ -33,6 +33,9 @@ Jupyter will start in your current folder rather than the M269 folder,
 and you won't see the M269 materials in JupyterLab.
 When this happens, do step 4 to close JupyterLab and then go back to step 2.
 
+**Windows 11**: If you're asked to select an app to open HTML files when
+you open JupyterLab for the first time, select your usual browser and click 'always'.
+
 **macOS**: If steps 2 and 3 (the `m269-25j` and `nb` commands) don't work,
 and you are using `bash`, enter in the terminal
  ```bash

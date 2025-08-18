@@ -26,7 +26,7 @@ function is-m269-folder {
     }
     else {
         $folder = Convert-Path $path
-        if (-not ((Get-Item $folder).Name -match "[Mm]269-24[Jj]")) {
+        if (-not ((Get-Item $folder).Name -match "[Mm]269-25[Jj]")) {
             $msg="must be named m269-25j or M269-25J"
         }
         else
@@ -116,7 +116,7 @@ if (-not (Test-Path -Path $CONFIG_FILE)) {
     # File doesn't exist, create it
     New-Item -Path $CONFIG_FILE -ItemType File -Force
 }
-Add-Content -Path $CONFIG_FILE -Value $ALIASES -NoNewline
+Add-Content -Path $CONFIG_FILE -Value $ALIASES
 
 Write-Host "Adding desktop shortcut..."
 

@@ -24,6 +24,10 @@ When you double click this shortcut, a PowerShell window opens where Jupyter wri
 Then your browser opens JupyterLab, listing the contents of your M269 folder.
 You can now continue reading Section 1.3 of the book to learn how to use Jupyter.
 
+On **Windows 11**, when launching JupyterLab for the first time,
+you may be asked to 'select an app to open this HTML file'.
+If that happens, choose your favourite browser and click 'always'.
+
 On **Linux** and **macOS**, you must [use the software from the terminal](use.md).
 This option is also available to Windows users who prefer the command line.
 

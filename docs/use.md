@@ -1,8 +1,6 @@
 # Using the software
 
 Every time you want to work on the M269 notebooks, you need to follow the next 5 steps.
-However, the first time you are using Jupyter, after installing the software,
-just do the first 3 steps and return to the book to learn how to use Jupyter.
 
 1. Open a new PowerShell (Windows) or terminal (Linux and macOS).
    Do _not_ use an already opened PowerShell or terminal.
@@ -14,7 +12,7 @@ just do the first 3 steps and return to the book to learn how to use Jupyter.
 3. Enter `nb` to start working with notebooks.
    After a little while, a web browser opens, with JupyterLab
    listing the contents of your M269 folder.
-   (You can now continue reading Section 1.3 of the book.)
+   You can now open the M269 book: double-click subfolder `notebooks`, then file `M269.ipynb`.
 
 4. After finishing working on the notebooks, click on File > Shut Down
    and then close the browser tab.

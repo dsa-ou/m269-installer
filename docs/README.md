@@ -22,7 +22,7 @@ For each desktop and laptop you want to use for M269:
 On **Windows**, the installation creates a desktop shortcut named `M269-start`.
 When you double click this shortcut, a PowerShell window opens where Jupyter writes its log messages.
 Then your browser opens JupyterLab, listing the contents of your M269 folder.
-You can now continue reading Section 1.3 of the book to learn how to use Jupyter.
+You can now open the M269 book: double-click subfolder `notebooks`, then file `M269.ipynb`.
 
 On **Windows 11**, when launching JupyterLab for the first time,
 you may be asked to 'select an app to open this HTML file'.

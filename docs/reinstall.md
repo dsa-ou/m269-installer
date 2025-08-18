@@ -13,4 +13,4 @@ you can re-install the software, even after uninstalling it.
 
 4. Close the PowerShell or terminal.
 
-⇦ [Uninstalling](use.md) | ⇧ [Home](README.md)
+⇦ [Uninstalling](uninstall.md) | ⇧ [Home](README.md) | [Using](use.md) ⇨

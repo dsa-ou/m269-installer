@@ -40,4 +40,4 @@ e.g. the eTMA folder for a particular TMA, follow these steps:
 4. After marking the notebooks, click on File > Shut Down and then close the browser tab.
 5. Close the terminal.
 
-⇦ [Using](use.md) | ⇧ [Home](README.md) | [Re-installing](reinstall.md) ⇨
+⇦ [Using](use.md) | ⇧ [Home](README.md) | [Uninstalling](uninstall.md) ⇨

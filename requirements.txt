@@ -1,6 +1,6 @@
 # DON'T edit this file. Generated in a fresh virtual environment with:
 #
-# pip install jupyter "notebook<7" rise matplotlib networkx algoesup allowed ruff m269_25_student
+# pip install jupyter "notebook<7" rise matplotlib networkx algoesup allowed ruff m269_25j_student
 # pip check
 # pip freeze -r requirements.txt > requirements.txt
 
@@ -60,7 +60,7 @@ jupyterlab_server==2.27.3
 jupyterlab_widgets==3.0.15
 kiwisolver==1.4.9
 lark==1.2.2
-m269_25_student==0.1.0
+m269_25j_student==0.1.0
 MarkupSafe==3.0.2
 matplotlib==3.10.5
 matplotlib-inline==0.1.7

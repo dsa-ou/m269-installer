@@ -21,9 +21,10 @@ Every time you want to work on the M269 notebooks, you need to follow the next 5
 
 ## Important notes
 
-Never install software while the M269 software is active,
+Never install third-party software while the M269 software is active,
 i.e. after step 2 and before step 5,
 as that may change the M269 software installation and break it.
+It is however possible to [upgrade](upgrade.md) the M269 software between steps 2 and 3.
 
 If you forgot to type `m269-25j`(i.e. skipped step 2 by mistake),
 then entering `nb` (step 3) will still activate the M269 software but
@@ -47,4 +48,4 @@ In the settings search box, type 'windowing'. In the settings pane that appears,
 change the windowing mode to defer. The change is automatically saved.
 Close the settings pane.
 
-⇧ [Home](README.md) | [Uninstalling](uninstall.md) ⇨
+⇦ [Upgrading](upgrade.md) | ⇧ [Home](README.md) | [Uninstalling](uninstall.md) ⇨

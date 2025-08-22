@@ -2,7 +2,7 @@ These instructions explain how to install the software needed
 for working with the M269 Jupyter notebooks.
 If you need help, ask in the M269 Technical Forum.
 
-# Installing, removing and re-installing the software
+# Installing and changing the software
 
 For each desktop and laptop you want to use for M269:
 
@@ -14,6 +14,7 @@ For each desktop and laptop you want to use for M269:
   as instructed in the Resources tab of the M269 website.
 - To **install** the software for the first time, follow the instructions for
   [Linux](install-linux.md), [macOS](install-mac.md) or [Windows](install-windows.md).
+- To **upgrade** the software on any operating system, follow [these instructions](upgrade.md).
 - To **remove** the software on any operating system, follow [these instructions](uninstall.md).
 - To **re-install** the software on any operating system, follow [these instructions](reinstall.md).
 

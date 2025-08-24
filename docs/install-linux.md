@@ -3,7 +3,7 @@
 > **Tip:** To avoid errors, instead of typing the commands below,
 > select and copy them from this page and paste them into the terminal.
 
-**WSL:** When asked to open a terminal, open a PowerShell instead and enter `wsl`.
+**WSL:** Remember that opening a terminal means to open a PowerShell and enter `wsl`.
 
 1. Open a new terminal. Do _not_ use an already opened terminal.
 

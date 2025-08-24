@@ -2,9 +2,8 @@
 
 Every time you want to work on the M269 notebooks, you need to follow the next 5 steps.
 
-1. Open a new PowerShell (Windows and WSL) or terminal (Linux and macOS).
+1. Open a new PowerShell (Windows) or terminal (Linux and macOS).
    Do _not_ use an already opened PowerShell or terminal.
-   On WSL, enter `wsl` after opening the PowerShell.
 
 2. Enter `m269-25j` to go to your M269 folder and activate the M269 software.
    The command line prompt becomes `(m269-25j) ...` to remind you that

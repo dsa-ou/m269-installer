@@ -3,7 +3,9 @@
 > **Tip:** To avoid errors, instead of typing the commands below,
 > select and copy them from this page and paste them into the terminal.
 
-1. Open a terminal.
+**WSL:** When asked to open a terminal, open a PowerShell instead and enter `wsl`.
+
+1. Open a new terminal. Do _not_ use an already opened terminal.
 
 2. Enter `python3.12 -V` to check if you have Python 3.12.
    If you get an error message like 'command not found':
@@ -17,6 +19,8 @@
 
 5. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-25j`,
    to go to your M269 folder. (`~` is a shorthand for your home folder.)
+   - **WSL:** If your M269 folder is e.g. on `C:\OU\m269-25j` then
+      you must enter `cd /mnt/c/OU/m269-25`.
 
 6. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
    to download the installation script.

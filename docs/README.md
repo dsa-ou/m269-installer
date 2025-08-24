@@ -12,9 +12,9 @@ For each desktop and laptop you want to use for M269:
 - Make sure you have about 1 Gb disk space and a recent version of your operating system.
 - Make sure you have created your M269 folder and have put the M269 book there,
   as instructed in the Resources tab of the M269 website.
-- To **install** the software for the first time, follow the instructions for
-  [Linux](install-linux.md), [macOS](install-mac.md), [Windows](install-windows.md)
-  or [WSL](install-wsl.md).
+- If you want to have Linux on your Windows machine, first [install WSL](install-wsl.md).
+- To **install** the M269 software for the first time, follow the instructions for
+  [Linux](install-linux.md), [macOS](install-mac.md) or [Windows](install-windows.md).
 - To **upgrade** the software on any operating system, follow [these instructions](upgrade.md).
 - To **remove** the software on any operating system, follow [these instructions](uninstall.md).
 - To **re-install** the software on any operating system, follow [these instructions](reinstall.md).

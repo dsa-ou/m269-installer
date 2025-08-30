@@ -4,7 +4,7 @@
 # pip check
 # pip freeze -r requirements.txt > requirements.txt
 
-algoesup==0.4.1
+algoesup==0.4.2
 allowed==1.5.4
 anyio==4.10.0
 appnope==0.1.4

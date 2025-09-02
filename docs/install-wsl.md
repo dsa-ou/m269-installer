@@ -10,17 +10,20 @@ and for checking this final version.
 > **Tip:** To avoid errors, instead of typing the commands below,
 > select and copy them from this page and paste them into the PowerShell.
 
-1. Open a PowerShell.
-2. Enter `wsl --install -d Ubuntu-24.04` to install an Ubuntu Linux distribution with Python 3.12.
-   During the process you will be asked to create an administrator password.
-3. Restart your machine.
-4. Open a PowerShell.
-5. Enter `wsl` to start using Linux.
-6. Enter `sudo apt update && sudo apt upgrade -y` to upgrade the Linux software.
-   The `sudo` command will ask you for the administrator password.
-7. Optional: If you prefer to use `python` rather than `python3` to start python,
+1. To allow your Windows machine to have Linux, do as follows:
+   - Go to Control Panel > Programs > Programs and Features > Turn Windows features on or off.
+   - Turn on "Virtual Machine Platform" and "Windows Subsystem for Linux".
+   - Reboot the computer.
+2. Open a PowerShell.
+3. Enter `wsl --install -d Ubuntu-24.04` to install an Ubuntu Linux distribution with Python 3.12.
+   WSL will ask you to create a Linux user account.
+   The default username is the one for Windows. When asked to set a password,
+   type it, press ENTER, and type it again. The password isn't shown on the screen.
+4. Enter `sudo apt update && sudo apt upgrade -y` to upgrade the Linux software.
+   The `sudo` command will ask you for the password.
+5. Optional: If you prefer to use `python` rather than `python3` to start python,
    enter `sudo apt install python-is-python3`.
-8. Close the PowerShell.
+6. Close the PowerShell.
 
 From now on, follow the Linux instructions, with two small changes:
 when you're asked to open a terminal, open a PowerShell instead and enter `wsl`;

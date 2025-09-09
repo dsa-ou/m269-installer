@@ -29,7 +29,11 @@
 
 8. Enter `./install.sh` to run the installation script.
 
-9. Close the terminal.
+9.  **WSL**: For JupyterLab to open correctly, enter these commands in the terminal.
+   - `echo -e "\nexport BROWSER='/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'" >> ~/.bashrc`
+   - `echo "c.NotebookApp.use_redirect_file = False " >> ~/.jupyter/jupyter_lab_config.py`
+
+10. Close the terminal.
 
 You will have these files in your M269 folder:
 - `install.sh`: the installation script

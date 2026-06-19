@@ -40,4 +40,4 @@ You will have these files in your M269 folder:
 
 You will also have file `start.ps1`, which is needed to use the software.
 
-⇧ [Home](README.md)  | [Using](use.md) ⇨
+⇧ [Home](README.md)  | [Using](use-shortcut.md) ⇨

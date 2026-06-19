@@ -1,8 +1,8 @@
 # Using the software (terminal)
 
 These instructions are for **Linux** and **macOS**.
-Windows users can also follow these instructions on PowerShell,
-but the [desktop shortcut](use-shortcut.md) is more convenient.
+Windows users can follow these instructions on PowerShell,
+but double-clicking a [desktop shortcut](use-shortcut.md) is simpler.
 
 ## Regular use
 Every time you want to work on the M269 notebooks, you need to follow the next 5 steps.

@@ -15,4 +15,7 @@ These instructions are for **Windows** only.
      The change is automatically saved.
    - Close the settings editor pane.
 
+> **Info:** You may also open M269 notebooks [from a PowerShell](use-terminal.md)
+> but it's less convenient.
+
 ⇦ [Upgrading](upgrade.md) | ⇧ [Home](README.md) | [Uninstalling](uninstall.md) ⇨

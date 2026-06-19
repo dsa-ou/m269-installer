@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing software for M269 25J..."
+echo "Installing software for M269 26J..."
 
 # This script works in one of two modes:
 # - If no argument is given, this script must be in the M269 folder and
@@ -17,7 +17,7 @@ DOC="See $SITE for details."
 CSS=custom.css
 REQS=requirements.txt
 FILES="$CSS $REQS"
-COURSE=m269-25j
+COURSE=m269-26j
 VENV=~/venvs/$COURSE
 
 # find out under which shell this script is running
@@ -45,10 +45,10 @@ else
     exit 1
 fi
 
-# check that Python 3.12 is installed
-if ! command -v python3.12 &> /dev/null
+# check that Python 3.14 is installed
+if ! command -v python3.14 &> /dev/null
 then
-    echo "Python 3.12 not found: please install it." ; echo $DOC
+    echo "Python 3.14 not found: please install it." ; echo $DOC
     exit 1
 fi
 
@@ -60,9 +60,9 @@ is_m269_folder () {
         msg="doesn't exist or isn't a folder"
     else
         folder=$(cd "$1"; pwd)
-        if [[ $(basename "$folder") != [Mm]269-25[Jj] ]]
+        if [[ $(basename "$folder") != [Mm]269-26[Jj] ]]
         then
-            msg="must be named m269-25j or M269-25J"
+            msg="must be named m269-26j or M269-26J"
         else
             return
         fi
@@ -118,7 +118,7 @@ else
 fi
 
 echo "Creating Python environment $VENV... (this will take a bit)"
-python3.12 -m venv --prompt $COURSE $VENV
+python3.14 -m venv --prompt $COURSE $VENV
 
 echo "Downloading and installing Python packages... (this will take long)"
 source $VENV/bin/activate                   # this script runs under bash

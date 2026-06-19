@@ -1,4 +1,4 @@
-Write-Host "Installing software for M269 25J..."
+Write-Host "Installing software for M269 26J..."
 
 # This script works in one of two modes:
 # - If no argument is given, this script must be in the M269 folder and
@@ -14,19 +14,19 @@ Write-Host "Installing software for M269 25J..."
 $SITE = "https://dsa-ou.github.io/m269-installer"
 $DOC = "See $SITE for details."
 $FILES = "custom.css", "requirements.txt", "start.ps1"
-$COURSE = "m269-25j"
+$COURSE = "m269-26j"
 $VENV = "$HOME\venvs\$COURSE"
 
-# check that Python 3.12 is installed
+# check that Python 3.14 is installed
 try {
-    $pythonVersion = & py -3.12 --version 2>&1
+    $pythonVersion = & py -3.14 --version 2>&1
 } catch {
-    Write-Host "Python 3.12 not found: please install it."
+    Write-Host "Python 3.14 not found: please install it."
     Write-Host $DOC
     exit
 }
 if ($pythonVersion -notmatch "Python 3\.12") {
-    Write-Host "Python 3.12 not found: please install it."
+    Write-Host "Python 3.14 not found: please install it."
     Write-Host $DOC
     exit
 }
@@ -40,8 +40,8 @@ function is-m269-folder {
     }
     else {
         $folder = Convert-Path $path
-        if (-not ((Get-Item $folder).Name -match "[Mm]269-25[Jj]")) {
-            $msg="must be named m269-25j or M269-25J"
+        if (-not ((Get-Item $folder).Name -match "[Mm]269-26[Jj]")) {
+            $msg="must be named m269-26j or M269-26J"
         }
         else
         {
@@ -92,7 +92,7 @@ if ($args.Length -gt 1) {
 }
 
 Write-Host "Creating Python environment $VENV... (this will take a bit)"
-py -3.12 -m venv --prompt $COURSE $VENV
+py -3.14 -m venv --prompt $COURSE $VENV
 if (-not $?) {
     Write-Host "Error: failed to create the virtual environment."
     Write-Host "Check permissions and prerequisites, then try again."
@@ -113,7 +113,7 @@ Write-Host "Adding shortcut commands to the PowerShell config file..."
 
 $CONFIG_FILE = $Profile.CurrentUserCurrentHost
 $ALIASES = @"
-function m269-25j {
+function m269-26j {
     cd "$FOLDER"
     & "$VENV\Scripts\Activate.ps1"
 }

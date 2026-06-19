@@ -9,8 +9,8 @@ Every time you want to work on the M269 notebooks, you need to follow the next 5
 
 1. Open a new terminal. Do _not_ use an already opened terminal.
 
-2. Enter `m269-25j` to go to your M269 folder and activate the M269 software.
-   The command line prompt becomes `(m269-25j) ...` to remind you that
+2. Enter `m269-26j` to go to your M269 folder and activate the M269 software.
+   The command line prompt becomes `(m269-26j) ...` to remind you that
    you're using the M269 software and not your default Python installation.
 
 3. Enter `nb` to start working with notebooks.
@@ -41,13 +41,13 @@ i.e. after step 2 and before step 5,
 as that may change the M269 software installation and break it.
 It is however possible to [upgrade](upgrade.md) the M269 software between steps 2 and 3.
 
-If you forgot to type `m269-25j`(i.e. skipped step 2 by mistake),
+If you forgot to type `m269-26j`(i.e. skipped step 2 by mistake),
 then entering `nb` (step 3) will still activate the M269 software but
 Jupyter will start in your current folder rather than the M269 folder,
 and you won't see the M269 materials in JupyterLab.
 When this happens, do step 4 to close JupyterLab and then go back to step 2.
 
-**macOS**: If steps 2 and 3 (the `m269-25j` and `nb` commands) don't work,
+**macOS**: If steps 2 and 3 (the `m269-26j` and `nb` commands) don't work,
 and you are using `bash`, enter in the terminal
  ```bash
  echo 'if [ -f ~/.bashrc ]; then source ~/.bashrc; fi' >> ~/.bash_profile

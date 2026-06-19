@@ -2,7 +2,7 @@ These instructions explain how to install the software needed
 for working with the M269 Jupyter notebooks.
 If you need help, ask in the M269 Technical Forum.
 
-# Installing and changing the software
+## Installing the software
 
 For each desktop and laptop you want to use for M269:
 
@@ -15,25 +15,17 @@ For each desktop and laptop you want to use for M269:
 - If you want to have Linux on your Windows machine, first [install WSL](install-wsl.md).
 - To **install** the M269 software for the first time, follow the instructions for
   [Linux](install-linux.md), [macOS](install-mac.md) or [Windows](install-windows.md).
-- To **upgrade** the software on any operating system, follow [these instructions](upgrade.md).
-- To **remove** the software on any operating system, follow [these instructions](uninstall.md).
-- To **re-install** the software on any operating system, follow [these instructions](reinstall.md).
 
 ## Using the software
 
-On **Windows**, the installation creates a desktop shortcut named `M269-start`.
-When you double click this shortcut, a PowerShell window opens where Jupyter writes its log messages.
-Then your browser opens JupyterLab, listing the contents of your M269 folder.
-You can now open the M269 book: double-click subfolder `notebooks`, then file `M269.ipynb`.
+- To **use** the software, follow the instructions for [Windows](use-shortcut.md) or [Linux and macOS](use-terminal.md).
+- If you're an M269 tutor, see how to [mark notebooks](mark.md).
 
-On **Windows 11**, when launching JupyterLab for the first time,
-you may be asked to 'select an app to open this HTML file'.
-If that happens, choose your favourite browser and click 'always'.
+## Changing the software
 
-On **Linux** and **macOS**, you must [use the software from the terminal](use.md).
-This option is also available to Windows users who prefer the command line.
-
-If you're an M269 tutor, see how to [mark notebooks](mark.md).
+- To **upgrade** the software on any operating system, follow [these instructions](upgrade.md).
+- To **remove** the software on any operating system, follow [these instructions](uninstall.md).
+- To **re-install** the software on any operating system, follow [these instructions](reinstall.md).
 
 ## Licence
 

@@ -20,7 +20,7 @@
 5. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-25j`,
    to go to your M269 folder. (`~` is a shorthand for your home folder.)
    - **WSL:** If your M269 folder is e.g. on `C:\OU\m269-25j` then
-      you must enter `cd /mnt/c/OU/m269-25`.
+      you must enter `cd /mnt/c/OU/m269-25j`.
 
 6. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
    to download the installation script.

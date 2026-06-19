@@ -14,6 +14,14 @@ Every time you want to work on the M269 notebooks, you need to follow the next 5
    listing the contents of your M269 folder.
    You can now open the M269 book: double-click subfolder `notebooks`, then file `M269.ipynb`.
 
+   If this is the **first time** you open the M269 notebooks, do now these steps:
+
+   - In JupyterLab, choose the menu option Settings > Settings Editor.
+   - In the settings search box, type `windowing`.
+   - In the settings pane that appears, change the windowing mode to 'defer'.
+      The change is automatically saved.
+   - Close the settings editor pane.
+
 4. After finishing working on the notebooks, click on File > Shut Down
    and then close the browser tab.
 
@@ -41,13 +49,5 @@ and you are using `bash`, enter in the terminal
  echo 'if [ -f ~/.bashrc ]; then source ~/.bashrc; fi' >> ~/.bash_profile
  ```
 Then close the terminal, and start again from step 1.
-
-**macOS:** If you use Safari, do as follows when opening JupyterLab for the first time.
-
-1. Choose the menu option Settings > Settings Editor.
-2. In the settings search box, type 'windowing' without the quote marks.
-3. In the settings pane that appears, change the windowing mode to defer.
-   The change is automatically saved.
-4. Close the settings editor pane.
 
 ⇦ [Upgrading](upgrade.md) | ⇧ [Home](README.md) | [Uninstalling](uninstall.md) ⇨

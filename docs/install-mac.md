@@ -24,7 +24,6 @@
 7. Enter `chmod +x install.sh` to allow the installation script to run.
 
 8. Enter `./install.sh` to run the installation script.
-   Ignore a message about pytype and networkx being incompatible.
 
 9. Close the terminal.
 

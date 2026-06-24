@@ -6,34 +6,40 @@
 # Note that grep will fail (exit 1) if it finds no matches, but we don't want the pipe to fail.
 set -eu
 # Show command execution
-set -x
+# set -x
 
-new_py=3.14
+# Can't use 3.xx pattern because it won't match 3\.xx in install.ps1
+old_py=.12
+new_py=.14
 tmp_env="tmp"
 
 # for 27J, add pair M279:M269 in 2nd position
 replacements=(
-  "25:26"
-	"3\\.12\\.10:${new_py}.6"
-	"3\\.12:${new_py}"
+    "25:26"
+	"${old_py}.10:${new_py}.6"
+	"${old_py}:${new_py}"
 )
+
+echo "Updating year and Python version in docs and scripts..."
 
 for pair in "${replacements[@]}"; do
 	IFS=':' read -r from to <<< "$pair"
 
   # Copilot: grep ... | xargs sed ... is less robust if grep returns nothing or spaces in filenames
-	grep -RIl --exclude-dir=.git --exclude-dir=$tmp_env --exclude=requirements.txt --exclude=new_year.sh -- "$from" . |
+	fgrep -l "$from" docs/*md *.ps1 install.sh custom.css LICENCE |
 	while IFS= read -r file; do
 		sed -i '' "s/${from}/${to}/g" "$file"
 	done
 done
 
-if ! command -v "python${new_py}" &> /dev/null; then
-	echo "Python ${new_py} is not installed. Please install it and try again."
+if ! command -v "python3${new_py}" &> /dev/null; then
+	echo "Python 3${new_py} is not installed. Please install it and try again."
     exit 1
 fi
 
-python${new_py} -m venv --clear "$tmp_env"
+echo "Creating temporary venv with Python 3${new_py}..."
+
+python3${new_py} -m venv --clear "$tmp_env"
 source "$tmp_env/bin/activate"
 pip install --upgrade pip
 pip install jupyterlab matplotlib networkx jupyterlab-rise rise allowed algoesup ruff python_ta paddles

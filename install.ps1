@@ -25,7 +25,7 @@ try {
     Write-Host $DOC
     exit
 }
-if ($pythonVersion -notmatch "Python 3\.12") {
+if ($pythonVersion -notmatch "Python 3\.14") {
     Write-Host "Python 3.14 not found: please install it."
     Write-Host $DOC
     exit

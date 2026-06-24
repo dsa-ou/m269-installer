@@ -43,7 +43,7 @@ isoduration==20.11.0
 isort==8.0.1
 jedi==0.20.0
 Jinja2==3.1.6
-json5==0.14.0
+json5==0.15.0
 jsonpointer==3.1.1
 jsonschema==4.26.0
 jsonschema-specifications==2025.9.1
@@ -68,7 +68,7 @@ matplotlib==3.11.0
 matplotlib-inline==0.2.2
 mccabe==0.7.0
 mdurl==0.1.2
-mistune==3.2.1
+mistune==3.3.2
 multidict==6.7.1
 mypy==1.20.2
 mypy_extensions==1.1.0
@@ -79,7 +79,7 @@ nest-asyncio2==1.7.2
 networkx==3.6.1
 notebook==7.6.0
 notebook_shim==0.2.4
-numpy==2.4.6
+numpy==2.5.0
 packaging==26.2
 paddles==0.2.0
 pandocfilters==1.5.1
@@ -113,7 +113,7 @@ rfc3986-validator==0.1.1
 rfc3987-syntax==1.1.0
 rise==5.7.1
 rpds-py==2026.5.1
-ruff==0.15.18
+ruff==0.15.19
 Send2Trash==2.1.0
 six==1.17.0
 soupsieve==2.8.4
@@ -135,5 +135,5 @@ wcwidth==0.8.1
 webcolors==25.10.0
 webencodings==0.5.1
 websocket-client==1.9.0
-wrapt==2.2.1
+wrapt==2.2.2
 yarl==1.24.2

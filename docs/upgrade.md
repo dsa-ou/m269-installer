@@ -9,7 +9,7 @@ To check which version of a package you have currently installed:
 
 1. Open a new PowerShell (Windows) or terminal (Linux, macOS).
    Do *not* use an already opened PowerShell or terminal.
-2. Enter `m269-25j` to activate the M269 software.
+2. Enter `m269-26j` to activate the M269 software.
 3. Enter `pip show <package>`, e.g. `pip show allowed` to see the version of
    [`allowed`](https://dsa-ou.github.io/allowed).
 4. Close the PowerShell or terminal.

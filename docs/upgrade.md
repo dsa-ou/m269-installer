@@ -5,6 +5,15 @@ we might provide a new configuration file or a new version of the software.
 In the latter case, you will have to upgrade one or two packages,
 rather than re-install the whole software.
 
+To check which version of a package you have currently installed:
+
+1. Open a new PowerShell (Windows) or terminal (Linux, macOS).
+   Do *not* use an already opened PowerShell or terminal.
+2. Enter `m269-25j` to activate the M269 software.
+3. Enter `pip show <package>`, e.g. `pip show allowed` to see the version of
+   [`allowed`](https://dsa-ou.github.io/allowed).
+4. Close the PowerShell or terminal.
+
 We will announce any required upgrades in the M269 news.
 If we tell you to 'upgrade p1, p2 and ...', where p1, p2, ... are package names,
 do as follows:

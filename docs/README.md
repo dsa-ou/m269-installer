@@ -30,7 +30,7 @@ For each desktop and laptop you want to use for M269:
 ## Licence
 
 The code and text in this repository are
-Copyright © 2023–2025 by The Open University, UK.
+Copyright © 2023–2026 by The Open University, UK.
 The code is licensed under a
 [BSD-3-clause licence](https://github.com/dsa-ou/m269-installer/blob/main/LICENCE).
 The text is licensed under a

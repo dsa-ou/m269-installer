@@ -5,9 +5,9 @@
 
 1. Open a terminal.
 
-2. Enter `python3.12 -V` to check if you have Python 3.12.
+2. Enter `python3.14 -V` to check if you have Python 3.14.
    If you get an error message like 'command not found':
-   - Download and run the Python 3.12 [installer](https://www.python.org/ftp/python/3.12.10/python-3.12.10-macos11.pkg).
+   - Download and run the Python 3.14 [installer](https://www.python.org/ftp/python/3.14.6/python-3.14.6-macos11.pkg).
 
 3. If you installed Python in step 2, close the terminal and open a new one.
 
@@ -15,7 +15,7 @@
    If you get a message that the command line tools are already installed,
    then this step is done.
 
-5. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-25j`,
+5. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-26j`,
    to go to your M269 folder. (`~` is a shorthand for your home folder.)
 
 6. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
@@ -24,7 +24,6 @@
 7. Enter `chmod +x install.sh` to allow the installation script to run.
 
 8. Enter `./install.sh` to run the installation script.
-   Ignore a message about pytype and networkx being incompatible.
 
 9. Close the terminal.
 

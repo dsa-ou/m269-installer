@@ -15,7 +15,7 @@ and for checking this final version.
    - Turn on "Virtual Machine Platform" and "Windows Subsystem for Linux".
    - Reboot the computer.
 2. Open a PowerShell.
-3. Enter `wsl --install -d Ubuntu-24.04` to install an Ubuntu Linux distribution with Python 3.12.
+3. Enter `wsl --install -d Ubuntu-24.04` to install an Ubuntu Linux distribution with Python 3.14.
    WSL will ask you to create a Linux user account.
    The default username is the one for Windows. When asked to set a password,
    type it, press ENTER, and type it again. The password isn't shown on the screen.

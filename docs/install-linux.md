@@ -22,7 +22,7 @@
    - **WSL:** If your M269 folder is e.g. on `C:\OU\m269-26j` then
       you must enter `cd /mnt/c/OU/m269-26j`.
 
-6. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh | bash`
+6. Enter `curl -LsSf https://github.com/dsa-ou/m269-installer/raw/main/install.sh | bash`
    to download and run the installation script.
 
 7.  **WSL**: For JupyterLab to open correctly, enter these commands in the terminal.

@@ -23,17 +23,6 @@ Every time you want to work on the M269 notebooks, you need to follow the next 5
 
 5. Close the terminal you opened in step 1.
 
-## JupyterLab configuration
-
-You need to do the following steps once,
-preferably when you use JupyterLab for the first time.
-
-- In JupyterLab, choose the menu option Settings > Settings Editor.
-- In the settings search box, type `windowing`.
-- In the settings pane that appears, change the windowing mode to 'defer'.
-  The change is automatically saved.
-- Close the settings editor pane.
-
 ## Important notes
 
 Never install third-party software while the M269 software is active,

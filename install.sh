@@ -3,8 +3,8 @@
 echo "Installing software for M269 26J..."
 
 # This script works in one of two modes:
-# - If no argument is given, this script must be in the M269 folder and
-#   the other installation files are downloaded from GitHub.
+# - If no argument is given, this script is being run in the M269 folder and
+#   the installation files are downloaded from GitHub.
 # - If an argument is given, it's the M269 folder, and this script and the other
 #   installation files are in the current folder.
 
@@ -16,7 +16,7 @@ SITE=https://dsa-ou.github.io/m269-installer
 DOC="See $SITE for details."
 CSS=custom.css
 REQS=requirements.txt
-FILES="$CSS $REQS"
+FILES="$CSS $REQS install.sh"
 COURSE=m269-26j
 VENV=~/venvs/$COURSE
 
@@ -74,7 +74,7 @@ is_m269_folder () {
 if [ $# -gt 1 ]
 then
     echo "Usage: ./install.sh [path to M269 folder]"
-    echo "If no argument is given, this script must be in your M269 folder."
+    echo "If no argument is given, this script is running in your M269 folder."
     echo "If an argument is given, it must be the path to your M269 folder."
     echo $DOC
     exit 1
@@ -87,6 +87,7 @@ then
         do
             curl -LO https://github.com/dsa-ou/m269-installer/raw/main/$file
         done
+    chmod +x install.sh
     mkdir -p ~/.jupyter/custom
     # don't overwrite existing CSS file
     if [ -f ~/.jupyter/custom/$CSS ]

@@ -1,5 +1,8 @@
 # Installing on Windows
 
+> **Important:** If your M269 or Documents folders are on OneDrive, then
+> right-click each folder and choose 'always keep on this device'.
+
 > **Tip:** To avoid errors, instead of typing the commands below,
 > select and copy them from this page and paste them into the PowerShell.
 

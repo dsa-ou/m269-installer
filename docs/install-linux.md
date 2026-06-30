@@ -22,18 +22,14 @@
    - **WSL:** If your M269 folder is e.g. on `C:\OU\m269-26j` then
       you must enter `cd /mnt/c/OU/m269-26j`.
 
-6. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
-   to download the installation script.
+6. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh | bash`
+   to download and run the installation script.
 
-7. Enter `chmod +x install.sh` to allow the installation script to run.
-
-8. Enter `./install.sh` to run the installation script.
-
-9.  **WSL**: For JupyterLab to open correctly, enter these commands in the terminal.
+7.  **WSL**: For JupyterLab to open correctly, enter these commands in the terminal.
    - `echo -e "\nexport BROWSER='/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'" >> ~/.bashrc`
    - `echo "c.NotebookApp.use_redirect_file = False " >> ~/.jupyter/jupyter_lab_config.py`
 
-10. Close the terminal.
+8. Close the terminal.
 
 You will have these files in your M269 folder:
 - `install.sh`: the installation script

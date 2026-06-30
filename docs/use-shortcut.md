@@ -8,12 +8,6 @@ These instructions are for **Windows** only.
 3. After your browser opens JupyterLab, listing the contents of your M269 folder,
    double-click subfolder `notebooks`, then file `M269.ipynb`.
    This opens the M269 book with its table of contents.
-4. Once only: the first time you open JupyterLab, do these steps.
-   - Choose the menu option Settings > Settings Editor.
-   - In the settings search box, type `windowing`.
-   - In the settings pane that appears, change the windowing mode to 'defer'.
-     The change is automatically saved.
-   - Close the settings editor pane.
 
 > **Info:** You may also open M269 notebooks [from a PowerShell](use-terminal.md)
 > but it's less convenient.

@@ -23,23 +23,7 @@ Every time you want to work on the M269 notebooks, you need to follow the next 5
 
 5. Close the terminal you opened in step 1.
 
-## JupyterLab configuration
-
-You need to do the following steps once,
-preferably when you use JupyterLab for the first time.
-
-- In JupyterLab, choose the menu option Settings > Settings Editor.
-- In the settings search box, type `windowing`.
-- In the settings pane that appears, change the windowing mode to 'defer'.
-  The change is automatically saved.
-- Close the settings editor pane.
-
-## Important notes
-
-Never install third-party software while the M269 software is active,
-i.e. after step 2 and before step 5,
-as that may change the M269 software installation and break it.
-It is however possible to [upgrade](upgrade.md) the M269 software between steps 2 and 3.
+### Handling errors
 
 If you forgot to type `m269-26j`(i.e. skipped step 2 by mistake),
 then entering `nb` (step 3) will still activate the M269 software but
@@ -53,5 +37,12 @@ and you are using `bash`, enter in the terminal
  echo 'if [ -f ~/.bashrc ]; then source ~/.bashrc; fi' >> ~/.bash_profile
  ```
 Then close the terminal, and start again from step 1.
+
+## Important note
+
+Never install third-party software while the M269 software is active,
+i.e. after step 2 and before step 5,
+as that may change the M269 software installation and break it.
+It is however possible to [upgrade](upgrade.md) the M269 software between steps 2 and 3.
 
 ⇦ [Upgrading](upgrade.md) | ⇧ [Home](README.md) | [Uninstalling](uninstall.md) ⇨

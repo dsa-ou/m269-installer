@@ -28,6 +28,7 @@
 8. Close the PowerShell.
 
 You will have these files in your M269 folder:
+- `install.ps1`: the installation script
 - `requirements.txt`: the list of M269 software
 - `custom.css`: the style changes to Jupyter notebooks
 

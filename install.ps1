@@ -13,7 +13,7 @@ Write-Host "Installing software for M269 26J..."
 
 $SITE = "https://dsa-ou.github.io/m269-installer"
 $DOC = "See $SITE for details."
-$FILES = "custom.css", "requirements.txt", "start.ps1"
+$FILES = "custom.css", "requirements.txt", "start.ps1", "install.ps1"
 $COURSE = "m269-26j"
 $VENV = "$HOME\venvs\$COURSE"
 

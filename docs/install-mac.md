@@ -18,14 +18,10 @@
 5. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-26j`,
    to go to your M269 folder. (`~` is a shorthand for your home folder.)
 
-6. Enter `curl -LO https://github.com/dsa-ou/m269-installer/raw/main/install.sh`
-   to download the installation script.
+6. Enter `curl -LsSf https://github.com/dsa-ou/m269-installer/raw/main/install.sh | bash`
+   to download and run installation script.
 
-7. Enter `chmod +x install.sh` to allow the installation script to run.
-
-8. Enter `./install.sh` to run the installation script.
-
-9. Close the terminal.
+7. Close the terminal.
 
 You will have these files in your M269 folder:
 - `install.sh`: the installation script

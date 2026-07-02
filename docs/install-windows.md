@@ -22,19 +22,12 @@
 4. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-26j`,
    to go to your M269 folder. (`~` is a shorthand for your home folder.)
 
-5. Enter `Invoke-WebRequest -Uri https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 -OutFile install.ps1`
-   to download the installation script.
-
-6. Enter `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`
-   to allow the installation script to run.
-   Select the `Y` (yes) option if you're given a choice.
-
-7. Enter `.\install.ps1` to run the installation script.
-
+5. Enter `irm https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 | iex`
+   to download and run installation script.
+   
 8. Close the PowerShell.
 
 You will have these files in your M269 folder:
-- `install.ps1`: the installation script
 - `requirements.txt`: the list of M269 software
 - `custom.css`: the style changes to Jupyter notebooks
 

@@ -42,7 +42,7 @@ echo "Creating temporary venv with Python 3${new_py}..."
 python3${new_py} -m venv --clear "$tmp_env"
 source "$tmp_env/bin/activate"
 pip install --upgrade pip
-pip install jupyterlab matplotlib networkx jupyterlab-rise rise allowed algoesup ruff python_ta paddles
+pip install jupyterlab matplotlib networkx jupyterlab-rise rise allowed algoesup ruff python_ta nbqa paddles
 pip check
 pip freeze > requirements.txt
 deactivate

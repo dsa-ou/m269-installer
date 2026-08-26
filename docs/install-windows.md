@@ -13,8 +13,8 @@
    - Follow [these instructions](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808)
      to check if you have 32-bit or 64-bit Windows.
    - Download and run the
-     [32-bit installer](https://www.python.org/ftp/python/3.14.6/python-3.14.6.exe) or the
-     [64-bit installer](https://www.python.org/ftp/python/3.14.6/python-3.14.6-amd64.exe).
+     [32-bit installer](https://www.python.org/ftp/python/3.14.7/python-3.14.7.exe) or the
+     [64-bit installer](https://www.python.org/ftp/python/3.14.7/python-3.14.7-amd64.exe).
    - After installing, disable the pathname limit if you're given that option.
 
 3. If you installed Python in step 2, close the PowerShell and open a new one.
@@ -24,7 +24,7 @@
 
 5. Enter `irm https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 | iex`
    to download and run installation script.
-   
+
 8. Close the PowerShell.
 
 You will have these files in your M269 folder:

@@ -16,7 +16,7 @@ tmp_env="tmp"
 # for 27J, add pair M279:M269 in 2nd position
 replacements=(
     "25:26"
-	"${old_py}.10:${new_py}.6"
+	"${old_py}.10:${new_py}.7"
 	"${old_py}:${new_py}"
 )
 

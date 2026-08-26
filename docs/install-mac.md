@@ -3,11 +3,11 @@
 > **Tip:** To avoid errors, instead of typing the commands below,
 > select and copy them from this page and paste them into the terminal.
 
-1. Open a terminal.
+1. Open a terminal. Do _not_ use an already opened terminal.
 
 2. Enter `python3.14 -V` to check if you have Python 3.14.
    If you get an error message like 'command not found':
-   - Download and run the Python 3.14 [installer](https://www.python.org/ftp/python/3.14.6/python-3.14.6-macos11.pkg).
+   - Download and run the Python 3.14 [installer](https://www.python.org/ftp/python/3.14.7/python-3.14.7-macos11.pkg).
 
 3. If you installed Python in step 2, close the terminal and open a new one.
 

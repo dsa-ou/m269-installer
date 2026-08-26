@@ -16,7 +16,7 @@ tmp_env="tmp"
 # for 27J, add pair M279:M269 in 2nd position
 replacements=(
     "25:26"
-	"${old_py}.10:${new_py}.6"
+	"${old_py}.10:${new_py}.7"
 	"${old_py}:${new_py}"
 )
 
@@ -42,7 +42,7 @@ echo "Creating temporary venv with Python 3${new_py}..."
 python3${new_py} -m venv --clear "$tmp_env"
 source "$tmp_env/bin/activate"
 pip install --upgrade pip
-pip install jupyterlab matplotlib networkx jupyterlab-rise rise allowed algoesup ruff python_ta nbqa paddles
+pip install jupyterlab matplotlib networkx jupyterlab-rise rise allowed algoesup ruff m269_25j_student python_ta nbqa paddles
 pip check
 pip freeze > requirements.txt
 deactivate

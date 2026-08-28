@@ -19,10 +19,14 @@
 
 3. If you installed Python in step 2, close the PowerShell and open a new one.
 
-4. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-26j`,
+4. Enter `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` to allow the installation script to run. 
+
+5. Close the PowerShell and open a new one.
+
+6. Enter `cd <M269 folder path>`, e.g. `cd ~/OU/m269-26j`,
    to go to your M269 folder. (`~` is a shorthand for your home folder.)
 
-5. Enter `irm https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 | iex`
+7. Enter `powershell -NoExit -Command "irm https://raw.githubusercontent.com/dsa-ou/m269-installer/main/install.ps1 | iex"`
    to download and run installation script.
 
 8. Close the PowerShell.

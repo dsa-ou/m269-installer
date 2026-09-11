@@ -5,6 +5,7 @@ Windows users can follow these instructions on PowerShell,
 but double-clicking a [desktop shortcut](use-shortcut.md) is simpler.
 
 ## Regular use
+
 Every time you want to work on the M269 notebooks, you need to follow the next 5 steps.
 
 1. Open a new terminal. Do _not_ use an already opened terminal.
@@ -23,7 +24,18 @@ Every time you want to work on the M269 notebooks, you need to follow the next 5
 
 5. Close the terminal you opened in step 1.
 
-### Handling errors
+## JupyterLab configuration
+
+If a notebook is 'jumping' from place to place when you scroll through it,
+do the following steps once.
+
+1. In JupyterLab, choose the menu option Settings > Settings Editor.
+2. In the settings search box, type `windowing`.
+3. In the settings pane that appears, change the windowing mode to 'defer'.
+   The change is automatically saved.
+4. Close the settings editor pane.
+
+## Handling errors
 
 If you forgot to type `m269-26j`(i.e. skipped step 2 by mistake),
 then entering `nb` (step 3) will still activate the M269 software but

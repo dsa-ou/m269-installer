@@ -17,7 +17,8 @@ Every time you want to work on the M269 notebooks, you need to follow the next 5
 3. Enter `nb` to start working with notebooks.
    After a little while, a web browser opens, with JupyterLab
    listing the contents of your M269 folder.
-   You can now open the M269 book: double-click subfolder `notebooks`, then file `M269.ipynb`.
+   You can now open the M269 book: double-click subfolder `book-r1`,
+   then `notebooks`, then file `M269.ipynb`.
 
 4. After finishing working on the notebooks, click on File > Shut Down
    and then close the browser tab.

@@ -7,7 +7,7 @@ These instructions are for **Windows** only.
 2. Once only: on **Windows 11**, if you're asked to 'select an app to open this HTML file',
    choose your usual browser and click 'always'.
 3. After your browser opens JupyterLab, listing the contents of your M269 folder,
-   double-click subfolder `notebooks`, then file `M269.ipynb`.
+   double-click subfolder `book-r1`, then `notebooks`, then file `M269.ipynb`.
    This opens the M269 book with its table of contents.
 
 > **Info:** You may also open M269 notebooks [from a PowerShell](use-terminal.md)
